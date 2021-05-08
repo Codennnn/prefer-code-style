@@ -1,13 +1,12 @@
 {
   "name": "prefer-code-style",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A common code style rules.",
   "author": "LeoKu <czc12580520@gmail.com>",
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
-    "dist",
-    "index.js"
+    "lib"
   ],
   "scripts": {
     "build": "tsc --build tsconfig.json",
@@ -15,11 +14,11 @@
     "lint:es": "eslint --ignore-path \"./.eslintignore\" \"./**/*.{js,jsx,ts,tsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://github.com/Codennnn/prefer-code-style#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/Codennnn/prefer-code-style.git"
   },
-  "homepage": "https://github.com/Codennnn/prefer-code-style",
   "bugs": {
     "url": "https://github.com/Codennnn/prefer-code-style/issues"
   },

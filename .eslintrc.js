@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: [require.resolve('./dist/eslint')],
+  extends: [require.resolve('./lib/eslint')],
 }
