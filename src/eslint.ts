@@ -20,7 +20,7 @@ const _extends = (() => {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
-  ].filter(el => el && typeof el === 'string')
+  ].filter((ext) => ext && typeof ext === 'string')
 })()
 
 const rules = {
