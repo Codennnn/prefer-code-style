@@ -23,8 +23,10 @@
     "lib"
   ],
   "scripts": {
+    "prebuild": "rimraf ./lib/",
     "build": "tsc --build tsconfig.json",
     "prepublishOnly": "yarn build",
+    "deps": "yarn upgrade-interactive --latest",
     "lint": "yarn lint:es",
     "lint:es": "eslint --ignore-path \"./.eslintignore\" \"./**/*.{js,jsx,ts,tsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -58,6 +60,7 @@
   },
   "devDependencies": {
     "cz-conventional-changelog": "3.3.0",
-    "typescript": "^4.3.5"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.2"
   }
 }

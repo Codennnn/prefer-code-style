@@ -7,7 +7,6 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "declaration": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src/*.ts"]
