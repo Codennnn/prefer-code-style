@@ -24,9 +24,15 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.json",
+    "prepublishOnly": "yarn build",
     "lint": "yarn lint:es",
     "lint:es": "eslint --ignore-path \"./.eslintignore\" \"./**/*.{js,jsx,ts,tsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@babel/core": "^7.15.0",
@@ -51,6 +57,7 @@
     "stylelint-scss": "^3.20.1"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "3.3.0",
     "typescript": "^4.3.5"
   }
 }
