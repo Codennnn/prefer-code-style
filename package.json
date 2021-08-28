@@ -1,7 +1,7 @@
 {
   "name": "prefer-code-style",
   "version": "0.4.1",
-  "description": "A common code style rules.",
+  "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "code style",
     "eslint",
