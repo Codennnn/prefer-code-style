@@ -4,7 +4,9 @@ module.exports = {
     'stylelint-prettier/recommended',
     'stylelint-config-rational-order',
   ],
+
   plugins: ['stylelint-scss', 'stylelint-order'],
+
   rules: {
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': [
@@ -14,5 +16,6 @@ module.exports = {
       },
     ],
   },
+
   ignoreFiles: ['build/**/*.css'],
 }

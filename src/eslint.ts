@@ -10,9 +10,13 @@ module.exports = {
     node: true,
     browser: true,
     es6: true,
+    mocha: true,
+    jest: true,
   },
+
   parser: IS_TS_PROJECT ? '@typescript-eslint/parser' : '@babel/eslint-parser',
-  extends: (() => 
+
+  extends: (() =>
     [
       'eslint:recommended',
       IS_TS_PROJECT ? 'plugin:@typescript-eslint/recommended' : null,
@@ -23,9 +27,10 @@ module.exports = {
       'plugin:react/recommended',
       'plugin:react-hooks/recommended',
       'plugin:prettier/recommended',
-    ].filter((ext) => ext && typeof ext === 'string')
-  )(),
+    ].filter((ext) => ext && typeof ext === 'string'))(),
+
   plugins: ['simple-import-sort'],
+
   rules: {
     'simple-import-sort/imports': 1,
     'simple-import-sort/exports': 1,
