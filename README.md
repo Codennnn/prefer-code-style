@@ -15,3 +15,31 @@
 ```bash
 yarn add -D prefer-code-style
 ```
+
+## 用法
+
+添加 `.eslintrc.js`，配置如下：
+
+```js
+module.exports = {
+  extends: [require.resolve('prefer-code-style/lib/eslint')],
+}
+```
+
+添加 `.stylelint.js`，配置如下：
+
+```js
+module.exports = {
+  extends: [require.resolve('prefer-code-style/lib/stylelint')],
+}
+```
+
+添加 `.prettierrc.js`，配置如下：
+
+```js
+const { prettier } = require('prefer-code-style')
+
+module.exports = {
+  ...prettier,
+}
+```

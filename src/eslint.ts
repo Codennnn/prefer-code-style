@@ -20,9 +20,8 @@ module.exports = {
     [
       'eslint:recommended',
       IS_TS_PROJECT ? 'plugin:@typescript-eslint/recommended' : null,
-      'plugin:import/errors',
-      'plugin:import/warnings',
-      'plugin:import/typescript',
+      'plugin:import/recommended',
+      IS_TS_PROJECT ? 'plugin:import/typescript' : null,
       'plugin:jsx-a11y/recommended',
       'plugin:react/recommended',
       'plugin:react-hooks/recommended',
