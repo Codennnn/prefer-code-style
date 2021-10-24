@@ -26,7 +26,7 @@ module.exports = {
 }
 ```
 
-添加 `.stylelint.js`，配置如下：
+添加 `.stylelintrc.js`，配置如下：
 
 ```js
 module.exports = {
