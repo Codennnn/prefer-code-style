@@ -1,6 +1,6 @@
 {
   "name": "prefer-code-style",
-  "version": "0.4.3",
+  "version": "0.4.5",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "code style",
@@ -39,30 +39,30 @@
     }
   },
   "dependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/eslint-parser": "^7.15.0",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "@typescript-eslint/parser": "^4.29.3",
-    "eslint": "^7.32.0",
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.0",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.1",
-    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "prettier": "^2.3.2",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.2",
+    "prettier": "^2.4.1",
+    "stylelint": "^14.0.1",
+    "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^1.2.0",
-    "stylelint-scss": "^3.20.1"
+    "stylelint-scss": "^4.0.0"
   },
   "devDependencies": {
     "cz-conventional-changelog": "3.3.0",
     "rimraf": "^3.0.2",
-    "typescript": "<4.4.0"
+    "typescript": "4.4.4"
   }
 }
