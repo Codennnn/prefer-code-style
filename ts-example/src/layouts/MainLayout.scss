@@ -1,0 +1,138 @@
+#root {
+  .app {
+    min-width: $layout-min-width;
+    min-height: 100vh;
+    background: $app-bg;
+    transition: $transition;
+
+    &-aside {
+      position: fixed;
+      top: 0;
+      z-index: 998;
+      width: $sider-opened-width;
+      height: 100%;
+      padding-top: $header-height;
+      overflow: hidden;
+      background: #fff;
+      transition: $transition;
+
+      &.menu-close {
+        width: $sider-closed-width !important;
+      }
+
+      .ant-menu {
+        width: 100%;
+        font-size: 16px;
+        border: none;
+        user-select: none;
+
+        .ant-menu-item {
+          display: flex;
+          align-items: center;
+
+          &::after {
+            border-right: 4px solid $primary;
+          }
+        }
+
+        .ant-menu-submenu-title {
+          display: flex;
+          align-items: center;
+        }
+
+        &.ant-menu-inline-collapsed {
+          > .ant-menu-item {
+            padding: $sider-closed-padding !important;
+          }
+
+          .ant-menu-submenu .ant-menu-submenu-title {
+            padding: $sider-closed-padding !important;
+          }
+        }
+      }
+    }
+
+    &-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      width: 100%;
+      height: $header-height;
+      padding-right: $section-gap;
+      background: #fff;
+
+      .header {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      .brand-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $sider-opened-width;
+        transition: $transition;
+
+        &__logo {
+          width: 1.8rem;
+        }
+
+        &__text {
+          max-width: 300px;
+          margin: 0 0.5rem;
+          font-weight: 700;
+          font-size: 1.2rem;
+          white-space: nowrap;
+          transition: all 0.2s;
+        }
+      }
+
+      &.menu-close {
+        .brand-box {
+          width: $sider-closed-width;
+
+          .brand-box__text {
+            max-width: 0;
+            margin: 0;
+            overflow: hidden;
+          }
+        }
+      }
+
+      .header-right {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        height: 100%;
+      }
+    }
+
+    &-main {
+      position: relative;
+      height: 100%;
+      min-height: 100vh;
+      margin-left: px2rem($sider-opened-width) + $section-gap;
+      padding-top: px2rem($header-height) + $section-gap;
+      padding-right: $section-gap;
+      transition: $transition;
+
+      &.menu-close {
+        margin-left: px2rem($sider-closed-width) + $section-gap;
+      }
+    }
+
+    &-section {
+      min-height: calc(
+        100vh - #{$header-height} - #{$footer-height} - #{$section-gap}
+      );
+    }
+
+    &-footer {
+      display: flex;
+      align-items: center;
+      height: $footer-height;
+    }
+  }
+}

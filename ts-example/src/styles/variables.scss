@@ -1,0 +1,74 @@
+:root {
+  --primary: 85, 110, 230;
+  --secondary: 116, 120, 141;
+  --success: 52, 195, 143;
+  --warning: 241, 180, 76;
+  --danger: 244, 106, 106;
+  --info: 80, 165, 241;
+  --primary-light: var(--primary), 0.14;
+  --secondary-light: var(--secondary), 0.14;
+  --success-light: var(--success), 0.14;
+  --warning-light: var(--warning), 0.14;
+  --danger-light: var(--danger), 0.14;
+  --info-light: var(--info), 0.14;
+  --app-bg: rgb(246, 248, 251);
+}
+
+$primary: #556ee6;
+$secondary: #74788d;
+$success: #34c38f;
+$warning: #f1b44c;
+$danger: #f46a6a;
+$info: #50a5f1;
+$primary-light: rgba($primary, 0.14);
+$secondary-light: rgba($secondary, 0.14);
+$success-light: rgba($success, 0.14);
+$warning-light: rgba($warning, 0.14);
+$danger-light: rgba($danger, 0.14);
+$info-light: rgba($info, 0.14);
+$app-bg: rgb(246, 248, 251);
+
+$root-font-size: 16px;
+$side-menu-icon-size: 20px;
+$side-menu-icon-color: #626262;
+$side-submenu-icon-size: 16px;
+
+$section-gap: 1.8rem;
+
+$layout-min-width: 1200px;
+$sider-opened-width: 260px;
+$sider-closed-width: 80px;
+$sider-closed-padding: 0 26px 0 28px;
+$header-height: 70px;
+$header-logo-height: 69px;
+$footer-height: 64px;
+$full-height: calc(
+  100vh - #{$header-height} - #{$footer-height} - 2 * #{$section-gap}
+);
+
+$header-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+
+$transition: all 0.3s;
+
+$color-map: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  warning: $warning,
+  danger: $danger,
+  info: $info,
+  primary-light: $primary-light,
+  secondary-light: $secondary-light,
+  success-light: $success-light,
+  warning-light: $warning-light,
+  danger-light: $danger-light,
+  info-light: $info-light,
+);
+
+@function px2rem($px) {
+  @return $px / $root-font-size * 1rem;
+}
+
+$top-action-bar-height: 64px;
+$left-panel-width: 300px;
+$right-panel-width: 350px;

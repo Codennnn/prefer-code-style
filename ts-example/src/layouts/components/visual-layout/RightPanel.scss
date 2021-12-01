@@ -1,0 +1,13 @@
+.right-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: $right-panel-width;
+  height: 100vh;
+  padding-top: $top-action-bar-height;
+  background: #fff;
+
+  .content {
+    padding: 10px;
+  }
+}

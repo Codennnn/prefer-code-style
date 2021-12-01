@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
-    "code style",
+    "code lint",
     "eslint",
     "stylelint",
     "prettier"
