@@ -90,7 +90,6 @@
     "@typescript-eslint/parser": "^4.22.0",
     "cross-env": "^7.0.3",
     "eslint-plugin-tailwind": "^0.2.1",
-    "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "push-dir": "^0.4.1",
     "webpack-bundle-analyzer": "^4.4.1"
