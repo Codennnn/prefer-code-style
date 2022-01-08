@@ -1,6 +1,6 @@
 {
   "name": "prefer-code-style",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "code lint",
@@ -48,7 +48,7 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.1-alpha-9c8161ba8-20211028",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "^2.4.1",
     "stylelint": "^14.0.1",

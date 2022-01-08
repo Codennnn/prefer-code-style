@@ -1,3 +1,7 @@
+## [0.5.1] - 2022-01-08
+
+- stylelint 配置添加 `scss/at-rule-no-unknown` 添加 `ignoreAtRules`
+
 ## [0.5.0] - 2021-12-01
 
 - 移除 `eslint-plugin-jsx-a11y`
