@@ -12,7 +12,15 @@ module.exports = {
     'scss/at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['tailwind', 'apply', 'layer', 'import', 'screen'],
+        ignoreAtRules: [
+          // 添加对 tailwind 指令的支持
+          'tailwind',
+          'apply',
+          'layer',
+          'import',
+          'screen',
+          // ====================
+        ],
       },
     ],
     'color-function-notation': 'legacy',
