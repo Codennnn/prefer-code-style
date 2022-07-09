@@ -1,3 +1,7 @@
+## [0.6.2] - 2022-07-09
+
+- 升级依赖包，具体更改查看：
+
 ## [0.5.1] - 2022-01-08
 
 - stylelint 配置添加 `scss/at-rule-no-unknown` 添加 `ignoreAtRules`
