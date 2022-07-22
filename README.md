@@ -14,7 +14,7 @@
 
 ## 介绍
 
-`prefer-code-style` 集成了常用的 ESLint、Stylelint、Prettier 配置，并且内置了一些**主观**的格式配置，帮助你节省构建新项目时配置代码风格的时间，同时约定了各个项目统一的格式规范。
+`prefer-code-style` 集成了常用的 ESLint、Stylelint、Prettier 配置，并且内置了一些**主观偏好**的格式配置，帮助你节省构建新项目时配置代码风格的时间，同时约定了各个项目统一的格式规范。
 
 ## 安装
 
