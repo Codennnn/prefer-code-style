@@ -16,7 +16,7 @@
 
 `prefer-code-style` 集成了常用的 ESLint、Stylelint、Prettier 配置，并且内置了一些**主观偏好**的格式配置，帮助你节省构建新项目时配置代码风格的时间，同时约定了各个项目统一的格式规范。
 
-## 📦 安装
+## 📥 安装
 
 ```bash
 yarn add -D prefer-code-style
@@ -68,7 +68,7 @@ module.exports = {
 
 完成以上步骤后，你就能够获得更好的格式提示，并在保存文件时自动格式化你的代码，然后享受工具带来的便利吧 😎 ～
 
-## 内置的插件/配置
+## 📦 内置的插件/配置
 
 <details>
 <summary>ESLint</summary>
