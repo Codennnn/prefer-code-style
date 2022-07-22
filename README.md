@@ -12,17 +12,17 @@
 
 在许多项目中，我都希望保持统一的代码格式。一般情况下，新建一个项目时我会从零开始安装 ESLint、Stylelint、Prettier 依赖和它们的插件，然后再加入自己的个性化配置，但是我为什么要一遍又一遍地重复这些恼人的工作呢？🤔 显然，如果我要从中解放自己，我就需要一个工具帮我完成这些固定的工作，这就是 `prefer-code-style` 的职责所在了。
 
-## 介绍
+## 📜 介绍
 
 `prefer-code-style` 集成了常用的 ESLint、Stylelint、Prettier 配置，并且内置了一些**主观偏好**的格式配置，帮助你节省构建新项目时配置代码风格的时间，同时约定了各个项目统一的格式规范。
 
-## 安装
+## 📦 安装
 
 ```bash
 yarn add -D prefer-code-style
 ```
 
-## 用法
+## ⚔️ 用法
 
 添加 `.eslintrc.js`，配置如下：
 
@@ -50,7 +50,7 @@ module.exports = {
 }
 ```
 
-## 搭配 VS Code 使用更佳
+## 🔗 搭配 VS Code 使用更佳
 
 安装插件 [VS Code ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 和 [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)。
 
