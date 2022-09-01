@@ -22,6 +22,9 @@
 yarn add -D prefer-code-style
 ```
 
+> **Note**  
+> `prefer-code-style` 内部已经集成了 eslint、prettier、stylelint，所以你无需重复安装。
+
 ## ⚔️ 用法
 
 添加 `.eslintrc.js`，配置如下：
