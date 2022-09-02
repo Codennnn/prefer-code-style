@@ -23,8 +23,8 @@ yarn add -D prefer-code-style
 ```
 
 > **Note**  
-> `prefer-code-style` 内部已经集成了 eslint、prettier、stylelint，所以你无需重复安装。
-
+> `prefer-code-style` 内部已经集成了 eslint、prettier、stylelint，所以你无需重复安装。如果你事先安装了他们，为了防止版本冲突，请在安装 `prefer-code-style` 前把他们移除掉。
+	
 ## ⚔️ 用法
 
 添加 `.eslintrc.js`，配置如下：
@@ -47,7 +47,7 @@ module.exports = {
 
 ```js
 const { prettier } = require('prefer-code-style')
-
+	
 module.exports = {
   ...prettier,
 }
@@ -69,9 +69,11 @@ module.exports = {
 }
 ```
 
-完成以上步骤后，你就能够获得更好的格式提示，并在保存文件时自动格式化你的代码，然后享受工具带来的便利吧 😎 ～
+完成以上步骤后，你就能够获得更好的格式提示，并在保存文件时自动格式化你的代码，享受工具带来的便利吧 😎 ～
 
 ## 📦 内置的插件/配置
+
+`prefer-code-style` 内置了如下常用插件，如果这里面缺少你需要的插件，你可以自行添加所需。
 
 <details>
 <summary>ESLint</summary>
