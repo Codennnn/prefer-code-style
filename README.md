@@ -10,11 +10,11 @@
 
 ## 💡 想法起源
 
-在许多项目中，我都希望保持统一的代码格式。一般情况下，新建一个项目时我会从零开始安装 ESLint、Stylelint、Prettier 依赖和它们的插件，然后再加入自己的个性化配置，但是我为什么要一遍又一遍地重复这些恼人的工作呢？🤔 显然，如果我要从中解放自己，我就需要一个工具帮我完成这些固定的工作，这就是 `prefer-code-style` 的职责所在了。
+在许多项目中，我们都希望保持统一的代码风格。一般情况下，新建一个项目时我们会从零开始安装 ESLint、Stylelint、Prettier 依赖和它们的插件，然后再加入自己的个性化配置。但是，为什么要一遍又一遍地重复这些恼人的工作呢？！🤔 显然，如果我们要从中解放自己，那就需要一个工具来帮助完成这些固定的工作，这就是 `prefer-code-style` 的职责所在了。
 
 ## 📜 介绍
 
-`prefer-code-style` 集成了常用的 ESLint、Stylelint、Prettier 配置，并且内置了一些**主观偏好**的格式配置，帮助你节省构建新项目时配置代码风格的时间，同时约定了各个项目统一的格式规范。
+`prefer-code-style` 适用于 React 项目，它集成了常用的 ESLint、Stylelint、Prettier 配置，并且内置了一些**主观偏好**的格式配置，帮助你节省构建新项目时配置代码风格的时间，同时约定了各个项目统一的格式规范。
 
 ## 📥 安装
 
@@ -24,7 +24,7 @@ yarn add -D prefer-code-style
 
 > **Note**  
 > `prefer-code-style` 内部已经集成了 eslint、prettier、stylelint，所以你无需重复安装。如果你事先安装了他们，为了防止版本冲突，请在安装 `prefer-code-style` 前把他们移除掉。
-	
+
 ## ⚔️ 用法
 
 添加 `.eslintrc.js`，配置如下：
@@ -47,7 +47,7 @@ module.exports = {
 
 ```js
 const { prettier } = require('prefer-code-style')
-	
+
 module.exports = {
   ...prettier,
 }
@@ -78,27 +78,23 @@ module.exports = {
 <details>
 <summary>ESLint</summary>
 
-```
-eslint-config-prettier
-eslint-plugin-import
-eslint-plugin-simple-import-sort
-eslint-plugin-prettier
-eslint-plugin-react
-eslint-plugin-react-hooks
-```
+- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier#readme)
+- [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier#readme)
+- [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import#readme)
+- [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort#readme)
+- [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#readme)
+- [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 
 </details>
 
 <details>
 <summary>Stylelint</summary>
 
-```
-stylelint-config-prettier
-stylelint-config-rational-order
-stylelint-config-standard
-stylelint-order
-stylelint-prettier
-stylelint-scss
-```
+- [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier#readme)
+- [stylelint-config-rational-order](https://github.com/constverum/stylelint-config-rational-order#readme)
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard#readme)
+- [stylelint-order](https://github.com/hudochenkov/stylelint-order#readme)
+- [stylelint-prettier](https://github.com/prettier/stylelint-prettier#readme)
+- [stylelint-scss](https://github.com/stylelint-scss/stylelint-scss#readme)
 
 </details>
