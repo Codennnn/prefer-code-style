@@ -84,6 +84,7 @@ module.exports = {
 - [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort#readme)
 - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#readme)
 - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+- [eslint-plugin-tailwindcss(按需引入)](https://github.com/francoismassart/eslint-plugin-tailwindcss#readme)
 
 </details>
 
