@@ -1,8 +1,12 @@
 import fs from 'fs'
 import path from 'path'
 
-const IS_TS_PROJECT = fs.existsSync(
+const useTypeScript = fs.existsSync(
   path.join(process.cwd() || '.', './tsconfig.json')
+)
+
+const useTailwindCSS = fs.existsSync(
+  path.join(process.cwd() || '.', './tailwind.config.js')
 )
 
 module.exports = {
@@ -14,17 +18,18 @@ module.exports = {
     jest: true,
   },
 
-  parser: IS_TS_PROJECT ? '@typescript-eslint/parser' : '@babel/eslint-parser',
+  parser: useTypeScript ? '@typescript-eslint/parser' : '@babel/eslint-parser',
 
   extends: (() =>
     [
       'eslint:recommended',
-      IS_TS_PROJECT ? 'plugin:@typescript-eslint/recommended' : null,
+      useTypeScript ? 'plugin:@typescript-eslint/recommended' : null,
       'plugin:import/recommended',
-      IS_TS_PROJECT ? 'plugin:import/typescript' : null,
+      useTypeScript ? 'plugin:import/typescript' : null,
       'plugin:react/recommended',
       'plugin:react-hooks/recommended',
       'plugin:prettier/recommended',
+      useTailwindCSS ? 'plugin:tailwindcss/recommended' : null,
     ].filter((ext) => ext && typeof ext === 'string'))(),
 
   plugins: ['simple-import-sort'],
@@ -47,7 +52,7 @@ module.exports = {
     ],
     'func-style': [2, 'declaration', { allowArrowFunctions: true }],
 
-    ...(IS_TS_PROJECT
+    ...(useTypeScript
       ? {
           '@typescript-eslint/no-var-requires': 0,
           '@typescript-eslint/no-non-null-assertion': 0,
