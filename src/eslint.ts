@@ -67,5 +67,7 @@ module.exports = {
           ],
         }
       : {}),
+
+    ...(useTailwindCSS ? { 'tailwindcss/no-custom-classname': 0 } : {}),
   },
 }

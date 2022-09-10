@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: [require.resolve('../lib/eslint'), 'plugin:tailwind/recommended'],
+  extends: [require.resolve('../../lib/eslint')],
   rules: {
     'import/no-unresolved': [2, { ignore: ['^@/'] }],
     'react/react-in-jsx-scope': 0,

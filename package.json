@@ -29,9 +29,7 @@
     "lint": "yarn lint:es",
     "lint:es": "eslint --ignore-path \"./.eslintignore\" \"./**/*.{js,jsx,ts,tsx}\"",
     "prepublishOnly": "yarn build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:demo": "yarn build && cd ./demo && yarn lint",
-    "test:js": "yarn build && cd ./jsExample && yarn lint"
+    "test": "yarn build && cd './examples/nextjs' && yarn lint"
   },
   "config": {
     "commitizen": {
@@ -40,9 +38,9 @@
   },
   "dependencies": {
     "@babel/core": "^7.18.6",
-    "@babel/eslint-parser": "^7.18.2",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
+    "@babel/eslint-parser": "^7.18.9",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
