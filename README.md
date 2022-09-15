@@ -73,7 +73,7 @@ module.exports = {
 
 ## 📦 内置的插件/配置
 
-`prefer-code-style` 内置了如下常用插件，如果这里面缺少你需要的插件，你可以自行添加所需。
+`prefer-code-style` 内置了如下常用插件，让你免于安装和导入大量独立的包。如果这里面缺少你需要的，你仍然可以自行安装。
 
 <details>
 <summary>ESLint</summary>
