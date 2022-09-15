@@ -25,7 +25,7 @@ yarn add -D prefer-code-style
 > **Note**  
 > `prefer-code-style` 内部已经集成了 eslint、prettier、stylelint，所以你无需重复安装。如果你事先安装了他们，为了防止版本冲突，请在安装 `prefer-code-style` 前把他们移除掉。
 
-## ⚔️ 用法
+## ⚙ 用法
 
 添加 `.eslintrc.js`，配置如下：
 
@@ -53,7 +53,7 @@ module.exports = {
 }
 ```
 
-## 🔗 搭配 VS Code 使用更佳
+## ⚔️ 搭配 VS Code 使用更佳
 
 安装插件 [VS Code ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 和 [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)。
 
@@ -99,3 +99,7 @@ module.exports = {
 - [stylelint-scss](https://github.com/stylelint-scss/stylelint-scss#readme)
 
 </details>
+
+## ⚖ 相似项目
+
+- [umijs/fabric](https://github.com/umijs/fabric)
