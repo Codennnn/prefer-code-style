@@ -4,17 +4,17 @@
   "license": "MIT",
   "author": "LeoKu <czc12580520@gmail.com>",
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
     "analyze": "cross-env SCRIPT_TYPE=analyze craco build",
-    "test": "craco test",
-    "deps": "yarn upgrade-interactive --latest",
+    "build": "craco build",
     "deploy": "push-dir --dir=build --branch=gh-pages --cleanup",
+    "deps": "yarn upgrade-interactive --latest",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:ts",
-    "lint:fix": "npm run lint:es --fix && npm run lint:style --fix",
     "lint:es": "eslint \"**/*.{mjs,js,jsx,ts,tsx}\"",
+    "lint:fix": "npm run lint:es --fix && npm run lint:style --fix",
     "lint:style": "stylelint \"./src/**/*.{css,scss}\"",
-    "lint:ts": "tsc --noEmit --skipLibCheck"
+    "lint:ts": "tsc --noEmit --skipLibCheck",
+    "start": "craco start",
+    "test": "craco test"
   },
   "lint-staged": {
     "*.{mjs,js,jsx,ts,tsx}": [

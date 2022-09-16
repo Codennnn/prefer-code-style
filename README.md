@@ -89,6 +89,13 @@ module.exports = {
 </details>
 
 <details>
+<summary>Prettier</summary>
+
+- [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson#readme)
+
+</details>
+
+<details>
 <summary>Stylelint</summary>
 
 - [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier#readme)
