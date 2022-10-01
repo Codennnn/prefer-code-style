@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .simple-button {
+    @apply relative py-1 flex items-center gap-x-1 text-xs md:text-sm text-main-400 hover:text-main-500 transition-colors duration-300;
+  }
+
+  .simple-button.divider::after {
+    @apply content-[''] h-4 w-[1px] absolute top-1/2 -right-3 -translate-y-1/2 bg-main-300;
+  }
+
+  .appearance-setting fieldset {
+    @apply min-h-[35px] flex items-center justify-between py-1 mb-2 last-of-type:mb-0;
+  }
+
+  .appearance-setting fieldset > label {
+    @apply mr-5 text-sm font-medium;
+  }
+
+  .bg-decoration {
+    background: linear-gradient(180deg, rgb(255 255 255 / 0) 18em, #fff 30em),
+      url('/grid-cell.svg') 0 0 repeat;
+    background-size: 100% 100%, 40px 40px;
+    background-attachment: scroll, scroll;
+  }
+}
+
+:root {
+  --min-content-width: 300px;
+  --max-content-width: 960px;
+
+  color-scheme: light;
+}
+
+::selection {
+  @apply bg-accent-500/20 text-current;
+}
+
+html {
+  @apply motion-safe:scroll-smooth;
+}
+
+body {
+  @apply text-main-700 bg-white;
+
+  font-family: Rubik, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
