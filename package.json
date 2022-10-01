@@ -29,7 +29,7 @@
     "lint": "yarn lint:es",
     "lint:es": "eslint --ignore-path \"./.eslintignore\" \"./**/*.{js,jsx,ts,tsx}\"",
     "prepublishOnly": "yarn build",
-    "test": "yarn build && cd './examples/nextjs' && yarn lint"
+    "test": "yarn build && cd './examples/green-wall' && yarn lint"
   },
   "config": {
     "commitizen": {
