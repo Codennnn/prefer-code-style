@@ -69,4 +69,10 @@ module.exports = {
 
     ...(useTailwindCSS && { 'tailwindcss/no-custom-classname': 0 }),
   },
+
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 }
