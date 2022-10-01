@@ -27,6 +27,7 @@ module.exports = {
       'plugin:import/recommended',
       useTypeScript ? 'plugin:import/typescript' : null,
       'plugin:react/recommended',
+      'plugin:react/jsx-runtime',
       'plugin:react-hooks/recommended',
       'plugin:prettier/recommended',
       useTailwindCSS ? 'plugin:tailwindcss/recommended' : null,
@@ -52,22 +53,20 @@ module.exports = {
     ],
     'func-style': [2, 'declaration', { allowArrowFunctions: true }],
 
-    ...(useTypeScript
-      ? {
-          '@typescript-eslint/no-var-requires': 0,
-          '@typescript-eslint/no-non-null-assertion': 0,
-          '@typescript-eslint/no-use-before-define': 2,
-          '@typescript-eslint/explicit-module-boundary-types': 0,
-          '@typescript-eslint/consistent-type-imports': [
-            2,
-            {
-              prefer: 'type-imports',
-              disallowTypeAnnotations: true,
-            },
-          ],
-        }
-      : {}),
+    ...(useTypeScript && {
+      '@typescript-eslint/no-var-requires': 0,
+      '@typescript-eslint/no-non-null-assertion': 0,
+      '@typescript-eslint/no-use-before-define': 2,
+      '@typescript-eslint/explicit-module-boundary-types': 0,
+      '@typescript-eslint/consistent-type-imports': [
+        2,
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: true,
+        },
+      ],
+    }),
 
-    ...(useTailwindCSS ? { 'tailwindcss/no-custom-classname': 0 } : {}),
+    ...(useTailwindCSS && { 'tailwindcss/no-custom-classname': 0 }),
   },
 }
