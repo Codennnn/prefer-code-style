@@ -16,28 +16,28 @@ export default function DashboardSaas() {
 
   return (
     <>
-      <Row className="items-center custom-card">
+      <Row className="custom-card items-center">
         <Avatar size={66} src={info.avatar} />
         <div className="ml-4 text-sm">
           <div>欢迎来到 Portal 数据仪表盘</div>
           <div className="mt-1 text-base font-bold">{info.nickname}</div>
           <div>前端开发工程师</div>
         </div>
-        <div className="flex items-center justify-center flex-1">
+        <div className="flex flex-1 items-center justify-center">
           <div className="w-32 text-center">
-            <div className="text-sm secondary">累计待办</div>
+            <div className="secondary text-sm">累计待办</div>
             <div className="mt-1 text-xl font-semibold">24</div>
           </div>
           <div className="w-32 text-center">
-            <div className="text-sm secondary">进行中项目</div>
+            <div className="secondary text-sm">进行中项目</div>
             <div className="mt-1 text-xl font-semibold">18</div>
           </div>
           <div className="w-32 text-center">
-            <div className="text-sm secondary">联系人</div>
+            <div className="secondary text-sm">联系人</div>
             <div className="mt-1 text-xl font-semibold">67</div>
           </div>
         </div>
-        <div className="self-start ml-auto">
+        <div className="ml-auto self-start">
           <Dropdown
             overlay={
               <Menu className="text-center">
@@ -57,15 +57,15 @@ export default function DashboardSaas() {
       </Row>
 
       <Row className="flex-wrap">
-        <div className="md:w-full md:mb-6 lg:w-1/4 lg:mb-0">
+        <div className="md:mb-6 md:w-full lg:mb-0 lg:w-1/4">
           <div
-            className="relative rounded-md primary"
+            className="primary relative rounded-md"
             style={{ background: 'rgba(var(--primary), .25)' }}
           >
             <div className="p-4 text-sm">
               <div className="text-base font-bold">美好的一天开始啦！</div>
               <div className="mt-2 mb-4">基于 React 开发的系统模板</div>
-              <ul className="pl-5 list-disc">
+              <ul className="list-disc pl-5">
                 <li className="mb-1">最佳的开发实践</li>
                 <li>丰富的插件</li>
               </ul>
@@ -106,7 +106,7 @@ export default function DashboardSaas() {
       <Row>
         <div className="w-2/3">
           <div className="custom-card">
-            <div className="flex items-center mb-6">
+            <div className="mb-6 flex items-center">
               <h4 className="custom-card__title">月收入统计</h4>
               <Select
                 className="ml-auto"
@@ -119,12 +119,12 @@ export default function DashboardSaas() {
             </div>
 
             <div className="flex justify-between">
-              <div className="w-1/3 whitespace-no-wrap">
+              <div className="whitespace-no-wrap w-1/3">
                 <div className="text-gray-600">本月营收</div>
                 <div className="my-2 text-xl font-bold">￥37421.35</div>
                 <div className="text-sm">
                   相较于上月
-                  <span className="px-2 py-1 ml-2 rounded-lg success bg-success-light">
+                  <span className="success bg-success-light ml-2 rounded-lg px-2 py-1">
                     + 0.21%
                   </span>
                 </div>
@@ -150,7 +150,7 @@ export default function DashboardSaas() {
               <DonutChart />
             </div>
             <div>
-              <ul className="flex items-center justify-around mt-6">
+              <ul className="mt-6 flex items-center justify-around">
                 <li className="text-center text-gray-600">
                   <Badge color="#556ee6" text={<span>Ethereum</span>} />
                   <div className="text-lg text-gray-700">￥2,132</div>
@@ -180,7 +180,7 @@ export default function DashboardSaas() {
               <div className="mt-1 mb-5 text-2xl font-bold">￥98220</div>
               <div className="text-sm">
                 总销售额同比以往
-                <span className="ml-1 success">上升 12%</span>
+                <span className="success ml-1">上升 12%</span>
               </div>
             </div>
             <TopSellingProduct
@@ -263,7 +263,7 @@ export default function DashboardSaas() {
               <div className="mt-1 mb-5 text-2xl font-bold">￥98220</div>
               <div className="text-sm">
                 总销售额同比以往
-                <span className="ml-1 success">上升 12%</span>
+                <span className="success ml-1">上升 12%</span>
               </div>
             </div>
             <TopSellingProduct

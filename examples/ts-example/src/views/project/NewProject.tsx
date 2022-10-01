@@ -39,7 +39,7 @@ export default function NewProject() {
     <>
       <h2 className="mb-4 text-xl font-bold">创建新项目</h2>
       <Form
-        className="p-6 bg-white rounded-lg"
+        className="rounded-lg bg-white p-6"
         colon={false}
         initialValues={{ type: 'public' }}
         labelCol={{ span: 2 }}

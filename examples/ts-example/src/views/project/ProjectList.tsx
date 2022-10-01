@@ -76,7 +76,7 @@ export default function ProjectList() {
       render(progress) {
         return (
           <span
-            className={`${pg[progress].color} px-2 py-1 rounded`}
+            className={`${pg[progress].color} rounded px-2 py-1`}
             style={{ background: `rgba(var(--${pg[progress].color}-light))` }}
           >
             {pg[progress].text}
@@ -105,7 +105,7 @@ export default function ProjectList() {
       render() {
         return (
           <Dropdown overlay={dropdownMenu()} trigger={['click']}>
-            <More className="text-gray-600 cursor-pointer" size="24" />
+            <More className="cursor-pointer text-gray-600" size="24" />
           </Dropdown>
         )
       },

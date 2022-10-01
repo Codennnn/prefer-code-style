@@ -46,7 +46,7 @@ export default function TaskList({ data }) {
                   {dayjs(time).format('YYYY-MM-DD')}
                 </div>
               </div>
-              <div className="flex items-center px-3 ml-auto">{value}</div>
+              <div className="ml-auto flex items-center px-3">{value}</div>
               <div className="flex items-center px-3">￥{count}</div>
             </li>
           ))

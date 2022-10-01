@@ -25,8 +25,8 @@ export default function UserLayout() {
       <div className="user-layout__left">
         <div className="form-area">
           <div className="flex items-center">
-            <img alt="logo" className="w-8 mr-4" src={Logo} />
-            <div className="text-2xl font-bold whitespace-no-wrap brand-box__text">
+            <img alt="logo" className="mr-4 w-8" src={Logo} />
+            <div className="whitespace-no-wrap brand-box__text text-2xl font-bold">
               React Admin
             </div>
           </div>
@@ -52,11 +52,11 @@ export default function UserLayout() {
           </Switch>
         </div>
 
-        <div className="text-sm footer">
-          <ul className="flex items-center mb-2">
-            <li className="mr-6 cursor-pointer primary">项目地址</li>
-            <li className="mr-6 cursor-pointer primary">源码仓库</li>
-            <li className="mr-6 cursor-pointer primary">Github</li>
+        <div className="footer text-sm">
+          <ul className="mb-2 flex items-center">
+            <li className="primary mr-6 cursor-pointer">项目地址</li>
+            <li className="primary mr-6 cursor-pointer">源码仓库</li>
+            <li className="primary mr-6 cursor-pointer">Github</li>
           </ul>
           <p>This website is made by 令狐少侠</p>
         </div>
@@ -85,7 +85,7 @@ export default function UserLayout() {
               <div key={title}>
                 <img alt="logo" className="w-full" src={img} />
                 <div className="pt-4 pb-10">
-                  <h2 className="mb-2 text-xl font-bold text-center">
+                  <h2 className="mb-2 text-center text-xl font-bold">
                     {title}
                   </h2>
                   <p className="text-center">{text}</p>

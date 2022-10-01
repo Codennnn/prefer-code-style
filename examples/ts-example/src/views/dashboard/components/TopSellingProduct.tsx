@@ -22,7 +22,7 @@ export default function TopSellingProduct({ products }) {
                 width={45}
               />
             </div>
-            <div className="ml-6 whitespace-no-wrap">
+            <div className="whitespace-no-wrap ml-6">
               <div>销售</div>
               <div className="font-bold">{percent}%</div>
             </div>

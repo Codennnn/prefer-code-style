@@ -13,20 +13,20 @@ export default function StatisticsCard({ data }) {
     <>
       {data.map(({ label, Icon, value, percent }) => (
         <div key={label} className="md:w-1/3 lg:w-1/4 lg:pl-6">
-          <div className="flex flex-col justify-between h-full p-4 bg-white rounded">
+          <div className="flex h-full flex-col justify-between rounded bg-white p-4">
             <div className="flex items-center">
-              <IconBox className="flex items-center justify-center mr-3 rounded-full w-9 h-9">
+              <IconBox className="mr-3 flex h-9 w-9 items-center justify-center rounded-full">
                 <Icon size={21} strokeWidth={3.5} />
               </IconBox>
               <span>{label}</span>
             </div>
             <div>
-              <div className="flex items-center mb-1 text-xl font-semibold">
+              <div className="mb-1 flex items-center text-xl font-semibold">
                 ￥{value}
                 {percent > 0 ? (
-                  <UpOutlined className="ml-2 text-xs success" />
+                  <UpOutlined className="success ml-2 text-xs" />
                 ) : percent < 0 ? (
-                  <DownOutlined className="ml-2 text-xs danger" />
+                  <DownOutlined className="danger ml-2 text-xs" />
                 ) : null}
               </div>
               <div className="flex items-center text-sm text-gray-500">

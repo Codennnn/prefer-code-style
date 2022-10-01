@@ -21,14 +21,14 @@ function ChartCard({
 }: ChartCardProps) {
   return (
     <div className="custom-card">
-      <div className="flex items-center mb-8">
-        <Icon className="w-8 mr-6" />
+      <div className="mb-8 flex items-center">
+        <Icon className="mr-6 w-8" />
         <div className="text-lg font-bold">{name}</div>
       </div>
-      <div className="flex items-center justify-between h-12">
-        <div className="mr-6 whitespace-no-wrap">
+      <div className="flex h-12 items-center justify-between">
+        <div className="whitespace-no-wrap mr-6">
           <div className="mb-2 text-lg font-semibold">{count}</div>
-          <div className="text-sm text-gray-600 truncate">{value}</div>
+          <div className="truncate text-sm text-gray-600">{value}</div>
         </div>
         <CardAreaChart
           color={color}

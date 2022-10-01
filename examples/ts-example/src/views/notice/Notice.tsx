@@ -32,12 +32,12 @@ export default function Notice() {
           {noticeList.map(({ id, title, content, time }) => (
             <li
               key={id}
-              className="px-3 py-3"
+              className="p-3"
               style={{ borderBottom: '1px solid #f2f2f2' }}
             >
               <div className="">
                 <div className="text-base">{title}</div>
-                <div className="text-gray-500 break-all">{content}</div>
+                <div className="break-all text-gray-500">{content}</div>
                 <div>{relativeTime(time)}</div>
               </div>
             </li>
@@ -45,7 +45,7 @@ export default function Notice() {
         </ul>
       </PerfectScrollbar>
 
-      <Link className="block w-full py-2 text-center primary" to="/">
+      <Link className="primary block w-full py-2 text-center" to="/">
         查看全部
       </Link>
     </div>

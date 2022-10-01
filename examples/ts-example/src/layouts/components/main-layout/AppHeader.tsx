@@ -85,7 +85,7 @@ export default function AppHeader({
   ]
 
   const menu = (
-    <Menu className="overflow-hidden header-menu" style={{ padding: 0 }}>
+    <Menu className="header-menu overflow-hidden" style={{ padding: 0 }}>
       <div
         style={{
           background: 'rgba(var(--primary), .05)',
@@ -112,7 +112,7 @@ export default function AppHeader({
       {menuItems.map(({ title, icon: Icon, path, clickFunc }) => (
         <Menu.Item
           key={title}
-          className="flex items-center px-8 py-3 header-menu__item"
+          className="header-menu__item flex items-center px-8 py-3"
           onClick={() => routeTo(path, clickFunc)}
         >
           <Icon className="mr-2" size={18} />
@@ -122,7 +122,7 @@ export default function AppHeader({
       <Menu.Divider />
       <Menu.Item
         key="退出登录"
-        className="flex items-center px-8 py-3 header-menu__item logout-item"
+        className="header-menu__item logout-item flex items-center px-8 py-3"
         onClick={handleLogout}
       >
         <Logout className="mr-2" size={18} />
@@ -159,8 +159,8 @@ export default function AppHeader({
           </SearchInput>
         </div>
 
-        <div className="flex items-center h-full ml-auto">
-          <div className="flex items-center mr-6">
+        <div className="ml-auto flex h-full items-center">
+          <div className="mr-6 flex items-center">
             <Application className="mr-4" />
             <ScreenIcon
               className="mr-4 cursor-pointer"
@@ -170,7 +170,7 @@ export default function AppHeader({
             <Notice />
           </div>
           <Dropdown overlay={menu} trigger={['click']}>
-            <div className="flex items-center h-full cursor-pointer select-none">
+            <div className="flex h-full cursor-pointer select-none items-center">
               <Avatar size="large" src={info.avatar} />
             </div>
           </Dropdown>

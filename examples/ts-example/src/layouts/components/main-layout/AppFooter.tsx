@@ -2,10 +2,10 @@ import { GithubOne } from '@icon-park/react'
 
 function AppFooter() {
   return (
-    <div className="flex items-center w-full text-gray-500">
+    <div className="flex w-full items-center text-gray-500">
       <div className="">React Admin Template</div>
       <a
-        className="flex items-center ml-auto"
+        className="ml-auto flex items-center"
         href="https://github.com/Codennnn/portal"
         rel="noopener noreferrer nofollow"
         target="_blank"

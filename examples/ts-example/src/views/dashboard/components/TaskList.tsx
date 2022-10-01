@@ -19,14 +19,14 @@ export default function TaskList({ data }) {
                 <Checkbox defaultChecked={checked} />
               </div>
               <div className="w-3/5 px-3">
-                <div className="font-semibold truncate">{title}</div>
+                <div className="truncate font-semibold">{title}</div>
                 <div className="truncate" style={{ maxWidth: '100%' }}>
                   {content}
                 </div>
               </div>
-              <div className="flex items-center px-3 ml-auto">
-                <Edit className="mr-2 cursor-pointer success" size={18} />
-                <DeleteOne className="cursor-pointer danger" size={18} />
+              <div className="ml-auto flex items-center px-3">
+                <Edit className="success mr-2 cursor-pointer" size={18} />
+                <DeleteOne className="danger cursor-pointer" size={18} />
               </div>
             </li>
           ))}

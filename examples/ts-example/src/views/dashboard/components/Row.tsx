@@ -5,5 +5,5 @@ export default function Row({
   children: JSX.Element | JSX.Element[]
   className?: string
 }) {
-  return <div className={`flex mb-6 ${className}`}>{children}</div>
+  return <div className={`mb-6 flex ${className}`}>{children}</div>
 }

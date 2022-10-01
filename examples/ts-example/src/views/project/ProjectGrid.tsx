@@ -59,7 +59,7 @@ export default function ProjectGrid() {
             .slice(0, 9)
             .map(({ id, icon, name, team, date, progress }) => (
               <Col key={id} lg={8} md={12}>
-                <div className="bg-white rounded-lg">
+                <div className="rounded-lg bg-white">
                   <div className="flex px-6 py-4">
                     <Image
                       fallback="https://gitee.com/chinesee/images/raw/master/magic-ui/img_001.png"
@@ -82,16 +82,16 @@ export default function ProjectGrid() {
                   <Divider className="m-0" />
                   <div className="px-6 py-4">
                     <ul className="flex items-center text-sm">
-                      <li className="flex items-center mr-4">
+                      <li className="mr-4 flex items-center">
                         <Tag color={`rgba(var(--${pg[progress].color}), 1)`}>
                           {pg[progress].text}
                         </Tag>
                       </li>
-                      <li className="flex items-center mr-4">
+                      <li className="mr-4 flex items-center">
                         <CalendarDot className="mr-1" size={18} />
                         <span>{date}</span>
                       </li>
-                      <li className="flex items-center mr-4">
+                      <li className="mr-4 flex items-center">
                         <Comment className="mr-1" size={18} />
                         <span>229</span>
                       </li>

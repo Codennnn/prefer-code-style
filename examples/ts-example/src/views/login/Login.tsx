@@ -61,9 +61,9 @@ export default function Login() {
       >
         <Form.Item
           label={
-            <div className="flex items-center justify-between w-full">
+            <div className="flex w-full items-center justify-between">
               <span>账号</span>
-              <span className="cursor-pointer primary">需要帮助？</span>
+              <span className="primary cursor-pointer">需要帮助？</span>
             </div>
           }
           name="username"
@@ -74,9 +74,9 @@ export default function Login() {
 
         <Form.Item
           label={
-            <div className="flex items-center justify-between w-full">
+            <div className="flex w-full items-center justify-between">
               <span>密码</span>
-              <span className="cursor-pointer primary">忘记密码？</span>
+              <span className="primary cursor-pointer">忘记密码？</span>
             </div>
           }
           name="password"
@@ -102,7 +102,7 @@ export default function Login() {
           <p className="mt-4 text-gray-500">
             还没有账号？
             <Link
-              className="opacity-75 cursor-pointer transition primary hover:opacity-100"
+              className="primary cursor-pointer opacity-75 transition hover:opacity-100"
               to="/user/register"
             >
               立即注册

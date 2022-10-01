@@ -15,10 +15,10 @@ export default function BuyForm() {
 
   return (
     <>
-      <div className="flex items-end justify-between my-4">
+      <div className="my-4 flex items-end justify-between">
         <div className="text-lg font-bold">现有货物</div>
         <div>
-          <span className="mr-1 text-xl font-bold primary">8,766</span>
+          <span className="primary mr-1 text-xl font-bold">8,766</span>
           <span className="text-sm font-normal">件</span>
         </div>
       </div>

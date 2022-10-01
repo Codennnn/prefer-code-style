@@ -33,7 +33,7 @@ export default function DashboardCrypto() {
       <Row>
         <div className="w-1/3 pr-3">
           <div className="custom-card">
-            <div className="flex items-center justify-between mb-6">
+            <div className="mb-6 flex items-center justify-between">
               <Avatar size={40} src={info.avatar} />
               <div>
                 <Dropdown
@@ -46,7 +46,7 @@ export default function DashboardCrypto() {
                   }
                   trigger={['click']}
                 >
-                  <More className="text-gray-600 cursor-pointer" size={24} />
+                  <More className="cursor-pointer text-gray-600" size={24} />
                 </Dropdown>
               </div>
             </div>
@@ -82,11 +82,11 @@ export default function DashboardCrypto() {
         </div>
 
         <div className="w-2/3 pl-3">
-          <div className="flex items-center justify-between mb-6 custom-card">
+          <div className="custom-card mb-6 flex items-center justify-between">
             <div>
-              <div className="text-lg font-bold primary">欢迎再次访问</div>
+              <div className="primary text-lg font-bold">欢迎再次访问</div>
               <div className="mt-1 mb-3">Portal 数据仪表盘</div>
-              <ul className="pl-5 text-sm text-gray-600 list-disc">
+              <ul className="list-disc pl-5 text-sm text-gray-600">
                 {[
                   '朽骨在此相迎，山谷依然',
                   '在此，懵懂的眼睛，初临惊愕',
@@ -107,7 +107,7 @@ export default function DashboardCrypto() {
             />
           </div>
 
-          <div className="flex -mx-3">
+          <div className="-mx-3 flex">
             <ChartCards
               data={[
                 {
@@ -148,12 +148,12 @@ export default function DashboardCrypto() {
           <div className="custom-card">
             <h4 className="custom-card__title">钱包余额</h4>
 
-            <div className="flex mt-8">
+            <div className="mt-8 flex">
               <div className="w-1/3">
                 <div>可用余额</div>
                 <div className="mt-2 text-xl font-bold">￥6134.39</div>
                 <div className="success">+ 0.12 ( 0.02 % ) </div>
-                <div className="flex items-center justify-between mt-5 text-gray-600">
+                <div className="mt-5 flex items-center justify-between text-gray-600">
                   <div className="flex-1">
                     <div>收入</div>
                     <div className="mt-1 text-gray-900">￥2632.46</div>
@@ -164,7 +164,7 @@ export default function DashboardCrypto() {
                   </div>
                 </div>
                 <Button
-                  className="flex items-center mt-8"
+                  className="mt-8 flex items-center"
                   size="large"
                   type="primary"
                 >
@@ -176,7 +176,7 @@ export default function DashboardCrypto() {
                 <CircleChart />
               </div>
               <div className="w-1/3">
-                <ul className="flex flex-col justify-between h-full py-6 pl-8">
+                <ul className="flex h-full flex-col justify-between py-6 pl-8">
                   <li className="text-gray-600">
                     <Badge
                       color="#556ee6"
@@ -393,13 +393,13 @@ export default function DashboardCrypto() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center mt-4 text-sm text-gray-500">
+              <div className="mt-4 flex items-center text-sm text-gray-500">
                 <div>个人信用等级：</div>
                 <Rate allowHalf defaultValue={4} />
               </div>
             </div>
             <Divider className="m-0" />
-            <div className="flex items-center w-full py-2">
+            <div className="flex w-full items-center py-2">
               <div className="flex-1 text-center">
                 <SettingOne
                   className="cursor-pointer"

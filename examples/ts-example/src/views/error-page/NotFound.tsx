@@ -5,7 +5,7 @@ import { ReactComponent as NotFoundImg } from '@/assets/error_404.svg'
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen">
+    <div className="flex h-screen w-screen flex-col items-center justify-center">
       <NotFoundImg style={{ width: '520px' }} />
 
       <h2 className="text-3xl font-bold">哎呀</h2>

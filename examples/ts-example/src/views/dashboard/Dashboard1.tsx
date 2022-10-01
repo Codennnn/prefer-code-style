@@ -67,7 +67,7 @@ export default function DashboardDefault() {
           }
         })(status)
         return (
-          <span className={`px-2 py-1 rounded-lg ${statusClass}`}>
+          <span className={`rounded-lg px-2 py-1 ${statusClass}`}>
             {status === 1 ? '支付完成' : '支付失败'}
           </span>
         )
@@ -114,10 +114,10 @@ export default function DashboardDefault() {
   return (
     <>
       <Row>
-        <div className="flex flex-col w-1/3 pr-3">
-          <div className="mb-6 overflow-hidden bg-white rounded-md">
+        <div className="flex w-1/3 flex-col pr-3">
+          <div className="mb-6 overflow-hidden rounded-md bg-white">
             <div
-              className="relative p-4 primary"
+              className="primary relative p-4"
               style={{ background: 'rgba(var(--primary), .25)' }}
             >
               <p className="mb-2 font-bold">{`欢迎回来，${
@@ -139,19 +139,19 @@ export default function DashboardDefault() {
                   style={{ bottom: '25px', boxShadow: '0 0 0 5px #fff' }}
                 />
                 <div className="truncate">令狐少侠</div>
-                <div className="mt-2 text-sm truncate secondary">
+                <div className="secondary mt-2 truncate text-sm">
                   前端开发工程师
                 </div>
               </div>
-              <div className="w-2/3 p-5 ml-auto">
-                <div className="flex mb-6">
+              <div className="ml-auto w-2/3 p-5">
+                <div className="mb-6 flex">
                   <div className="flex-1">
                     <div className="mb-2 font-semibold">125</div>
-                    <div className="text-xs secondary">项 目</div>
+                    <div className="secondary text-xs">项 目</div>
                   </div>
                   <div className="flex-1">
                     <div className="mb-2 font-semibold">￥1245</div>
-                    <div className="text-xs secondary">收 入</div>
+                    <div className="secondary text-xs">收 入</div>
                   </div>
                 </div>
                 <Button type="primary">个人中心</Button>
@@ -179,7 +179,7 @@ export default function DashboardDefault() {
                 <RadislBarChart />
               </div>
             </div>
-            <div className="flex items-center mt-3 text-sm text-gray-500">
+            <div className="mt-3 flex items-center text-sm text-gray-500">
               <Help className="mr-1" size={18} />
               盈利率通过特定方法计算，具体计算方法请查看...
             </div>
@@ -187,7 +187,7 @@ export default function DashboardDefault() {
         </div>
 
         <div className="w-2/3 pl-3">
-          <div className="flex mb-6">
+          <div className="mb-6 flex">
             {[
               { label: '订单数', value: '1,235', icon: AdProduct },
               { label: '净收入', value: '￥1,235', icon: StereoNesting },
@@ -201,10 +201,10 @@ export default function DashboardDefault() {
                 )}
               >
                 <div>
-                  <div className="mb-3 secondary">{label}</div>
+                  <div className="secondary mb-3">{label}</div>
                   <div className="text-xl font-semibold">{value}</div>
                 </div>
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary">
+                <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-full">
                   <Icon fill="#fff" size={22} />
                 </div>
               </div>
@@ -216,7 +216,7 @@ export default function DashboardDefault() {
               <div className="flex items-center text-sm">
                 <div className="cursor-pointer">按周</div>
                 <div className="mx-6 cursor-pointer">按月</div>
-                <div className="px-3 py-1 text-white rounded cursor-pointer bg-primary">
+                <div className="bg-primary cursor-pointer rounded px-3 py-1 text-white">
                   按年
                 </div>
               </div>
@@ -237,7 +237,7 @@ export default function DashboardDefault() {
                 antd 是基于 Ant Design 设计体系的 React UI
                 组件库，主要用于研发企业级中后台产品
               </p>
-              <div className="mt-3 text-sm cursor-pointer primary">
+              <div className="primary mt-3 cursor-pointer text-sm">
                 了解更多 &gt;
               </div>
             </div>
@@ -290,7 +290,7 @@ export default function DashboardDefault() {
                 twoToneColor="#556ee6"
               />
               <p className="text-2xl font-semibold">1,696</p>
-              <div className="mt-1 text-sm secondary">广东省东莞市</div>
+              <div className="secondary mt-1 text-sm">广东省东莞市</div>
             </div>
             <div>
               {[
@@ -322,7 +322,7 @@ export default function DashboardDefault() {
       </Row>
 
       <Row>
-        <div className="w-full custom-card">
+        <div className="custom-card w-full">
           <h4 className="custom-card__title">最新交易记录</h4>
           <Table
             columns={tableColumn}
