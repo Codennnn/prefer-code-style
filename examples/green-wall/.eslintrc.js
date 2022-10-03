@@ -7,10 +7,9 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 0,
     '@typescript-eslint/no-explicit-any': 0,
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: ['./tsconfig.json'],
   },
   ignorePatterns: [
     'public',
