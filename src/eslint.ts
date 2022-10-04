@@ -33,16 +33,30 @@ module.exports = {
       useTailwindCSS ? 'plugin:tailwindcss/recommended' : null,
     ].filter((ext) => ext && typeof ext === 'string'))(),
 
-  plugins: ['simple-import-sort'],
-
   rules: {
-    'simple-import-sort/imports': 1,
-    'simple-import-sort/exports': 1,
-    'sort-imports': 0,
-    'import/order': 0,
+    'prettier/prettier': 1,
+    'sort-imports': [1, { ignoreDeclarationSort: true }],
+    'import/order': [
+      1,
+      {
+        'newlines-between': 'always',
+        alphabetize: { order: 'asc' },
+        warnOnUnassignedImports: true,
+      },
+    ],
     'import/first': 1,
     'import/newline-after-import': 1,
-    'react/jsx-sort-props': 1,
+    'react/jsx-sort-props': [
+      1,
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        shorthandLast: false,
+        ignoreCase: false,
+        noSortAlphabetically: false,
+        reservedFirst: true,
+      },
+    ],
     'func-style': [1, 'declaration', { allowArrowFunctions: true }],
 
     ...(useTypeScript && {
