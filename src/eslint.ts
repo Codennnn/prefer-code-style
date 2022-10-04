@@ -40,31 +40,17 @@ module.exports = {
     'simple-import-sort/exports': 1,
     'sort-imports': 0,
     'import/order': 0,
-    'react/jsx-sort-props': [
-      2,
-      {
-        callbacksLast: true,
-        shorthandFirst: true,
-        shorthandLast: false,
-        ignoreCase: false,
-        noSortAlphabetically: false,
-        reservedFirst: true,
-      },
-    ],
-    'func-style': [2, 'declaration', { allowArrowFunctions: true }],
+    'import/first': 1,
+    'import/newline-after-import': 1,
+    'react/jsx-sort-props': 1,
+    'func-style': [1, 'declaration', { allowArrowFunctions: true }],
 
     ...(useTypeScript && {
       '@typescript-eslint/no-var-requires': 0,
       '@typescript-eslint/no-non-null-assertion': 0,
-      '@typescript-eslint/no-use-before-define': 2,
+      '@typescript-eslint/no-use-before-define': 1,
       '@typescript-eslint/explicit-module-boundary-types': 0,
-      '@typescript-eslint/consistent-type-imports': [
-        2,
-        {
-          prefer: 'type-imports',
-          disallowTypeAnnotations: true,
-        },
-      ],
+      '@typescript-eslint/consistent-type-imports': 1,
     }),
 
     ...(useTailwindCSS && { 'tailwindcss/no-custom-classname': 0 }),
