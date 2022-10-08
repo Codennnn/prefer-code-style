@@ -35,17 +35,28 @@ module.exports = {
 
   rules: {
     'prettier/prettier': 1,
+
     'sort-imports': [1, { ignoreDeclarationSort: true }],
+
     'import/order': [
       1,
       {
         'newlines-between': 'always',
         alphabetize: { order: 'asc' },
         warnOnUnassignedImports: true,
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'builtin',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
       },
     ],
     'import/first': 1,
     'import/newline-after-import': 1,
+
     'react/jsx-sort-props': [
       1,
       {
@@ -57,6 +68,7 @@ module.exports = {
         reservedFirst: true,
       },
     ],
+
     'func-style': [1, 'declaration', { allowArrowFunctions: true }],
 
     ...(useTypeScript && {
