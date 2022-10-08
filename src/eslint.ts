@@ -43,7 +43,7 @@ module.exports = {
       {
         'newlines-between': 'always',
         alphabetize: { order: 'asc' },
-        warnOnUnassignedImports: true,
+        warnOnUnassignedImports: false,
         pathGroups: [
           {
             pattern: 'react',
