@@ -1,4 +1,4 @@
-const prettier = require('../../lib/prettier')
+const { prettier } = require('prefer-code-style')
 
 module.exports = {
   ...prettier,

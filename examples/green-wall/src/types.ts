@@ -20,11 +20,6 @@ export interface Theme {
   mode?: 'light' | 'dark'
 }
 
-export interface RemoteContribution {
-  week: number
-  days: { count: number }[]
-}
-
 export type GitHubUsername = string
 export type ContributionYear = number
 
@@ -98,4 +93,10 @@ export interface GraphSettings {
   sinceYear?: string
   showAttribution?: boolean
   theme?: Themes
+}
+
+export interface GitHubApiJson<Data> {
+  data?: Data
+  message?: string
+  errors?: unknown
 }

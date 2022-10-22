@@ -3,4 +3,4 @@ lib
 !.prettierrc.js
 !.eslintrc.js
 !.stylelintrc.js
-/examples
+# /examples
