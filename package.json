@@ -18,6 +18,7 @@
   },
   "license": "MIT",
   "author": "LeoKu <czc12580520@gmail.com> (https://leoku.top)",
+  "type": "commonjs",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -27,7 +28,7 @@
     "build": "tsc --build tsconfig.json",
     "deps": "yarn upgrade-interactive --latest",
     "lint": "yarn lint:es",
-    "lint:es": "eslint --ignore-path \"./.eslintignore\" \"./**/*.{js,jsx,ts,tsx}\"",
+    "lint:es": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "prepublishOnly": "yarn build",
     "test": "yarn build && cd \"./examples/green-wall\" && yarn lint"
   },
@@ -39,8 +40,8 @@
   "dependencies": {
     "@babel/core": "^7.19.3",
     "@babel/eslint-parser": "^7.19.1",
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
@@ -60,7 +61,7 @@
     "stylelint-scss": "^4.3.0"
   },
   "devDependencies": {
-    "@types/node": "^18.11.4",
+    "@types/node": "^18.11.7",
     "cz-conventional-changelog": "3.3.0",
     "rimraf": "^3.0.2",
     "typescript": "4.8.4"
