@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: [require.resolve('prefer-code-style/lib/eslint')],
+  extends: [require.resolve('../../lib/eslint')],
   ignorePatterns: [
     'public',
     'yarn*',
