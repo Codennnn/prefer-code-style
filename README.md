@@ -35,6 +35,9 @@ yarn add -D prefer-code-style
 ```js
 module.exports = {
   extends: [require.resolve('prefer-code-style/lib/eslint')],
+  rules: {
+    /* 你仍然可以在这里配置你的规则偏好。 */
+  },
 }
 ```
 
