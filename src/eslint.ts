@@ -14,8 +14,6 @@ module.exports = {
     node: true,
     browser: true,
     es6: true,
-    mocha: true,
-    jest: true,
   },
 
   parser: useTypeScript ? '@typescript-eslint/parser' : '@babel/eslint-parser',
