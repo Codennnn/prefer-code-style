@@ -1,0 +1,86 @@
+@import url('x.css');
+@import url('y.css');
+
+/**
+ * Multi-line comment
+ */
+
+:root {
+  --brand-red: hsl(5deg 10% 40%);
+}
+
+.selector-1,
+.selector-2,
+.selector-3[type='text'] {
+  display: block;
+  box-sizing: border-box;
+  color: var(--brand-red);
+  background: linear-gradient(#fff, rgb(0 0 0 / 0.8));
+}
+
+.selector-a,
+.selector-b:not(:first-child) {
+  top: calc(100% - 2rem);
+  padding: 10px !important;
+}
+
+.selector-x {
+  width: 10%;
+}
+
+.selector-y {
+  width: 20%;
+}
+
+.selector-z {
+  width: 30%;
+}
+
+/* Single-line comment */
+
+@media (width >= 60em) {
+  .selector {
+    /* Flush to parent comment */
+    transform: translate(1, 1) scale(3);
+  }
+}
+
+@media (orientation: portrait), projection and (color) {
+  .selector-i + .selector-ii {
+    font-family: Helvetica, 'Arial Black', sans-serif;
+    background: hsl(20deg 25% 33%);
+  }
+}
+
+/* Flush single line comment */
+@media screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .selector {
+    height: 10rem;
+    margin: 10px;
+    margin-bottom: 5px;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      #fff 25px,
+      rgb(255 255 255 / 1) 50px
+    );
+    box-shadow: 0 1px 1px #000, 0 1px 0 #fff, 2px 2px 1px 1px #ccc inset;
+    animation: 3s none fade-in;
+  }
+
+  /* Flush nested single line comment */
+  .selector::after {
+    background-image: url('x.svg');
+    content: '→';
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

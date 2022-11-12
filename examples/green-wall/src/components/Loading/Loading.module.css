@@ -1,19 +1,16 @@
 @keyframes waterfall {
   0% {
     transform: translateY(-250%);
-    transform: translateY(-250%);
     opacity: 0;
   }
 
   40%,
   60% {
     transform: translateY(0);
-    transform: translateY(0);
     opacity: 1;
   }
 
   100% {
-    transform: translateY(250%);
     transform: translateY(250%);
     opacity: 0;
   }
