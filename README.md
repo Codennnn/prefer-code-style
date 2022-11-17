@@ -82,7 +82,7 @@ module.exports = {
 `prefer-code-style` 内置了如下常用插件，让你免于安装和导入大量独立的包。如果这里面缺少你需要的，你仍然可以自行安装。
 
 <details>
-<summary>ESLint</summary>
+<summary>ESLint: [配置代码](./src/eslint.ts)</summary>
 
 - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier#readme)
 - [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier#readme)
@@ -94,14 +94,14 @@ module.exports = {
 </details>
 
 <details>
-<summary>Prettier</summary>
+<summary>Prettier: [配置代码](./src/prettier.ts.ts)</summary>
 
 - [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson#readme)
 
 </details>
 
 <details>
-<summary>Stylelint</summary>
+<summary>Stylelint: [配置代码](./src/stylelint.ts.ts)</summary>
 
 - [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier#readme)
 - [stylelint-config-rational-order](https://github.com/constverum/stylelint-config-rational-order#readme)
