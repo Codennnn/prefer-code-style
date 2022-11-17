@@ -41,14 +41,6 @@ module.exports = {
 }
 ```
 
-添加 `.stylelintrc.js`，配置如下：
-
-```js
-module.exports = {
-  extends: [require.resolve('prefer-code-style/lib/stylelint')],
-}
-```
-
 添加 `.prettierrc.js`，配置如下：
 
 ```js
@@ -56,6 +48,14 @@ const { prettier } = require('prefer-code-style')
 
 module.exports = {
   ...prettier,
+}
+```
+
+添加 `.stylelintrc.js`，配置如下：
+
+```js
+module.exports = {
+  extends: [require.resolve('prefer-code-style/lib/stylelint')],
 }
 ```
 
@@ -81,8 +81,10 @@ module.exports = {
 
 `prefer-code-style` 内置了如下常用插件，让你免于安装和导入大量独立的包。如果这里面缺少你需要的，你仍然可以自行安装。
 
+### ESLint: [配置代码](./src/eslint.ts)
+
 <details>
-<summary>ESLint: [配置代码](./src/eslint.ts)</summary>
+<summary>查看插件</summary>
 
 - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier#readme)
 - [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier#readme)
@@ -93,15 +95,19 @@ module.exports = {
 
 </details>
 
+### Prettier: [配置代码](./src/prettier.ts)
+
 <details>
-<summary>Prettier: [配置代码](./src/prettier.ts.ts)</summary>
+<summary>查看插件</summary>
 
 - [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson#readme)
 
 </details>
 
+### Stylelint: [配置代码](./src/stylelint.ts)
+
 <details>
-<summary>Stylelint: [配置代码](./src/stylelint.ts.ts)</summary>
+<summary>查看插件</summary>
 
 - [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier#readme)
 - [stylelint-config-rational-order](https://github.com/constverum/stylelint-config-rational-order#readme)
