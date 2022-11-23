@@ -1,13 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 
-const useTypeScript = fs.existsSync(
-  path.join(process.cwd() || '.', './tsconfig.json')
-)
+const useTypeScript = fs.existsSync(path.join(process.cwd() || '.', './tsconfig.json'))
 
-const useTailwindCSS = fs.existsSync(
-  path.join(process.cwd() || '.', './tailwind.config.js')
-)
+const useTailwindCSS = fs.existsSync(path.join(process.cwd() || '.', './tailwind.config.js'))
 
 module.exports = {
   env: {
@@ -75,7 +71,7 @@ module.exports = {
       '@typescript-eslint/no-non-null-assertion': 0,
       '@typescript-eslint/no-use-before-define': 1,
       '@typescript-eslint/explicit-module-boundary-types': 0,
-      '@typescript-eslint/consistent-type-imports': 1,
+      '@typescript-eslint/consistent-type-imports': [1, { fixStyle: 'inline-type-imports' }],
     }),
 
     ...(useTailwindCSS && { 'tailwindcss/no-custom-classname': 0 }),

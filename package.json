@@ -1,6 +1,6 @@
 {
   "name": "prefer-code-style",
-  "version": "0.6.12",
+  "version": "0.7.0",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "code lint",
@@ -40,19 +40,19 @@
   "dependencies": {
     "@babel/core": "^7.20.2",
     "@babel/eslint-parser": "^7.19.1",
-    "@typescript-eslint/eslint-plugin": "^5.42.1",
-    "@typescript-eslint/parser": "^5.42.1",
-    "eslint": "^8.27.0",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-tailwindcss": "^3.6.2",
-    "prettier": "^2.7.1",
+    "eslint-plugin-tailwindcss": "^3.7.0",
+    "prettier": "^2.8.0",
     "prettier-plugin-packagejson": "^2.3.0",
-    "stylelint": "^14.14.1",
+    "stylelint": "^14.15.0",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended": "^9.0.0",
@@ -66,7 +66,7 @@
     "@types/node": "^18.11.9",
     "cz-conventional-changelog": "3.3.0",
     "rimraf": "^3.0.2",
-    "typescript": "4.8.4"
+    "typescript": "4.9.3"
   },
   "engines": {
     "node": ">=14.x"

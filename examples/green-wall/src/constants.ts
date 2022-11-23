@@ -1,5 +1,4 @@
-import type { ContributionLevel, Theme, Themes } from './types'
-import { DisplayName, GraphSize } from './types'
+import { type ContributionLevel, DisplayName, GraphSize, type Theme, type Themes } from './types'
 
 // TODO: Use satisfies Record<ContributionLevel, -1 | 0 | 1 | 2 | 3 | 4>
 export const levels: Record<ContributionLevel, -1 | 0 | 1 | 2 | 3 | 4> = {
