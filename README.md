@@ -63,6 +63,16 @@ module.exports = {
 
 安装插件 [VS Code ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 和 [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)。
 
+```bash
+# 可以执行以下命令来快速安装 VS Code 插件：
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension esbenp.prettier-vscode
+code --install-extension stylelint.vscode-stylelint
+
+# 可选，如果你使用 tailwindcss 的话：
+code --install-extension bradlc.vscode-tailwindcss
+```
+
 然后在 `settings.json` 中加入以下配置：
 
 ```json
@@ -75,7 +85,7 @@ module.exports = {
 }
 ```
 
-完成以上步骤后，你就能够获得更好的格式提示，并在保存文件时自动格式化你的代码，享受工具带来的便利吧 😎 ～
+使用以上这些插件，你将能够获得更好的格式提示，并在保存文件时自动格式化你的代码，享受工具带来的便利吧 😎 ～
 
 ## 📦 内置的插件/配置
 
@@ -120,4 +130,7 @@ module.exports = {
 
 ## ⚖ 相似项目
 
+如果你对类似的项目感兴趣，还可以参考：
+
 - [umijs/fabric](https://github.com/umijs/fabric)
+- [beskar-co/harmony](https://github.com/beskar-co/harmony)
