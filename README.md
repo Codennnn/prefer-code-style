@@ -26,7 +26,7 @@ yarn add -D prefer-code-style
 ```
 
 > **Note**  
-> `prefer-code-style` 内部已经集成了 eslint、prettier、stylelint，所以你无需重复安装。如果你事先安装了他们，为了防止版本冲突，请在安装 `prefer-code-style` 前把他们移除掉。
+> prefer-code-style 内部已经集成了 eslint、prettier、stylelint，所以你无需重复安装。如果你事先安装了他们，为了防止版本冲突，请在安装 prefer-code-style 前把他们移除掉。
 
 ## ⚙ 用法
 
