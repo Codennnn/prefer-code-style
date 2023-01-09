@@ -37,6 +37,20 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "prettier": "./lib/prettier.js",
+  "eslintConfig": {
+    "extends": [
+      "./lib/eslint.js"
+    ],
+    "ignorePatterns": [
+      "node_modules",
+      "lib",
+      "examples",
+      "!.prettierrc.js",
+      "!.eslintrc.js",
+      "!.stylelintrc.js"
+    ]
+  },
   "dependencies": {
     "@babel/core": "^7.20.7",
     "@babel/eslint-parser": "^7.19.1",
