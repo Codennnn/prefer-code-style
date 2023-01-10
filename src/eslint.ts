@@ -12,6 +12,8 @@ module.exports = {
     es6: true,
   },
 
+  reportUnusedDisableDirectives: true,
+
   parser: useTypeScript ? '@typescript-eslint/parser' : '@babel/eslint-parser',
 
   extends: (() =>
