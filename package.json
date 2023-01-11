@@ -26,11 +26,11 @@
   "scripts": {
     "prebuild": "rimraf ./lib/",
     "build": "tsc --build tsconfig.json",
-    "deps": "yarn upgrade-interactive --latest",
-    "lint": "yarn lint:es",
+    "deps": "pnpm up --interactive --latest",
+    "lint": "pnpm lint:es",
     "lint:es": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
-    "prepublishOnly": "yarn build",
-    "test": "yarn build && cd \"./examples/green-wall\" && yarn lint"
+    "prepublishOnly": "pnpm build",
+    "test": "pnpm build && cd \"./examples/green-wall\" && pnpm lint"
   },
   "config": {
     "commitizen": {
