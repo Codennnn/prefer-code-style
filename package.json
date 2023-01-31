@@ -42,8 +42,11 @@
     "./eslint/tailwindcss": {
       "require": "./src/eslint/tailwindcss.js"
     },
-    "./eslint/preset-react": {
-      "require": "./src/eslint/preset-react.js"
+    "./eslint/preset/next": {
+      "require": "./src/eslint/preset/next.js"
+    },
+    "./eslint/preset/umi": {
+      "require": "./src/eslint/preset/umi.js"
     },
     "./prettier": {
       "require": "./src/prettier.js"
@@ -106,5 +109,6 @@
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "packageManager": "pnpm@7.25.0"
 }
