@@ -1,9 +1,10 @@
 {
   "name": "prefer-code-style",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "code lint",
+    "lint set",
     "eslint",
     "stylelint",
     "prettier"
@@ -18,54 +19,67 @@
   },
   "exports": {
     ".": {
-      "require": "./lib/index.js"
+      "require": "./src/index.js"
     },
-    "./eslint": {
-      "require": "./lib/eslint.js"
+    "./eslint/base": {
+      "require": "./src/eslint/base.js"
+    },
+    "./eslint/browser": {
+      "require": "./src/eslint/browser.js"
+    },
+    "./eslint/node": {
+      "require": "./src/eslint/node.js"
+    },
+    "./eslint/typescript": {
+      "require": "./src/eslint/typescript.js"
+    },
+    "./eslint/react": {
+      "require": "./src/eslint/react.js"
+    },
+    "./eslint/next": {
+      "require": "./src/eslint/next.js"
+    },
+    "./eslint/tailwindcss": {
+      "require": "./src/eslint/tailwindcss.js"
+    },
+    "./eslint/preset/next": {
+      "require": "./src/eslint/preset/next.js"
+    },
+    "./eslint/preset/umi": {
+      "require": "./src/eslint/preset/umi.js"
     },
     "./prettier": {
-      "require": "./lib/prettier.js"
+      "require": "./src/prettier.js"
     },
     "./stylelint": {
-      "require": "./lib/stylelint.js"
+      "require": "./src/stylelint.js"
+    },
+    "./constants": {
+      "require": "./src/constants.js"
     }
   },
   "license": "MIT",
   "author": "LeoKu <czc12580520@gmail.com> (https://leoku.top)",
   "files": [
-    "lib"
+    "src"
   ],
   "scripts": {
-    "prebuild": "rimraf ./lib/",
-    "build": "tsc --build tsconfig.json",
     "deps": "pnpm up --interactive --latest",
-    "lint": "pnpm lint:es",
+    "lint": "pnpm lint:es & pnpm lint:prettier",
     "lint:es": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
+    "lint:prettier": "prettier --write  \"!./examples/**\" \"**/*.{md,json,html}\"",
     "prepublishOnly": "pnpm build",
-    "test": "pnpm build && cd \"./examples/green-wall\" && pnpm lint"
+    "test": "cd \"./examples/green-wall\" && pnpm lint"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "prettier": "./lib/prettier.js",
-  "eslintConfig": {
-    "extends": [
-      "./lib/eslint.js"
-    ],
-    "ignorePatterns": [
-      "node_modules",
-      "lib",
-      "examples",
-      "!.prettierrc.js",
-      "!.eslintrc.js",
-      "!.stylelintrc.js"
-    ]
-  },
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/eslint-parser": "^7.19.1",
+    "@next/eslint-plugin-next": "^13.1.6",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.31.0",
@@ -91,10 +105,10 @@
   "devDependencies": {
     "@types/node": "^18.11.18",
     "cz-conventional-changelog": "3.3.0",
-    "rimraf": "^3.0.2",
-    "typescript": "4.9.4"
+    "prefer-code-style": "workspace:*"
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "packageManager": "pnpm@7.25.0"
 }

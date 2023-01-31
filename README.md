@@ -30,32 +30,70 @@ yarn add -D prefer-code-style
 
 ## ⚙ 用法
 
-添加 `.eslintrc.js`，配置如下：
+### ESLint:
+
+ESLint 的配置是，你可以按需进行组合。
+
+以下是可用的扩展配置：
+
+- prefer-code-style/node
+- prefer-code-style/browser
+- prefer-code-style/typescript
+- prefer-code-style/react
+- prefer-code-style/next
+- prefer-code-style/tailwindcss
+
+添加 `.eslintrc.js`，配置示例如下：
 
 ```js
 module.exports = {
-  extends: [require.resolve('prefer-code-style/lib/eslint')],
+  extends: [
+    require.resolve('prefer-code-style/eslint/node'),
+    require.resolve('prefer-code-style/eslint/browser'),
+    require.resolve('prefer-code-style/eslint/typescript'),
+  ],
   rules: {
     /* 你仍然可以在这里配置你的规则偏好。 */
+  },
+  parserOptions: {
+    tsconfigRootDir: __dirname, // <- 如果你使用了 prefer-code-style/eslint/typescript 扩展，则需要添加这个配置
   },
 }
 ```
 
+当然，这样的组合写起来也很麻烦，所以你还可以使用适用特定项目的预设的配置，比如这样：
+
+```js
+// 适用于 Next.js 项目
+module.exports = {
+  extends: [require.resolve('prefer-code-style/eslint/preset/next')],
+}
+
+// 适用于 Umi.js 项目
+module.exports = {
+  extends: [require.resolve('prefer-code-style/eslint/preset/umi')],
+}
+```
+
+### Prettier:
+
 添加 `.prettierrc.js`，配置如下：
 
 ```js
-const { prettier } = require('prefer-code-style')
+const prettier = require('prefer-code-style/prettier')
 
 module.exports = {
   ...prettier,
 }
 ```
 
+### Stylelint:
+
 添加 `.stylelintrc.js`，配置如下：
 
 ```js
 module.exports = {
-  extends: [require.resolve('prefer-code-style/lib/stylelint')],
+  extends: [require.resolve('prefer-code-style/stylelint')],
 }
 ```
 
