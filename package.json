@@ -62,7 +62,7 @@
   ],
   "scripts": {
     "deps": "pnpm up --interactive --latest",
-    "lint": "pnpm lint:es",
+    "lint": "pnpm lint:es & pnpm lint:prettier",
     "lint:es": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:prettier": "prettier --write  \"!./examples/**\" \"**/*.{md,json,html}\"",
     "prepublishOnly": "pnpm build",
