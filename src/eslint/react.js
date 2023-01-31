@@ -19,9 +19,6 @@ module.exports = {
     'import/order': [
       1,
       {
-        'newlines-between': 'always',
-        alphabetize: { order: 'asc' },
-        warnOnUnassignedImports: false,
         pathGroups: [
           {
             pattern: 'react',
