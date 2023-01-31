@@ -1,6 +1,6 @@
 {
   "name": "prefer-code-style",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "code lint",
@@ -68,7 +68,6 @@
     "lint": "pnpm lint:es & pnpm lint:prettier",
     "lint:es": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:prettier": "prettier --write  \"!./examples/**\" \"**/*.{md,json,html}\"",
-    "prepublishOnly": "pnpm build",
     "test": "cd \"./examples/green-wall\" && pnpm lint"
   },
   "config": {
