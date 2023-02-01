@@ -46,6 +46,9 @@ ESLint 的配置是，你可以按需进行组合。
 添加 `.eslintrc.js`，配置示例如下：
 
 ```js
+const { resolve } = require('path')
+const { TYPESCRIPT_FILES } = require('prefer-code-style/constants')
+
 module.exports = {
   extends: [
     require.resolve('prefer-code-style/eslint/node'),
@@ -55,9 +58,14 @@ module.exports = {
   rules: {
     /* 你仍然可以在这里配置你的规则偏好。 */
   },
-  parserOptions: {
-    tsconfigRootDir: __dirname, // <- 如果你使用了 prefer-code-style/eslint/typescript 扩展，则需要添加这个配置
-  },
+  overrides: [
+    {
+      files: TYPESCRIPT_FILES,
+      parserOptions: {
+        project: resolve(__dirname, 'tsconfig.json'), // <- 在 TypeScript 项目中需要添加这个配置，指明你项目中 tsconfig.json 的位置
+      },
+    },
+  ],
 }
 ```
 
