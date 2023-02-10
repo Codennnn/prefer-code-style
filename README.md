@@ -46,6 +46,7 @@ ESLint 的配置是根据项目类型拆分的，你可以按需进行组合。
 添加 `.eslintrc.js`，配置示例如下：
 
 ```js
+// 假设你的项目使用了 TypeScript：
 const { resolve } = require('path')
 const { TYPESCRIPT_FILES } = require('prefer-code-style/constants')
 
@@ -62,7 +63,7 @@ module.exports = {
     {
       files: TYPESCRIPT_FILES,
       parserOptions: {
-        project: resolve(__dirname, 'tsconfig.json'), // <- 在 TypeScript 项目中需要添加这个配置，指明你项目中 tsconfig.json 的位置
+        project: resolve(__dirname, 'tsconfig.json'), // <- 添加此配置指明你项目中 tsconfig.json 的位置
       },
     },
   ],
