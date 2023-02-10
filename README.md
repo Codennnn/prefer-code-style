@@ -138,7 +138,7 @@ code --install-extension bradlc.vscode-tailwindcss
 
 `prefer-code-style` 内置了如下常用插件，让你免于安装和导入大量独立的包。如果这里面缺少你需要的，你仍然可以自行安装。
 
-### ESLint: [查看代码](./src/eslint.ts)
+### ESLint: [查看代码](./src/eslint)
 
 <details>
 <summary>查看插件</summary>
@@ -148,11 +148,11 @@ code --install-extension bradlc.vscode-tailwindcss
 - [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import#readme)
 - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#readme)
 - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
-- [eslint-plugin-tailwindcss(按需引入)](https://github.com/francoismassart/eslint-plugin-tailwindcss#readme)
+- [eslint-plugin-tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss#readme)
 
 </details>
 
-### Prettier: [查看代码](./src/prettier.ts)
+### Prettier: [查看代码](./src/prettier.js)
 
 <details>
 <summary>查看插件</summary>
@@ -161,7 +161,7 @@ code --install-extension bradlc.vscode-tailwindcss
 
 </details>
 
-### Stylelint: [查看代码](./src/stylelint.ts)
+### Stylelint: [查看代码](./src/stylelint.js)
 
 <details>
 <summary>查看插件</summary>
