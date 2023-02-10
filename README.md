@@ -32,7 +32,7 @@ yarn add -D prefer-code-style
 
 ### ESLint:
 
-ESLint 的配置是，你可以按需进行组合。
+ESLint 的配置是根据项目类型拆分的，你可以按需进行组合。
 
 以下是可用的扩展配置：
 
