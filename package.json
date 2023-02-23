@@ -17,36 +17,20 @@
     "type": "git",
     "url": "https://github.com/Codennnn/prefer-code-style.git"
   },
+  "license": "MIT",
+  "author": "LeoKu <czc12580520@gmail.com> (https://leoku.top)",
   "exports": {
     ".": {
       "require": "./src/index.js"
     },
-    "./eslint/base": {
-      "require": "./src/eslint/base.js"
+    "./eslint/*": {
+      "require": "./src/eslint/*.js"
     },
-    "./eslint/browser": {
-      "require": "./src/eslint/browser.js"
+    "./eslint/preset/*": {
+      "require": "./src/eslint/preset/*.js"
     },
-    "./eslint/node": {
-      "require": "./src/eslint/node.js"
-    },
-    "./eslint/typescript": {
-      "require": "./src/eslint/typescript.js"
-    },
-    "./eslint/react": {
-      "require": "./src/eslint/react.js"
-    },
-    "./eslint/next": {
-      "require": "./src/eslint/next.js"
-    },
-    "./eslint/tailwindcss": {
-      "require": "./src/eslint/tailwindcss.js"
-    },
-    "./eslint/preset/next": {
-      "require": "./src/eslint/preset/next.js"
-    },
-    "./eslint/preset/umi": {
-      "require": "./src/eslint/preset/umi.js"
+    "./eslint/rules/*": {
+      "require": "./src/eslint/rules/*.js"
     },
     "./prettier": {
       "require": "./src/prettier.js"
@@ -58,8 +42,6 @@
       "require": "./src/constants.js"
     }
   },
-  "license": "MIT",
-  "author": "LeoKu <czc12580520@gmail.com> (https://leoku.top)",
   "files": [
     "src"
   ],
@@ -88,6 +70,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tailwindcss": "^3.8.0",
     "prettier": "^2.8.2",
     "prettier-plugin-packagejson": "^2.3.0",
@@ -106,8 +89,8 @@
     "cz-conventional-changelog": "3.3.0",
     "prefer-code-style": "workspace:*"
   },
+  "packageManager": "pnpm@7.25.0",
   "engines": {
     "node": ">=14"
-  },
-  "packageManager": "pnpm@7.25.0"
+  }
 }

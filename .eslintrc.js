@@ -1,8 +1,5 @@
 module.exports = {
   root: true,
-  extends: [
-    require.resolve('prefer-code-style/eslint/node'),
-    require.resolve('prefer-code-style/eslint/typescript'),
-  ],
+  extends: [require.resolve('prefer-code-style/eslint/node')],
   ignorePatterns: ['/examples'],
 }

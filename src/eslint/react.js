@@ -1,3 +1,5 @@
+const { COMMON_SORT_GROUPS } = require('../constants')
+
 module.exports = {
   extends: [
     'plugin:react/recommended',
@@ -16,17 +18,18 @@ module.exports = {
         reservedFirst: true,
       },
     ],
-    'import/order': [
+
+    'simple-import-sort/imports': [
       1,
       {
-        pathGroups: [
-          {
-            pattern: 'react',
-            group: 'builtin',
-            position: 'before',
-          },
+        groups: [
+          // Packages `react` related packages come first.
+          ['^react'],
+          ['^@?\\w'],
+          // Internal packages.
+          ['^(~|@)(/.*|$)'],
+          ...COMMON_SORT_GROUPS,
         ],
-        pathGroupsExcludedImportTypes: ['react'],
       },
     ],
   },

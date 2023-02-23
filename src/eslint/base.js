@@ -16,21 +16,21 @@ module.exports = {
 
   extends: ['eslint:recommended', 'plugin:import/recommended', 'plugin:prettier/recommended'],
 
+  plugins: ['simple-import-sort'],
+
   rules: {
     'prettier/prettier': 1,
-    'sort-imports': [1, { ignoreDeclarationSort: true }],
-    'import/order': [
-      1,
-      {
-        'newlines-between': 'always',
-        alphabetize: { order: 'asc' },
-        warnOnUnassignedImports: false,
-      },
-    ],
-    'import/first': 1,
-    'import/newline-after-import': 1,
     'func-style': [1, 'declaration', { allowArrowFunctions: true }],
     'no-unused-vars': 1,
+    curly: 1,
+
+    'import/first': 1,
+    'import/newline-after-import': 1,
+
+    'sort-imports': 0,
+    'import/order': 0,
+    'simple-import-sort/imports': 1,
+    'simple-import-sort/exports': 1,
   },
 
   overrides: [
@@ -44,5 +44,5 @@ module.exports = {
   ],
 
   // Tell ESLint not to ignore dot-files, which are ignored by default.
-  ignorePatterns: ['!.*.js'],
+  ignorePatterns: ['node_modules', '!.*.js'],
 }
