@@ -1,6 +1,6 @@
 {
   "name": "prefer-code-style",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "code lint",
