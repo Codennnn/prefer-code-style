@@ -12,4 +12,7 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
+
+  pluginSearchDirs: false,
+  plugins: ['prettier-plugin-packagejson'],
 }
