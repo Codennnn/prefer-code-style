@@ -20,6 +20,7 @@ module.exports = {
         '@typescript-eslint/consistent-type-imports': [1, { fixStyle: 'inline-type-imports' }],
 
         '@typescript-eslint/dot-notation': 0,
+        '@typescript-eslint/no-unsafe-assignment': 0,
         '@typescript-eslint/restrict-template-expressions': 2,
         '@typescript-eslint/prefer-nullish-coalescing': 0, // Track this related issue: https://github.com/typescript-eslint/typescript-eslint/issues/4906
       },
