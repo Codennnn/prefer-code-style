@@ -1,4 +1,4 @@
-const { COMMON_SORT_GROUPS } = require('../constants')
+const { COMMON_SORT_GROUPS } = require('../../constants')
 
 module.exports = {
   extends: [
