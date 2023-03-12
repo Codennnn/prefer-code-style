@@ -1,7 +1,7 @@
-import { levels } from '../../constants'
-import { numberWithCommas } from '../../helpers'
-import type { ContributionCalendar, ContributionDay } from '../../types'
-import { ContributionLevel } from '../../types'
+import { levels } from '~/constants'
+import { numberWithCommas } from '~/helpers'
+import type { ContributionCalendar, ContributionDay } from '~/types'
+import { ContributionLevel } from '~/types'
 
 import styles from './Graph.module.css'
 
@@ -10,14 +10,23 @@ interface GraphProps extends React.ComponentProps<'div'> {
   daysLabel?: boolean
 }
 
-export default function Graph(props: GraphProps) {
+const newYearText = 'Happy New Year 🎉 Go make the first contribution !'
+
+export function Graph(props: GraphProps) {
   const { data: calendar, daysLabel, ...rest } = props
+
+  const currentYear = new Date().getFullYear()
+  const isNewYear =
+    currentYear === calendar.year &&
+    (new Date(currentYear, 0, 2).getTime() - Date.now()) / 1000 / 60 / 60 / 24 >= 0
 
   return (
     <div {...rest}>
       <div className="mb-2 text-sm">
         <span className="mr-2 italic">{calendar.year}:</span>
-        {numberWithCommas(calendar.total)} Contributions
+        {isNewYear && calendar.total === 0
+          ? newYearText
+          : `${numberWithCommas(calendar.total)} Contributions`}
       </div>
 
       <div className={`${styles['graph']}`}>
@@ -64,7 +73,7 @@ export default function Graph(props: GraphProps) {
             }
 
             days.forEach((day, j) => {
-              blocks.push(<li key={`${i}${j}`} data-level={levels[day.level]}></li>)
+              blocks.push(<li key={`${i}${j}`} data-level={levels[day.level]} />)
             })
 
             return blocks

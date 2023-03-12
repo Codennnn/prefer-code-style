@@ -1,16 +1,24 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import type {
-  ContributionBasic,
-  ContributionCalendar,
-  ContributionYear,
-  GitHubApiJson,
-  GitHubContributionCalendar,
-  GitHubUser,
-  GraphData,
-} from '../../../types'
+import {
+  type ContributionBasic,
+  type ContributionCalendar,
+  type ContributionYear,
+  ErrorType,
+  type GitHubApiJson,
+  type GitHubContributionCalendar,
+  type GitHubUser,
+  type GraphData,
+  type ResponseData,
+} from '~/types'
 
-async function fetchGitHubUser(username: string): Promise<ContributionBasic> {
+const GAT = process.env.GITHUB_ACCESS_TOKEN
+
+async function fetchGitHubUser(username: string): Promise<ContributionBasic | never> {
+  if (!GAT) {
+    throw new Error('Require GITHUB ACCESS TOKEN.')
+  }
+
   const res = await fetch('https://api.github.com/graphql', {
     method: 'post',
     body: JSON.stringify({
@@ -28,14 +36,24 @@ async function fetchGitHubUser(username: string): Promise<ContributionBasic> {
       `,
     }),
     headers: {
-      Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+      Authorization: `Bearer ${GAT}`,
       'content-type': 'application/json',
     },
   })
 
+  if (!res.ok) {
+    throw new Error(`fetch error: ${res.statusText}.`)
+  }
+
   const json: GitHubApiJson<{ user: GitHubUser | null }> = await res.json()
 
   if (!json.data?.user) {
+    if (json.errors) {
+      const error = json.errors.at(0)
+      if (error) {
+        throw new Error(error.message)
+      }
+    }
     throw new Error(json.message)
   }
 
@@ -48,6 +66,10 @@ async function fetchContributionsCollection(
   username: string,
   year: ContributionYear
 ): Promise<ContributionCalendar> {
+  if (!GAT) {
+    throw new Error('Require GITHUB ACCESS TOKEN.')
+  }
+
   const res = await fetch('https://api.github.com/graphql', {
     method: 'post',
     body: JSON.stringify({
@@ -72,10 +94,14 @@ async function fetchContributionsCollection(
       `,
     }),
     headers: {
-      Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+      Authorization: `Bearer ${GAT}`,
       'content-type': 'application/json',
     },
   })
+
+  if (!res.ok) {
+    throw new Error(`fetch error: ${res.statusText}.`)
+  }
 
   const json: GitHubApiJson<{ user: GitHubContributionCalendar | null }> = await res.json()
 
@@ -88,18 +114,28 @@ async function fetchContributionsCollection(
   return { ...contributionCalendar, year }
 }
 
-export default async function (req: NextApiRequest, res: NextApiResponse) {
+export default async function (req: NextApiRequest, res: NextApiResponse<ResponseData>) {
   const { username } = req.query
 
   if (typeof username === 'string') {
-    const githubUser = await fetchGitHubUser(username)
+    try {
+      const githubUser = await fetchGitHubUser(username)
 
-    const contributionCalendars = await Promise.all(
-      githubUser.contributionYears.map((year) => fetchContributionsCollection(username, year))
-    )
+      const contributionCalendars = await Promise.all(
+        githubUser.contributionYears.map((year) => fetchContributionsCollection(username, year))
+      )
 
-    const data: GraphData = { ...githubUser, contributionCalendars }
+      const data: GraphData = { ...githubUser, contributionCalendars }
 
-    return res.status(200).json(data)
+      return res.status(200).json({ data })
+    } catch (e: any) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      const errorData: ResponseData = { errorType: ErrorType.BadRequest, message: e.message }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      if (e.message === 'Bad credentials') {
+        return res.status(401).json({ ...errorData, errorType: ErrorType.BadCredentials })
+      }
+      return res.status(400).json(errorData)
+    }
   }
 }

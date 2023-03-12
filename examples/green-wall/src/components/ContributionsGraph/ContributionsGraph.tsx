@@ -1,21 +1,23 @@
 import { forwardRef, memo, useImperativeHandle, useMemo, useRef } from 'react'
 
-import { DEFAULT_SIZE, DEFAULT_THEME, THEMES, sizeProperties } from '../../constants'
-import type { GraphData, GraphSettings } from '../../types'
-import { DisplayName } from '../../types'
+import { DEFAULT_SIZE, DEFAULT_THEME, sizeProperties, THEMES } from '~/constants'
+import { useData } from '~/DataContext'
 
-import Graph from './Graph'
-import GraphFooter from './GraphFooter'
-import GraphHeader from './GraphHeader'
+import { Graph } from './Graph'
+import { GraphFooter } from './GraphFooter'
+import { GraphHeader } from './GraphHeader'
 
 interface ContributionsGraphProps {
   className?: string
-  data: GraphData
-  settings?: GraphSettings
 }
 
-function ContributionsGraph(props: ContributionsGraphProps, ref: React.Ref<HTMLDivElement | null>) {
-  const { className = '', data, settings } = props
+function InnerContributionsGraph(
+  props: ContributionsGraphProps,
+  ref: React.Ref<HTMLDivElement | null>
+) {
+  const { className = '' } = props
+
+  const { graphData, settings, firstYear, lastYear } = useData()
 
   const graphRef = useRef<HTMLDivElement>(null)
 
@@ -24,10 +26,14 @@ function ContributionsGraph(props: ContributionsGraphProps, ref: React.Ref<HTMLD
   const applyingTheme = useMemo(
     () =>
       THEMES.find(
-        (item) => item.name.toLowerCase() === (settings?.theme || DEFAULT_THEME).toLowerCase()
+        (item) => item.name.toLowerCase() === (settings.theme ?? DEFAULT_THEME).toLowerCase()
       )!,
-    [settings?.theme]
+    [settings.theme]
   )
+
+  if (!graphData) {
+    return null
+  }
 
   const themeProperties = {
     '--graph-text-color': applyingTheme.textColor,
@@ -39,7 +45,7 @@ function ContributionsGraph(props: ContributionsGraphProps, ref: React.Ref<HTMLD
     '--level-4': applyingTheme.levelColors[4],
   }
 
-  const cssProperties = { ...themeProperties, ...sizeProperties[settings?.size || DEFAULT_SIZE] }
+  const cssProperties = { ...themeProperties, ...sizeProperties[settings.size ?? DEFAULT_SIZE] }
 
   return (
     <div
@@ -51,24 +57,32 @@ function ContributionsGraph(props: ContributionsGraphProps, ref: React.Ref<HTMLD
         backgroundColor: 'var(--graph-bg, #fff)',
       }}
     >
-      <GraphHeader
-        displayName={settings?.displayName === DisplayName.ProfileName ? data.name : data.login}
-        username={data.login}
-      />
+      <GraphHeader />
 
       <div className="flex flex-col gap-y-6">
-        {data.contributionCalendars.map((calendar) => (
-          <Graph
-            key={calendar.year}
-            className={`${(Number(settings?.sinceYear) ?? 0) > calendar.year ? 'hidden' : ''}`}
-            data={calendar}
-          />
-        ))}
+        {graphData.contributionCalendars.map((calendar) => {
+          let [startYear, endYear] = settings.yearRange ?? []
+          startYear =
+            startYear !== null && Number.isInteger(Number(startYear)) ? startYear : firstYear
+          endYear = endYear !== null && Number.isInteger(Number(endYear)) ? endYear : lastYear
+          const shouldDisplay =
+            startYear && endYear
+              ? calendar.year >= Number(startYear) && calendar.year <= Number(endYear)
+              : true
+
+          return (
+            <Graph
+              key={calendar.year}
+              className={`${shouldDisplay ? '' : 'hidden'}`}
+              data={calendar}
+            />
+          )
+        })}
       </div>
 
-      {!(settings?.showAttribution === false) && <GraphFooter />}
+      {!(settings.showAttribution === false) && <GraphFooter />}
     </div>
   )
 }
 
-export default memo(forwardRef(ContributionsGraph))
+export const ContributionsGraph = memo(forwardRef(InnerContributionsGraph))

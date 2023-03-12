@@ -1,89 +1,77 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
-import splitbee from '@splitbee/web'
-import { toPng } from 'html-to-image'
+import { toBlob, toPng } from 'html-to-image'
 
-import { AppearanceSetting, DraggableAppearanceSetting } from '../components/AppearanceSetting'
-import ContributionsGraph from '../components/ContributionsGraph'
-import ErrorMessage from '../components/ErrorMessage'
-import GenerateButton from '../components/GenerateButton'
-import Layout from '../components/Layout'
-import Loading from '../components/Loading'
-import SettingButton from '../components/SettingButton'
-import ShareButton from '../components/ShareButton'
-import TweetButton from '../components/TweetButton'
-import { iconImage } from '../components/icons'
-import mockData from '../mock-data'
-import type { ErrorData, GraphData } from '../types'
-import useSetting from '../useSetting'
+import { AppearanceSetting, DraggableAppearanceSetting } from '~/components/AppearanceSetting'
+import { ContributionsGraph } from '~/components/ContributionsGraph'
+import { ErrorMessage } from '~/components/ErrorMessage'
+import GenerateButton from '~/components/GenerateButton'
+import { iconClipboard, iconClipboardList, iconImage } from '~/components/icons'
+import { Layout } from '~/components/Layout'
+import Loading from '~/components/Loading'
+import { SettingButton } from '~/components/SettingButton'
+import { ShareButton } from '~/components/ShareButton'
+import { DataProvider, useData } from '~/DataContext'
+import { trackEvent } from '~/helpers'
+import { useGraphRequest } from '~/useGraphRequest'
+
+const canUseClipboardItem = typeof ClipboardItem !== 'undefined'
 
 export default function HomePage() {
   const graphRef = useRef<HTMLDivElement>(null)
-  const actionRef = useRef<HTMLDivElement>(null)
+  const actionRef = useRef<HTMLDivElement | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     inputRef.current?.focus()
   }, [])
 
+  const { graphData, setGraphData, dispatchSettings } = useData()
+
   const [username, setUsername] = useState('')
-  const [settings, dispatch] = useSetting()
   const [settingPopUp, setSettingPopUp] = useState(false)
 
   const [downloading, setDownloading] = useState(false)
 
-  const [graphData, setGraphData] = useState<GraphData>()
-  const [error, setError] = useState<ErrorData>()
+  const [doingCopy, setDoingCopy] = useState(false)
+  const [copySuccess, setCopySuccess] = useState(false)
 
   const reset = () => {
     setGraphData(undefined)
     setSettingPopUp(false)
-    dispatch({ type: 'reset' })
+    dispatchSettings({ type: 'reset' })
   }
 
-  const handleError = (errorData: ErrorData = {}) => {
+  const handleError = () => {
     reset()
-    setError(errorData)
   }
 
-  const [loading, setLoading] = useState(false)
+  const { run, loading, error } = useGraphRequest({ onError: handleError })
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault()
-
+  const handleSubmit = async () => {
     if (username.trim() && !loading) {
       reset()
-      splitbee.track('Click Generate')
-      try {
-        setError(undefined)
-        setLoading(true)
-        const res = await fetch(`/api/contribution/${username}`)
-        if (res.status >= 400) {
-          const error: ErrorData = await res.json()
-          handleError({ message: error.message })
-        } else {
-          const data: GraphData = await res.json()
-          setGraphData(data)
-        }
-      } catch (e) {
-        handleError()
-      } finally {
-        setLoading(false)
-      }
+      trackEvent('Click Generate')
+      const data = await run({ username })
+      setGraphData(data)
     }
   }
 
   const handleDownload = async () => {
-    if (graphRef.current && graphData) {
+    if (graphRef.current && graphData && !downloading) {
       try {
         setDownloading(true)
-        splitbee.track('Click Download')
+        trackEvent('Click Download')
 
         const dataURL = await toPng(graphRef.current)
         const trigger = document.createElement('a')
         trigger.href = dataURL
         trigger.download = `${graphData.login}_contributions`
         trigger.click()
+      } catch (e) {
+        if (e instanceof Error) {
+          trackEvent('Error: Download Image', { msg: e.message })
+        }
       } finally {
         setTimeout(() => {
           setDownloading(false)
@@ -92,14 +80,56 @@ export default function HomePage() {
     }
   }
 
-  useEffect(() => {
-    if (graphData && actionRef.current) {
+  const handleCopyImage = async () => {
+    if (graphRef.current && graphData && canUseClipboardItem && !doingCopy) {
+      try {
+        setDoingCopy(true)
+        trackEvent('Click Copy Image')
+
+        const item = new ClipboardItem({
+          'image/png': (async () => {
+            /**
+             * To be able to use `ClipboardItem` in safari, need to pass promise directly into it.
+             * @see https://stackoverflow.com/questions/66312944/javascript-clipboard-api-write-does-not-work-in-safari
+             */
+            if (!graphRef.current) {
+              throw new Error()
+            }
+
+            const blobData = await toBlob(graphRef.current)
+
+            if (!blobData) {
+              throw new Error()
+            }
+
+            return blobData
+          })(),
+        })
+        await navigator.clipboard.write([item])
+        setCopySuccess(true)
+        setTimeout(() => {
+          setCopySuccess(false)
+        }, 2000)
+      } catch (e) {
+        if (e instanceof Error) {
+          trackEvent('Error: Copy Image', { msg: e.message })
+        }
+      } finally {
+        setDoingCopy(false)
+      }
+    }
+  }
+
+  const actionRefCallback = useCallback((node: HTMLDivElement | null) => {
+    actionRef.current = node
+
+    if (actionRef.current) {
       const offsetTop = actionRef.current.getBoundingClientRect().top
       if (offsetTop > 0) {
         window.scrollTo(0, offsetTop)
       }
     }
-  }, [graphData])
+  }, [])
 
   return (
     <div className="py-10 md:py-14">
@@ -107,64 +137,86 @@ export default function HomePage() {
         Review the contributions you have made on GitHub over the years.
       </h1>
 
-      <form className="py-12 md:py-16" onSubmit={handleSubmit}>
-        <div className="flex flex-col items-center justify-center gap-y-6 md:flex-row md:gap-x-5">
-          <input
-            ref={inputRef}
-            required
-            className="
-              inline-block h-[2.8rem] overflow-hidden rounded-lg bg-main-100 px-5
-              text-center text-lg font-medium text-main-600 caret-main-500 shadow-main-300/90 outline-none
-              transition-all duration-300
-              placeholder:select-none placeholder:font-normal placeholder:text-main-400
-              focus:bg-white focus:shadow-[0_0_1.5rem_var(--tw-shadow-color)]
-            "
-            disabled={loading}
-            name="username"
-            placeholder="GitHub Username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onFocus={() => inputRef.current?.select()}
-          />
-          <GenerateButton loading={loading} type="submit" />
-        </div>
-      </form>
+      <div className="py-12 md:py-16">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            void handleSubmit()
+          }}
+        >
+          <div className="flex flex-col items-center justify-center gap-y-6 md:flex-row md:gap-x-5">
+            <input
+              ref={inputRef}
+              required
+              className="
+                inline-block h-[2.8rem] overflow-hidden rounded-lg bg-main-100 px-5
+                text-center text-lg font-medium text-main-600 caret-main-500 shadow-main-300/90 outline-none
+                transition-all duration-300
+                placeholder:select-none placeholder:font-normal placeholder:text-main-400
+                focus:bg-white focus:shadow-[0_0_1.5rem_var(--tw-shadow-color)]
+              "
+              disabled={loading}
+              name="username"
+              placeholder="GitHub Username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              onFocus={() => inputRef.current?.select()}
+            />
+            <GenerateButton loading={loading} type="submit" />
+          </div>
+        </form>
+      </div>
 
       {error ? (
-        <ErrorMessage message={error.message} />
+        <ErrorMessage errorType={error.errorType} text={error.message} />
       ) : (
         <Loading active={loading}>
           {graphData && (
             <>
               <div
-                ref={actionRef}
+                ref={actionRefCallback}
                 className="flex flex-row-reverse flex-wrap items-center justify-center gap-x-6 gap-y-4 py-5"
               >
-                <button
-                  className={`
-                  inline-flex h-full items-center rounded-md bg-main-100 py-2 px-4 font-medium text-main-500
-                  disabled:pointer-events-none
-                  ${downloading ? 'animate-bounce' : ''}
-                  `}
-                  disabled={downloading}
-                  onClick={handleDownload}
-                >
-                  <span className="mr-2 h-6 w-6">{iconImage}</span>
-                  <span>Save as Image</span>
-                </button>
+                <div className="flex gap-x-3">
+                  <button
+                    className={`
+                    inline-flex h-full items-center rounded-md bg-main-100 py-2 px-4 text-sm font-medium text-main-500 hover:bg-main-200 disabled:pointer-events-none motion-safe:transition-colors motion-safe:duration-300 md:text-base`}
+                    disabled={downloading}
+                    onClick={() => {
+                      void handleDownload()
+                    }}
+                  >
+                    <span className="mr-2 h-5 w-5 shrink-0 md:h-6 md:w-6">{iconImage}</span>
+                    <span>Save as Image</span>
+                  </button>
+                  {canUseClipboardItem && (
+                    <button
+                      className={`
+                      inline-flex h-full items-center rounded-md py-2 px-4 text-sm font-medium transition-colors disabled:pointer-events-none md:text-base
+                      ${
+                        copySuccess
+                          ? 'bg-accent-100 text-accent-500'
+                          : 'bg-main-100 text-main-500 duration-300 hover:bg-main-200 motion-safe:transition-colors'
+                      }
+                      `}
+                      disabled={doingCopy}
+                      onClick={() => {
+                        void handleCopyImage()
+                      }}
+                    >
+                      <span className="mr-2 h-5 w-5 shrink-0 md:h-6 md:w-6">
+                        {copySuccess ? iconClipboardList : iconClipboard}
+                      </span>
+                      <span>{copySuccess ? 'Copied' : 'Copy'} as Image</span>
+                    </button>
+                  )}
+                </div>
                 <div className="flex flex-wrap items-center gap-x-6 md:justify-center">
-                  <TweetButton />
-                  <ShareButton settings={settings} username={graphData.login} />
+                  <ShareButton />
                   <div className="relative">
                     <SettingButton
-                      content={
-                        <AppearanceSetting
-                          graphData={graphData}
-                          value={settings}
-                          onChange={dispatch}
-                        />
-                      }
+                      content={<AppearanceSetting />}
                       onClick={() => {
                         if (settingPopUp) {
                           setSettingPopUp(false)
@@ -180,11 +232,7 @@ export default function HomePage() {
                           setSettingPopUp(false)
                         }}
                       >
-                        <AppearanceSetting
-                          graphData={graphData}
-                          value={settings}
-                          onChange={dispatch}
-                        />
+                        <AppearanceSetting />
                       </DraggableAppearanceSetting>
                     )}
                   </div>
@@ -192,7 +240,7 @@ export default function HomePage() {
               </div>
 
               <div className="flex overflow-x-auto md:justify-center">
-                <ContributionsGraph ref={graphRef} data={graphData} settings={settings} />
+                <ContributionsGraph ref={graphRef} />
               </div>
             </>
           )}
@@ -203,5 +251,9 @@ export default function HomePage() {
 }
 
 HomePage.getLayout = (page: React.ReactElement) => {
-  return <Layout>{page}</Layout>
+  return (
+    <Layout>
+      <DataProvider key="home">{page}</DataProvider>
+    </Layout>
+  )
 }

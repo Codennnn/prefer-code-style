@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 
 import { motion, useDragControls } from 'framer-motion'
 
-import { iconClose } from '../icons'
+import { iconClose } from '~/components/icons'
 
-export default function DraggableAppearanceSetting(
+export function DraggableAppearanceSetting(
   props: React.PropsWithChildren<{ onClose?: () => void }>
 ) {
   const { children, onClose } = props
@@ -21,7 +21,6 @@ export default function DraggableAppearanceSetting(
   }, [])
 
   useEffect(() => {
-    // HACK:
     if (renderClientSide) {
       setFixed(true)
       const distanceToTop = wrapper.current?.getBoundingClientRect().top
@@ -47,6 +46,7 @@ export default function DraggableAppearanceSetting(
         dragControls={dragControls}
         dragListener={false}
         dragMomentum={false}
+        dragTransition={{ bounceStiffness: 1000, bounceDamping: 40 }}
         variants={{
           scale: { scale: 0.97 },
         }}

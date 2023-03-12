@@ -1,9 +1,0 @@
-.center-area {
-  width: 100vw;
-  height: 100vh;
-  padding: 0 $right-panel-width 0 $left-panel-width;
-
-  .canvas {
-    will-change: contents;
-  }
-}

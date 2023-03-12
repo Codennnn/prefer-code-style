@@ -1,6 +1,7 @@
 export type Themes =
   | 'GitHub'
   | 'GitHubDark'
+  | 'Winter'
   | 'GitLab'
   | 'GitLabDark'
   | 'Halloween'
@@ -72,8 +73,15 @@ export interface GraphData extends ContributionBasic {
   contributionCalendars: ContributionCalendar[]
 }
 
-export interface ErrorData {
+export const enum ErrorType {
+  BadCredentials,
+  BadRequest,
+}
+
+export interface ResponseData {
+  errorType?: ErrorType
   message?: string
+  data?: GraphData
 }
 
 export const enum GraphSize {
@@ -88,15 +96,15 @@ export const enum DisplayName {
 }
 
 export interface GraphSettings {
-  size?: GraphSize
   displayName?: DisplayName
-  sinceYear?: string
+  yearRange?: [start_year: string | null | undefined, end_year: string | null | undefined]
   showAttribution?: boolean
+  size?: GraphSize
   theme?: Themes
 }
 
 export interface GitHubApiJson<Data> {
   data?: Data
   message?: string
-  errors?: unknown
+  errors?: { type: string; message: string }[]
 }

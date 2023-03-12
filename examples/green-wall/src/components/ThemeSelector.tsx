@@ -1,16 +1,16 @@
-import { THEMES } from '../constants'
-import type { Themes } from '../types'
+import { THEMES } from '~/constants'
+import type { Themes } from '~/types'
 
 interface ThemeSelectorProps extends Omit<React.ComponentProps<'div'>, 'onChange'> {
   value?: Themes
   onChange?: (theme: Themes) => void
 }
 
-export default function ThemeSelector(props: ThemeSelectorProps) {
-  const { value, onChange, ...rest } = props
+export function ThemeSelector(props: ThemeSelectorProps) {
+  const { value, onChange, className = '', ...rest } = props
 
   return (
-    <div {...rest} className={`flex flex-wrap gap-3 ${rest.className}`}>
+    <div {...rest} className={`flex flex-wrap gap-3 ${className}`}>
       {THEMES.map((theme) => {
         return (
           <div

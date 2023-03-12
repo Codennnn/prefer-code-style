@@ -1,40 +1,47 @@
 import { useEffect, useState } from 'react'
 
-import splitbee from '@splitbee/web'
 import Link from 'next/link'
 
-import { DEFAULT_DISPLAY_NAME, DEFAULT_SIZE, DEFAULT_THEME } from '../constants'
-import type { GraphSettings } from '../types'
+import { DEFAULT_DISPLAY_NAME, DEFAULT_SIZE, DEFAULT_THEME } from '~/constants'
+import { useData } from '~/DataContext'
+import { trackEvent } from '~/helpers'
 
-import { iconShare, iconUpRight } from './icons'
 import { RadixPopover } from './ui-kit/RadixPopover'
+import { iconShare, iconUpRight } from './icons'
 
-interface ShareButtonProps {
-  username?: string
-  settings?: GraphSettings
-}
+export function ShareButton() {
+  const { graphData, settings, firstYear, lastYear } = useData()
+  const username = graphData?.login
 
-export default function ShareButton({ username, settings }: ShareButtonProps) {
   const [shareUrl, setShareUrl] = useState<URL>()
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
-    if (username && settings) {
-      const url = new URL(`${window.location.origin}/share/${username}`)
+    if (username) {
+      const Url = new URL(`${window.location.origin}/share/${username}`)
 
+      if (settings.displayName && settings.displayName !== DEFAULT_DISPLAY_NAME) {
+        Url.searchParams.set('displayName', settings.displayName)
+      }
+      if (Array.isArray(settings.yearRange)) {
+        const [startYear, endYear] = settings.yearRange
+        if (startYear && startYear !== firstYear) {
+          Url.searchParams.set('start', startYear)
+        }
+        if (endYear && endYear !== lastYear) {
+          Url.searchParams.set('end', endYear)
+        }
+      }
       if (settings.size && settings.size !== DEFAULT_SIZE) {
-        url.searchParams.set('size', settings.size)
+        Url.searchParams.set('size', settings.size)
       }
       if (settings.theme && settings.theme !== DEFAULT_THEME) {
-        url.searchParams.set('theme', settings.theme)
-      }
-      if (settings.displayName && settings.displayName !== DEFAULT_DISPLAY_NAME) {
-        url.searchParams.set('displayName', settings.displayName)
+        Url.searchParams.set('theme', settings.theme)
       }
 
-      setShareUrl(url)
+      setShareUrl(Url)
     }
-  }, [username, settings])
+  }, [username, settings, firstYear, lastYear])
 
   return (
     <RadixPopover
@@ -48,23 +55,22 @@ export default function ShareButton({ username, settings }: ShareButtonProps) {
               </div>
 
               <div className="mt-4 flex h-7 items-center justify-end gap-x-2">
-                <Link passHref href={shareUrl}>
-                  <a className="h-full" target="_blank">
-                    <button
-                      className="flex h-full items-center gap-x-1 rounded bg-main-200 px-2"
-                      onClick={() => splitbee.track('Preview Share URL')}
-                    >
-                      <span>Preview</span>
-                      <span className="w-[10px] translate-y-[1px]">{iconUpRight}</span>
-                    </button>
-                  </a>
+                <Link passHref className="h-full" href={shareUrl} target="_blank">
+                  <button
+                    className="flex h-full items-center gap-x-1 rounded bg-main-200 px-2"
+                    onClick={() => trackEvent('Preview Share URL')}
+                  >
+                    <span>Preview</span>
+                    <span className="w-[10px] translate-y-[1px]">{iconUpRight}</span>
+                  </button>
                 </Link>
                 <button
                   className="inline-block h-full min-w-[3.5rem] rounded bg-accent-100 px-1 text-accent-600"
                   onClick={() => {
                     if (!copied) {
-                      splitbee.track('Copy Share URL')
-                      navigator.clipboard.writeText(shareUrl.toString()).then(() => {
+                      trackEvent('Copy Share URL')
+
+                      void navigator.clipboard.writeText(shareUrl.toString()).then(() => {
                         setCopied(true)
                         setTimeout(() => {
                           setCopied(false)
