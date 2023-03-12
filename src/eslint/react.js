@@ -1,4 +1,4 @@
-const { COMMON_SORT_GROUPS } = require('../constants')
+const { COMMON_SORT_GROUPS, TYPESCRIPT_FILES } = require('../constants')
 
 module.exports = {
   extends: [
@@ -33,6 +33,19 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: TYPESCRIPT_FILES,
+      parser: '@typescript-eslint/parser',
+      plugins: ['jsx-falsy'],
+      rules: {
+        'jsx-falsy/no-falsy-and': 1,
+      },
+      parserOptions: {
+        project: ['./tsconfig.json'],
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',
