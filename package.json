@@ -75,15 +75,15 @@
     "eslint-plugin-tailwindcss": "~3.11.0",
     "prettier": "~2.8.8",
     "prettier-plugin-packagejson": "~2.4.3",
-    "stylelint": "^14.16.1",
-    "stylelint-config-prettier": "^9.0.4",
+    "stylelint": "^15.6.0",
+    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-recommended": "^9.0.0",
-    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-recommended": "^12.0.0",
+    "stylelint-config-standard": "^33.0.0",
     "stylelint-less": "^1.0.6",
-    "stylelint-order": "^6.0.1",
-    "stylelint-prettier": "^2.0.0",
-    "stylelint-scss": "^4.3.0"
+    "stylelint-order": "^6.0.3",
+    "stylelint-prettier": "^3.0.0",
+    "stylelint-scss": "^4.6.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
