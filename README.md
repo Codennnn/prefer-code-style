@@ -149,7 +149,6 @@ code --install-extension bradlc.vscode-tailwindcss
 - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#readme)
 - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 - [eslint-plugin-tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss#readme)
-- [eslint-plugin-jsx-falsy](https://github.com/jeremy-deutsch/eslint-plugin-jsx-falsy#readme)
 
 </details>
 
