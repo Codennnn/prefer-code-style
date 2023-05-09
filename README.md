@@ -108,6 +108,12 @@ module.exports = {
 
 ## ⚔️ 搭配 VS Code 使用更佳
 
+### 集成配置
+
+在该项目的根目录中找到并下载 `/prefer-code-style.code-profile`，然后在导入进 VS Code，该 Profile 文件集成了让 `prefer-code-style` 生效所需的最简化配置。
+
+### 手动配置
+
 安装插件 [VS Code ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 和 [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)。
 
 ```bash
