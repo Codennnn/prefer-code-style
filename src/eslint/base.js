@@ -41,6 +41,9 @@ module.exports = {
       parserOptions: {
         requireConfigFile: false,
       },
+      rules: {
+        'no-console': [1, { allow: ['warn', 'error'] }],
+      },
     },
   ],
 
