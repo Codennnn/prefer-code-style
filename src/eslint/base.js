@@ -32,6 +32,7 @@ module.exports = {
     'import/order': 0,
     'simple-import-sort/imports': 1,
     'simple-import-sort/exports': 1,
+    'no-console': [1, { allow: ['warn', 'error'] }],
   },
 
   overrides: [
@@ -40,9 +41,6 @@ module.exports = {
       parser: '@babel/eslint-parser',
       parserOptions: {
         requireConfigFile: false,
-      },
-      rules: {
-        'no-console': [1, { allow: ['warn', 'error'] }],
       },
     },
   ],
