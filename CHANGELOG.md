@@ -1,3 +1,7 @@
+## [1.0.0...1.3.5] - 2023-07-10
+
+- 更改配置导入的方式，可自由、按需引入相应的配置。
+
 ## [0.6.2] - 2022-07-09
 
 - 升级依赖包，[查看具体更改](https://github.com/Codennnn/prefer-code-style/commit/993be761df1bce225755ce554f90f859bb453532#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519)
