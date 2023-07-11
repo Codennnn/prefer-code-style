@@ -46,5 +46,5 @@ module.exports = {
   ],
 
   // Tell ESLint not to ignore dot-files, which are ignored by default.
-  ignorePatterns: ['node_modules', '!.*.js'],
+  ignorePatterns: ['node_modules', '!.*.js', '!.*.cjs'],
 }
