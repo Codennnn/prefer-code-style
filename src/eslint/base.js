@@ -33,6 +33,7 @@ module.exports = {
     'simple-import-sort/imports': 1,
     'simple-import-sort/exports': 1,
     'no-console': [1, { allow: ['warn', 'error'] }],
+    eqeqeq: [1, 'always'],
   },
 
   overrides: [
