@@ -2,7 +2,9 @@ const { COMMON_SORT_GROUPS } = require('../constants')
 
 module.exports = {
   extends: ['plugin:@next/next/recommended'],
+
   ignorePatterns: ['public', 'next-env.d.ts', '.next'],
+
   rules: {
     'simple-import-sort/imports': [
       1,

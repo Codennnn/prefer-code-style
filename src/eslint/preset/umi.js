@@ -8,6 +8,7 @@ module.exports = {
     require.resolve('../react'),
     require.resolve('../tailwindcss'),
   ],
+
   rules: {
     'simple-import-sort/imports': [
       1,

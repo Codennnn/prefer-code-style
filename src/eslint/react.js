@@ -6,6 +6,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
   ],
+
   rules: {
     'react/jsx-sort-props': [
       1,
@@ -33,6 +34,7 @@ module.exports = {
       },
     ],
   },
+
   settings: {
     react: {
       version: 'detect',
