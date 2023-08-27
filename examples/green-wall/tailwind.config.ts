@@ -1,9 +1,10 @@
-const colors = require('tailwindcss/colors')
-const plugin = require('tailwindcss/plugin')
+import type { Config } from 'tailwindcss'
+import colors from 'tailwindcss/colors'
+import plugin from 'tailwindcss/plugin'
+import radix from 'tailwindcss-radix'
 
-/** @type {import('tailwindcss').Config} \*/
-module.exports = {
-  content: ['./src/{pages,components}/**/*.{js,jsx,ts,tsx}'],
+export default {
+  content: ['./src/{app,components}/**/*.{ts,tsx}'],
 
   theme: {
     extend: {
@@ -24,26 +25,26 @@ module.exports = {
       },
 
       keyframes: {
-        // Tooltip
+        // For radix tooltip
         'slide-up-fade': {
-          '0%': { opacity: 0, transform: 'translateY(2px)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
+          '0%': { opacity: '0', transform: 'translateY(2px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'slide-right-fade': {
-          '0%': { opacity: 0, transform: 'translateX(-2px)' },
-          '100%': { opacity: 1, transform: 'translateX(0)' },
+          '0%': { opacity: '0', transform: 'translateX(-2px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         'slide-down-fade': {
-          '0%': { opacity: 0, transform: 'translateY(-2px)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
+          '0%': { opacity: '0', transform: 'translateY(-2px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'slide-left-fade': {
-          '0%': { opacity: 0, transform: 'translateX(2px)' },
-          '100%': { opacity: 1, transform: 'translateX(0)' },
+          '0%': { opacity: '0', transform: 'translateX(2px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
       animation: {
-        // Tooltip
+        // For radix tooltip
         'slide-up-fade': 'slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         'slide-right-fade': 'slide-right-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         'slide-down-fade': 'slide-down-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -53,10 +54,9 @@ module.exports = {
   },
 
   plugins: [
-    require('@tailwindcss/line-clamp'),
-    require('tailwindcss-radix')(),
+    radix,
     plugin(function ({ addVariant }) {
       addVariant('toggle-on', ['&[data-state=on]'])
     }),
   ],
-}
+} satisfies Config

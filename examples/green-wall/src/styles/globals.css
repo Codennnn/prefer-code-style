@@ -28,9 +28,12 @@
   }
 
   .bg-decoration {
-    background: linear-gradient(180deg, transparent 18em, #fff 30em),
+    background:
+      linear-gradient(180deg, transparent 18em, #fff 30em),
       url('/grid-cell.svg') 0 0 repeat;
-    background-size: 100% 100%, 40px 40px;
+    background-size:
+      100% 100%,
+      40px 40px;
     background-attachment: scroll, scroll;
   }
 }
@@ -44,12 +47,4 @@
 
 ::selection {
   @apply bg-accent-500/20 text-current;
-}
-
-html {
-  @apply motion-safe:scroll-smooth;
-}
-
-body {
-  @apply text-main-700 bg-white;
 }

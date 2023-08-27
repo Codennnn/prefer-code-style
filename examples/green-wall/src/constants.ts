@@ -1,5 +1,6 @@
-import type { ContributionLevel, Theme, Themes } from './types'
-import { DisplayName, GraphSize } from './types'
+import { type ContributionLevel, DisplayName, GraphSize } from '~/enums'
+
+import type { Theme, Themes } from './types'
 
 export const levels = {
   Null: -1,
@@ -10,14 +11,7 @@ export const levels = {
   FOURTH_QUARTILE: 4,
 } satisfies Record<ContributionLevel, -1 | 0 | 1 | 2 | 3 | 4>
 
-export const sizeProperties: Record<
-  GraphSize,
-  {
-    ['--block-size']: string
-    ['--block-round']: string
-    ['--block-gap']: string
-  }
-> = {
+export const sizeProperties = {
   [GraphSize.Small]: {
     ['--block-size']: '10px',
     ['--block-round']: '2px',
@@ -33,13 +27,20 @@ export const sizeProperties: Record<
     ['--block-round']: '3px',
     ['--block-gap']: '4px',
   },
-}
+} as const satisfies Record<
+  GraphSize,
+  {
+    ['--block-size']: string
+    ['--block-round']: string
+    ['--block-gap']: string
+  }
+>
 
 export const DEFAULT_SIZE: GraphSize = GraphSize.Small
 export const DEFAULT_THEME: Themes = 'GitHub'
 export const DEFAULT_DISPLAY_NAME: DisplayName = DisplayName.Username
 
-export const THEMES: Theme[] = [
+export const THEMES = [
   {
     name: 'GitHub',
     textColor: '#24292f',
@@ -128,4 +129,4 @@ export const THEMES: Theme[] = [
     background: '#fffbeb88',
     mode: 'light',
   },
-]
+] satisfies Theme[]
