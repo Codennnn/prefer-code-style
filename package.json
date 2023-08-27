@@ -18,7 +18,7 @@
     "url": "https://github.com/Codennnn/prefer-code-style.git"
   },
   "license": "MIT",
-  "author": "LeoKu <leokudev@gmail.com> (https://leoku.top)",
+  "author": "LeoKu <leokudev@gmail.com> (https://leoku.dev)",
   "exports": {
     ".": {
       "require": "./src/index.js"
