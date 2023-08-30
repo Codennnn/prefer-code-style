@@ -15,7 +15,8 @@ module.exports = {
       files: TYPESCRIPT_FILES,
       extends: [require.resolve('../rules/typescript-prefer-strict')],
       parserOptions: {
-        project: ['./tsconfig.json'],
+        project: true,
+        tsconfigRootDir: __dirname,
       },
     },
   ],

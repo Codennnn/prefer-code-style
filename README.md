@@ -63,7 +63,8 @@ module.exports = {
     {
       files: TYPESCRIPT_FILES,
       parserOptions: {
-        project: resolve(__dirname, 'tsconfig.json'), // <- 添加此配置指明你项目中 tsconfig.json 的位置
+        project: true, // <- 添加此配置指明你项目中 tsconfig.json 的位置
+        tsconfigRootDir: __dirname,
       },
     },
   ],
