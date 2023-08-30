@@ -6,10 +6,9 @@ module.exports = {
       files: TYPESCRIPT_FILES,
       parser: '@typescript-eslint/parser',
       extends: [
-        'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
-        'plugin:@typescript-eslint/strict',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:@typescript-eslint/strict-type-checked',
+        'plugin:@typescript-eslint/stylistic-type-checked',
         require.resolve('./rules/typescript-prefer-loose'),
       ],
       rules: {
@@ -26,7 +25,8 @@ module.exports = {
         '@typescript-eslint/prefer-nullish-coalescing': 0, // Track this related issue: https://github.com/typescript-eslint/typescript-eslint/issues/4906
       },
       parserOptions: {
-        project: ['./tsconfig.json'],
+        project: true,
+        tsconfigRootDir: __dirname,
       },
     },
   ],

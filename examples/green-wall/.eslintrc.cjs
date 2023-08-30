@@ -1,9 +1,8 @@
-const { resolve } = require('path')
-const { TYPESCRIPT_FILES } = require('prefer-code-style/constants')
+const { TYPESCRIPT_FILES } = require('../../src/constants')
 
 module.exports = {
   root: true,
-  extends: [require.resolve('prefer-code-style/eslint/preset/next')],
+  extends: [require.resolve('../../src/eslint/preset/next')],
   rules: {
     'import/no-unresolved': [2, { ignore: ['^\\~/'] }],
   },
@@ -11,7 +10,8 @@ module.exports = {
     {
       files: TYPESCRIPT_FILES,
       parserOptions: {
-        project: resolve(__dirname, 'tsconfig.json'),
+        project: true,
+        tsconfigRootDir: __dirname,
       },
     },
   ],
