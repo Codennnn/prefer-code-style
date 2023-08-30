@@ -27,6 +27,7 @@ module.exports = {
     'import/first': 1,
     'import/newline-after-import': 1,
     'import/no-named-as-default': 0,
+    'import/no-duplicates': [1, { 'prefer-inline': true }],
 
     'sort-imports': 0,
     'import/order': 0,

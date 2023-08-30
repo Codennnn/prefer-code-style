@@ -18,6 +18,11 @@ module.exports = {
         '@typescript-eslint/consistent-type-definitions': 1,
         '@typescript-eslint/explicit-module-boundary-types': 0,
         '@typescript-eslint/consistent-type-imports': [1, { fixStyle: 'inline-type-imports' }],
+        '@typescript-eslint/consistent-type-exports': [
+          1,
+          { fixMixedExportsWithInlineTypeSpecifier: true },
+        ],
+        '@typescript-eslint/no-import-type-side-effects': 1,
 
         '@typescript-eslint/dot-notation': 0,
         '@typescript-eslint/no-unsafe-assignment': 0,
