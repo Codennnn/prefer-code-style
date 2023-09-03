@@ -19,5 +19,16 @@ module.exports = {
         tsconfigRootDir: __dirname,
       },
     },
+    {
+      files: ['**/app/**/route.tsx'],
+      rules: {
+        'react/no-unknown-property': [1, { ignore: ['tw'] }],
+        'tailwindcss/classnames-order': [1, { classRegex: /tw/ }],
+      },
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: __dirname,
+      },
+    },
   ],
 }
