@@ -4,13 +4,16 @@ module.exports = {
   overrides: [
     {
       files: TYPESCRIPT_FILES,
+
       parser: '@typescript-eslint/parser',
+
       extends: [
         'plugin:import/typescript',
         'plugin:@typescript-eslint/strict-type-checked',
         'plugin:@typescript-eslint/stylistic-type-checked',
         require.resolve('./rules/typescript-prefer-loose'),
       ],
+
       rules: {
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/no-non-null-assertion': 0,
@@ -28,9 +31,18 @@ module.exports = {
         '@typescript-eslint/dot-notation': 0,
         '@typescript-eslint/no-unsafe-assignment': 0,
         '@typescript-eslint/no-floating-promises': 0,
-        '@typescript-eslint/restrict-template-expressions': 2,
+        '@typescript-eslint/restrict-template-expressions': [
+          1,
+          {
+            allowAny: false,
+            allowBoolean: false,
+            allowNullish: false,
+            allowRegExp: false,
+          },
+        ],
         '@typescript-eslint/prefer-nullish-coalescing': 0, // Track this related issue: https://github.com/typescript-eslint/typescript-eslint/issues/4906
       },
+
       parserOptions: {
         project: true,
         tsconfigRootDir: __dirname,
