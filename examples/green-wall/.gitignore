@@ -11,13 +11,14 @@
 # next.js
 /.next/
 /out/
+next-env.d.ts
 
 # production
 /build
 
 # misc
 .DS_Store
-.vscode
+.idea
 *.pem
 
 # debug
@@ -37,4 +38,5 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+.contentlayer

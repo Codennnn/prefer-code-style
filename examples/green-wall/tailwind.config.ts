@@ -1,62 +1,44 @@
 import type { Config } from 'tailwindcss'
-import colors from 'tailwindcss/colors'
-import plugin from 'tailwindcss/plugin'
-import radix from 'tailwindcss-radix'
 
 export default {
-  content: ['./src/{app,components}/**/*.{ts,tsx}'],
+  content: ['./src/{app,components}/**/*.{js,jsx,ts,tsx}'],
 
   theme: {
     extend: {
-      colors: {
-        accent: colors.emerald,
-        main: colors.slate,
-      },
-      minWidth: {
-        content: 'var(--min-content-width)',
-      },
       maxWidth: {
-        content: 'var(--max-content-width)',
+        container: '1280px',
+      },
+      colors: {
+        main: {
+          50: 'var(--v2p-color-main-50)',
+          100: 'var(--v2p-color-main-100)',
+          200: 'var(--v2p-color-main-200)',
+          300: 'var(--v2p-color-main-300)',
+          350: 'var(--v2p-color-main-350)',
+          400: 'var(--v2p-color-main-400)',
+          500: 'var(--v2p-color-main-500)',
+          600: 'var(--v2p-color-main-600)',
+          700: 'var(--v2p-color-main-700)',
+          800: 'var(--v2p-color-main-800)',
+        },
+        accent: {
+          50: 'var(--v2p-color-accent-50)',
+          100: 'var(--v2p-color-accent-100)',
+          200: 'var(--v2p-color-accent-200)',
+          300: 'var(--v2p-color-accent-300)',
+          400: 'var(--v2p-color-accent-400)',
+          500: 'var(--v2p-color-accent-500)',
+          600: 'var(--v2p-color-accent-600)',
+        },
+        foreground: 'var(--v2p-color-foreground)',
+        background: 'var(--v2p-color-background)',
+        content: 'var(--v2p-color-content)',
       },
       boxShadow: {
-        overlay: 'rgb(14 18 22 / 0.2) 0 6px 38px -10px, rgb(14 18 22 / 0.3) 0 8px 20px -15px',
-        tooltip:
-          'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
-      },
-
-      keyframes: {
-        // For radix tooltip
-        'slide-up-fade': {
-          '0%': { opacity: '0', transform: 'translateY(2px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        'slide-right-fade': {
-          '0%': { opacity: '0', transform: 'translateX(-2px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        'slide-down-fade': {
-          '0%': { opacity: '0', transform: 'translateY(-2px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        'slide-left-fade': {
-          '0%': { opacity: '0', transform: 'translateX(2px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-      },
-      animation: {
-        // For radix tooltip
-        'slide-up-fade': 'slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-        'slide-right-fade': 'slide-right-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-        'slide-down-fade': 'slide-down-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-        'slide-left-fade': 'slide-left-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+        box: 'var(--v2p-box-shadow)',
       },
     },
   },
 
-  plugins: [
-    radix,
-    plugin(function ({ addVariant }) {
-      addVariant('toggle-on', ['&[data-state=on]'])
-    }),
-  ],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/container-queries')],
 } satisfies Config
