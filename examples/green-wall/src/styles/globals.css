@@ -2,69 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --v2p-color-main-50: #f7f9fb;
-  --v2p-color-main-100: #f1f5f9;
-  --v2p-color-main-200: #e2e8f0;
-  --v2p-color-main-300: #cbd5e1;
-  --v2p-color-main-350: #94a3b8cc;
-  --v2p-color-main-400: #94a3b8;
-  --v2p-color-main-500: #64748b;
-  --v2p-color-main-600: #475569;
-  --v2p-color-main-700: #334155;
-  --v2p-color-main-800: #1e293b;
-  --v2p-color-accent-50: #ecfdf5;
-  --v2p-color-accent-100: #d1fae5;
-  --v2p-color-accent-200: #a7f3d0;
-  --v2p-color-accent-300: #6ee7b7;
-  --v2p-color-accent-400: #34d399;
-  --v2p-color-accent-500: #10b981;
-  --v2p-color-accent-600: #059669;
-  --v2p-color-content: #fff;
-  --v2p-box-shadow: 0 3px 5px 0 rgb(0 0 0 / 4%);
-  --v2p-color-border: var(--v2p-color-main-200);
-  --v2p-color-foreground: var(--v2p-color-main-800);
-  --v2p-color-background: #f2f3f5;
-  --v2p-color-bg-input: var(--v2p-color-main-50);
-}
+@layer components {
+  .simple-button {
+    @apply relative py-1 flex items-center gap-x-1 text-xs md:text-sm text-main-400 hover:text-main-500 transition-colors duration-300;
+  }
 
-.theme-dark {
-  --v2p-color-main-50: #1c2127;
-  --v2p-color-main-100: #2d333b;
-  --v2p-color-main-200: #374151;
-  --v2p-color-main-300: #374151;
-  --v2p-color-main-350: #6b7280cc;
-  --v2p-color-main-400: #6b7280;
-  --v2p-color-main-500: #9ca3af;
-  --v2p-color-main-600: #9ca3af;
-  --v2p-color-main-700: #d1d5db;
-  --v2p-color-main-800: #e5e7eb;
-  --v2p-color-accent-100: #065f46;
-  --v2p-color-content: #22272e;
-  --v2p-color-border: #444c56;
-  --v2p-color-foreground: #adbac7;
-  --v2p-color-background: #1c2128;
-  --v2p-color-bg-input: var(--v2p-color-background);
-}
+  .simple-button::before {
+    @apply content-[''] absolute top-0 bottom-0 left-[-5px] right-[-5px] z-[-1] scale-[0.6] transition-all duration-300 rounded-md bg-main-100/80 opacity-0;
+  }
 
-::selection {
-  color: currentcolor;
-  background-color: rgb(30 41 59 / 10%);
-}
+  .simple-button:hover::before {
+    @apply scale-100 opacity-100;
+  }
 
-.text-with-shadow {
-  text-shadow: 2px 2px 0 var(--v2p-color-main-300);
-}
+  .simple-button.divider::after {
+    @apply content-[''] absolute top-1/2 -right-3 h-4 w-[1px] -translate-y-1/2 bg-main-300;
+  }
 
-@media (width >= 768px) {
-  .text-with-shadow {
-    text-shadow: 2px 4px 0 var(--v2p-color-main-300);
+  .appearance-setting fieldset {
+    @apply min-h-[35px] flex items-center justify-between py-1 mb-2 last-of-type:mb-0;
+  }
+
+  .appearance-setting fieldset > label {
+    @apply mr-5 text-sm font-medium whitespace-nowrap;
+  }
+
+  .bg-decoration {
+    background:
+      linear-gradient(180deg, transparent 18em, #fff 30em),
+      url('/grid-cell.svg') 0 0 repeat;
+    background-size:
+      100% 100%,
+      40px 40px;
+    background-attachment: local;
   }
 }
 
-.text-polish {
-  -webkit-text-fill-color: #fff;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: var(--v2p-color-main-800);
-  text-shadow: 2px 4px 0 var(--v2p-color-main-600);
+:root {
+  --min-content-width: 300px;
+  --max-content-width: 960px;
+
+  color-scheme: light;
+}
+
+::selection {
+  @apply bg-accent-500/20 text-current;
 }
