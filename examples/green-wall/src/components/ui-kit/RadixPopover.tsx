@@ -20,7 +20,7 @@ export function RadixPopover(props: React.PropsWithChildren<PopoverProps>) {
           align="center"
           className="
           radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down
-          shadow-overlay z-50 rounded-lg bg-white p-4
+          z-50 rounded-lg bg-white p-4 shadow-overlay
           "
           id={popoverContentId}
           sideOffset={4}
@@ -28,11 +28,11 @@ export function RadixPopover(props: React.PropsWithChildren<PopoverProps>) {
           <Popover.Arrow className="fill-current text-white" />
 
           <div className="mb-2 flex items-center">
-            <h3 className="text-main-500 min-h-[24px] flex-1 font-medium">{title}</h3>
+            <h3 className="min-h-[24px] flex-1 font-medium text-main-500">{title}</h3>
 
             <Popover.Close aria-label="Close" className="ml-auto" title="Close">
-              <span className="hover:bg-main-100/80 inline-flex items-center justify-center rounded p-[0.3rem] transition-colors duration-200">
-                <span className="text-main-500 size-4">{iconClose}</span>
+              <span className="inline-flex items-center justify-center rounded p-[0.3rem] transition-colors duration-200 hover:bg-main-100/80">
+                <span className="size-4 text-main-500">{iconClose}</span>
               </span>
             </Popover.Close>
           </div>
