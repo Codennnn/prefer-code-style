@@ -2,8 +2,7 @@ module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-recommended',
-    'stylelint-config-rational-order',
-    'stylelint-prettier/recommended',
+    // 'stylelint-prettier/recommended',
   ],
 
   plugins: ['stylelint-less', 'stylelint-scss', 'stylelint-order'],
