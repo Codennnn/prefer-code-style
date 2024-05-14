@@ -47,7 +47,6 @@ ESLint 的配置是根据项目类型拆分的，你可以按需进行组合。
 
 ```js
 // 假设你的项目使用了 TypeScript：
-const { resolve } = require('path')
 const { TYPESCRIPT_FILES } = require('prefer-code-style/constants')
 
 module.exports = {
@@ -133,8 +132,8 @@ code --install-extension bradlc.vscode-tailwindcss
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   }
 }
 ```
