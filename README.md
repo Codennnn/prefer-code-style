@@ -173,7 +173,7 @@ code --install-extension bradlc.vscode-tailwindcss
 <summary>查看插件</summary>
 
 - [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier#readme)
-- [stylelint-config-rational-order](https://github.com/constverum/stylelint-config-rational-order#readme)
+- [stylelint-config-clean-order](https://github.com/kutsan/stylelint-config-clean-order#readme)
 - [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard#readme)
 - [stylelint-order](https://github.com/hudochenkov/stylelint-order#readme)
 - [stylelint-prettier](https://github.com/prettier/stylelint-prettier#readme)
