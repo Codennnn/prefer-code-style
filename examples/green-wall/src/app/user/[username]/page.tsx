@@ -2,28 +2,28 @@ import type { Metadata } from 'next'
 
 import { DataProvider } from '~/DataContext'
 
-import { SharePage } from './SharePage'
+import { UserPage } from './UserPage'
 
 type GenerateMetadata = (params: { params: { username: string } }) => Metadata
 
 export const generateMetadata: GenerateMetadata = ({ params }) => {
   const username = params.username
-  const sharingTitle = `${username}'s GitHub contributions`
-  const sharingDescription = `I just made a GitHub contributions graph in review!`
+  const title = `${username}'s GitHub contributions`
+  const description = `${username}'s GitHub contributions.`
   const sharingURL = `https://green-wall.leoku.dev/share/${username}`
   const image = `https://green-wall.leoku.dev/api/og/share/${username}`
 
   return {
     title: `${username}'s GitHub contributions in review · Green Wall`,
     openGraph: {
-      title: sharingTitle,
-      description: sharingDescription,
+      title,
+      description,
       url: sharingURL,
       images: image,
     },
     twitter: {
-      title: sharingTitle,
-      description: sharingDescription,
+      title,
+      description,
       card: 'summary_large_image',
       images: image,
     },
@@ -33,7 +33,7 @@ export const generateMetadata: GenerateMetadata = ({ params }) => {
 export default function Page() {
   return (
     <DataProvider key="share">
-      <SharePage />
+      <UserPage />
     </DataProvider>
   )
 }
