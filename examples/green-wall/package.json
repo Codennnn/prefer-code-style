@@ -11,7 +11,7 @@
     "dev:script": "tsc plugins/script --watch",
     "lint": "run-p lint:ts lint:es lint:css",
     "lint:css": "stylelint **/*.css",
-    "lint:es": "eslint **/*.{ts,tsx}",
+    "lint:es": "eslint ./**/*.{ts,tsx}",
     "lint:ts": "tsc --noEmit --skipLibCheck",
     "start": "next start"
   },
