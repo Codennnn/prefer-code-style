@@ -60,6 +60,7 @@
   "dependencies": {
     "@babel/core": "^7.24.5",
     "@babel/eslint-parser": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
     "@next/eslint-plugin-next": "~14.2.3",
     "@typescript-eslint/eslint-plugin": "~7.9.0",
     "@typescript-eslint/parser": "~7.9.0",
@@ -88,6 +89,9 @@
     "@types/node": "^20.12.12",
     "cz-conventional-changelog": "3.3.0",
     "prefer-code-style": "workspace:*"
+  },
+  "peerDependencies": {
+    "stylelint": "^16.5.0"
   },
   "packageManager": "pnpm@8.15.0",
   "engines": {

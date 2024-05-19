@@ -1,4 +1,4 @@
-const { COMMON_SORT_GROUPS } = require('../constants')
+const { JAVASCRIPT_FILES, COMMON_SORT_GROUPS } = require('../constants')
 
 module.exports = {
   extends: [
@@ -34,6 +34,19 @@ module.exports = {
       },
     ],
   },
+
+  overrides: [
+    {
+      files: JAVASCRIPT_FILES,
+      parser: '@babel/eslint-parser',
+      parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+          presets: ['@babel/preset-react'],
+        },
+      },
+    },
+  ],
 
   settings: {
     react: {
