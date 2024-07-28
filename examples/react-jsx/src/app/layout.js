@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import PropTypes from 'prop-types'
 
 import './globals.css'
 
@@ -15,4 +16,8 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>{children}</body>
     </html>
   )
+}
+
+RootLayout.propTypes = {
+  children: PropTypes.element,
 }
