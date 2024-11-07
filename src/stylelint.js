@@ -17,6 +17,8 @@ module.exports = {
   plugins: ['stylelint-less', 'stylelint-scss', 'stylelint-order'],
 
   rules: {
+    'prettier/prettier': [true, { severity: 'warning' }],
+
     'order/properties-order': [
       propertiesOrder,
       {
