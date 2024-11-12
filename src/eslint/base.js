@@ -23,6 +23,10 @@ module.exports = {
     'func-style': [1, 'declaration', { allowArrowFunctions: true }],
     'no-unused-vars': 1,
     curly: 1,
+    'padding-line-between-statements': [
+      1,
+      { blankLine: 'always', prev: '*', next: 'if' }, // This rule enforces a blank line before if statements.
+    ],
 
     'import/first': 1,
     'import/newline-after-import': 1,
