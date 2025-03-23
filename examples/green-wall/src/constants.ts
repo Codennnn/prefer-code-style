@@ -37,7 +37,9 @@ export const sizeProperties = {
 >
 
 export const DEFAULT_SIZE: GraphSize = GraphSize.Small
+
 export const DEFAULT_THEME: Themes = 'GitHub'
+
 export const DEFAULT_DISPLAY_NAME: DisplayName = DisplayName.Username
 
 export const THEMES = [

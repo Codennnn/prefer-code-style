@@ -79,7 +79,11 @@ export default function AboutPage() {
         <SectionTitle>Reporting issues</SectionTitle>
         <Paragraph>
           Got bugs or have any suggestions for this project? Welcome to leave your message on the{' '}
-          <TextLink passHref href="https://github.com/Codennnn/Green-Wall/issues" target="_blank">
+          <TextLink
+            passHref
+            href="https://github.com/Codennnn/Green-Wall/issues"
+            target="_blank"
+          >
             GitHub issues.
           </TextLink>
         </Paragraph>

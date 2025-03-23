@@ -40,15 +40,17 @@ export async function fetchGitHubUser(username: string): Promise<ContributionBas
     throw new Error(`fetch error: ${res.statusText}.`)
   }
 
-  const json: GitHubApiJson<{ user: GitHubUser | null }> = await res.json()
+  const json = await res.json() as GitHubApiJson<{ user: GitHubUser | null }>
 
   if (!json.data?.user) {
     if (json.errors) {
       const error = json.errors.at(0)
+
       if (error) {
         throw new Error(error.message)
       }
     }
+
     throw new Error(json.message)
   }
 
@@ -100,7 +102,7 @@ export async function fetchContributionsCollection(
     throw new Error(`fetch error: ${res.statusText}.`)
   }
 
-  const json: GitHubApiJson<{ user: GitHubContributionCalendar | null }> = await res.json()
+  const json = await res.json() as GitHubApiJson<{ user: GitHubContributionCalendar | null }>
 
   if (!json.data?.user) {
     throw new Error(json.message)

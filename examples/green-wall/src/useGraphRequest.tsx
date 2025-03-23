@@ -31,6 +31,7 @@ export function useGraphRequest(config: { onError?: () => void } = {}) {
         if (err instanceof Error) {
           trackEvent('Error: Fetch Ccontribution Data', { msg: err.message })
         }
+
         onError()
       } finally {
         setLoading(false)

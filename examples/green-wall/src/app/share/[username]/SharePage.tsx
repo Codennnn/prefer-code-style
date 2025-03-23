@@ -1,10 +1,9 @@
 'use client'
 
-import { useEffect, useMemo } from 'react'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import { useParams, useSearchParams } from 'next/navigation'
+import { useEffect, useMemo } from 'react'
 
 import { ContributionsGraph } from '~/components/ContributionsGraph'
 import { ErrorMessage } from '~/components/ErrorMessage'

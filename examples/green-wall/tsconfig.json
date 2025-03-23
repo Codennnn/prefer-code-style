@@ -4,14 +4,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"],
+      "~/*": ["./src/*"]
     },
     "plugins": [
       {
-        "name": "next",
-      },
+        "name": "next"
+      }
     ],
-    "strictNullChecks": true,
+    "strictNullChecks": true
   },
 
   "include": [
@@ -20,7 +20,8 @@
     "plugins/**/*",
     ".next/types/**/*.ts",
     "./tailwind.config.ts",
+    "./eslint.config.mjs"
   ],
 
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }

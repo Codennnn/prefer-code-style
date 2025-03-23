@@ -24,6 +24,7 @@ export interface Theme {
 }
 
 export type GitHubUsername = string
+
 export type ContributionYear = number
 
 export interface GitHubUser {
@@ -82,5 +83,5 @@ export interface GraphSettings {
 export interface GitHubApiJson<Data> {
   data?: Data
   message?: string
-  errors?: { type: string; message: string }[]
+  errors?: { type: string, message: string }[]
 }

@@ -123,8 +123,8 @@ if (isProfile) {
         let td = '<td></td>'
 
         if (col.level !== ContributionLevel.Null) {
-          const level =
-            col.level === ContributionLevel.NONE
+          const level
+            = col.level === ContributionLevel.NONE
               ? 0
               : col.level === ContributionLevel.FIRST_QUARTILE
                 ? 1
@@ -339,7 +339,6 @@ if (isProfile) {
         retryBtn.classList.add('btn')
         retryBtn.textContent = 'Retry'
         retryBtn.addEventListener('click', () => {
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           handleLoadData()
         })
 

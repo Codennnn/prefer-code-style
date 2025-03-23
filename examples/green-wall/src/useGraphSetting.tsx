@@ -7,34 +7,34 @@ type State = GraphSettings
 
 type Action =
   | {
-      type: 'size'
-      payload: State['size']
-    }
+    type: 'size'
+    payload: State['size']
+  }
   | {
-      type: 'displayName'
-      payload: State['displayName']
-    }
+    type: 'displayName'
+    payload: State['displayName']
+  }
   | {
-      type: 'yearRange'
-      payload: State['yearRange']
-    }
+    type: 'yearRange'
+    payload: State['yearRange']
+  }
   | {
-      type: 'showAttribution'
-      payload: State['showAttribution']
-    }
+    type: 'showAttribution'
+    payload: State['showAttribution']
+  }
   | {
-      type: 'theme'
-      payload: State['theme']
-    }
+    type: 'theme'
+    payload: State['theme']
+  }
   | {
-      type: 'reset'
-      payload?: never
-    }
+    type: 'reset'
+    payload?: never
+  }
   | {
-      /** Replace all existing settings. */
-      type: 'replace'
-      payload?: State
-    }
+    /** Replace all existing settings. */
+    type: 'replace'
+    payload?: State
+  }
 
 const initialState: State = {
   size: DEFAULT_SIZE,
@@ -68,6 +68,7 @@ export function useGraphSetting() {
         if (payload) {
           return payload
         }
+
         return state
 
       default:
