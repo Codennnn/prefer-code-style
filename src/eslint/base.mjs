@@ -1,7 +1,9 @@
 import eslint from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
+import packageJson from 'eslint-plugin-package-json'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+
+import { NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS } from '../constants.mjs'
 
 export default [
   {
@@ -9,18 +11,46 @@ export default [
   },
 
   eslint.configs.recommended,
-  // eslintPluginPrettierRecommended,
 
-  stylistic.configs.customize({
-    flat: true,
-    indent: 2,
-    quotes: 'single',
-    semi: false,
-    jsx: false,
-    commaDangle: 'always-multiline',
-    arrowParens: 'always',
-    braceStyle: '1tbs',
-  }),
+  stylistic.configs.customize(NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS),
+
+  {
+    rules: {
+      '@stylistic/array-bracket-newline': ['warn', { multiline: true }],
+
+      '@stylistic/brace-style': ['warn', 'stroustrup', { allowSingleLine: false }],
+
+      '@stylistic/curly-newline': ['warn', { consistent: true }],
+
+      '@stylistic/max-len': [
+        'warn',
+        {
+          code: 100,
+          ignoreUrls: true,
+          ignoreComments: true,
+          ignoreTrailingComments: true,
+          ignoreStrings: true,
+          ignoreTemplateLiterals: true,
+          ignoreRegExpLiterals: true,
+        },
+      ],
+
+      '@stylistic/no-extra-parens': ['warn', 'all'],
+
+      '@stylistic/padded-blocks': ['error', 'never'],
+
+      '@stylistic/padding-line-between-statements': [
+        'warn',
+        { blankLine: 'always', prev: '*', next: 'block-like' },
+        { blankLine: 'always', prev: 'block-like', next: '*' },
+        {
+          blankLine: 'always',
+          prev: '*',
+          next: ['export', 'case', 'default', 'return', 'class'],
+        },
+      ],
+    },
+  },
 
   {
     plugins: {
@@ -32,23 +62,5 @@ export default [
     },
   },
 
-  {
-    plugins: {
-      '@stylistic': stylistic,
-    },
-    rules: {
-      '@stylistic/padding-line-between-statements': [
-        'error',
-        { blankLine: 'always', prev: '*', next: 'block-like' },
-        { blankLine: 'always', prev: 'block-like', next: '*' },
-        {
-          blankLine: 'always',
-          prev: '*',
-          next: ['export', 'case', 'default', 'return', 'class'],
-        },
-      ],
-
-      '@stylistic/quote-props': ['error', 'as-needed'],
-    },
-  },
+  packageJson.configs.recommended,
 ]

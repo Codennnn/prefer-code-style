@@ -24,16 +24,19 @@ export function useGraphRequest(config: { onError?: () => void } = {}) {
 
         if (res.ok) {
           return resJson.data
-        } else {
+        }
+        else {
           setError({ errorType: resJson.errorType, message: resJson.message })
         }
-      } catch (err) {
+      }
+      catch (err) {
         if (err instanceof Error) {
           trackEvent('Error: Fetch Ccontribution Data', { msg: err.message })
         }
 
         onError()
-      } finally {
+      }
+      finally {
         setLoading(false)
       }
     },

@@ -23,6 +23,9 @@
     ".": {
       "require": "./src/index.js"
     },
+    "./constants": {
+      "import": "./src/constants.mjs"
+    },
     "./eslint/*": {
       "import": "./src/eslint/*.mjs"
     },
@@ -37,9 +40,6 @@
     },
     "./stylelint": {
       "require": "./src/stylelint.js"
-    },
-    "./constants": {
-      "import": "./src/constants.mjs"
     }
   },
   "files": [
@@ -63,9 +63,8 @@
     "@next/eslint-plugin-next": "~15.2.3",
     "@stylistic/eslint-plugin": "^4.2.0",
     "eslint": "~9.23.0",
-    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "~5.2.3",
+    "eslint-plugin-package-json": "^0.29.0",
     "eslint-plugin-react": "~7.37.4",
     "eslint-plugin-react-hooks": "~5.2.0",
     "eslint-plugin-simple-import-sort": "~12.1.1",

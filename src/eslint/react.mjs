@@ -1,34 +1,24 @@
 import reactPlugin from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 
-import { COMMON_SORT_GROUPS } from '../constants.mjs'
+import { COMMON_SORT_GROUPS, JAVASCRIPT_FILES, TYPESCRIPT_FILES } from '../constants.mjs'
+import jsx from './jsx.mjs'
 
 export default [
+  ...jsx,
+
   {
-    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    files: [...JAVASCRIPT_FILES, ...TYPESCRIPT_FILES],
 
     ...reactPlugin.configs.flat.recommended,
     ...reactPlugin.configs.flat['jsx-runtime'],
 
     rules: {
-      'react/jsx-sort-props': [
-        1,
-        {
-          callbacksLast: true,
-          shorthandFirst: true,
-          shorthandLast: false,
-          ignoreCase: false,
-          noSortAlphabetically: false,
-          reservedFirst: true,
-        },
-      ],
-
       'simple-import-sort/imports': [
         1,
         {
           groups: [
-            // Packages `react` related packages come first.
-            ['^react'],
+            ['^react'], // Packages `react` related packages come first.
             ['^@?\\w'],
             // Internal packages.
             ['^(~|@)(/.*|$)'],

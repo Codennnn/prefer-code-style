@@ -66,15 +66,18 @@ if (isProfile) {
             if (theDay && typeof theDay.weekday === 'number') {
               if (theDay.weekday === weekday) {
                 rows[theDay.weekday].push(theDay)
-              } else {
+              }
+              else {
                 newDays.splice(i, 0, nullDay)
                 rows[i].push(nullDay)
               }
-            } else {
+            }
+            else {
               rows[i].push(nullDay)
             }
           }
-        } else {
+        }
+        else {
           days.forEach((day) => {
             if (typeof day.weekday === 'number') {
               rows[day.weekday].push(day)
@@ -372,7 +375,8 @@ if (isProfile) {
               })
 
               hasLoaded = true
-            } catch {
+            }
+            catch {
               handleLoadError()
             }
           },
@@ -396,7 +400,8 @@ if (isProfile) {
         handleDialogOpen()
       })
     }
-  } else {
+  }
+  else {
     console.warn('[Green Wall]: Target node not found.')
   }
 }

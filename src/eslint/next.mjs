@@ -1,9 +1,9 @@
 import nextPlugin from '@next/eslint-plugin-next'
 
-import { COMMON_SORT_GROUPS } from '../constants.mjs'
+import { COMMON_SORT_GROUPS, JAVASCRIPT_FILES, TYPESCRIPT_FILES } from '../constants.mjs'
 
 export default {
-  files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.mjs'],
+  files: [...JAVASCRIPT_FILES, ...TYPESCRIPT_FILES],
 
   ignores: ['public/**', 'next-env.d.ts', '.next/**'],
 
