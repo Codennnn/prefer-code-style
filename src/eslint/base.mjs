@@ -17,6 +17,7 @@ export default [
   {
     rules: {
       'no-unused-vars': 'warn',
+      eqeqeq: ['warn', 'always'],
 
       '@stylistic/array-bracket-newline': ['warn', { multiline: true }],
 
