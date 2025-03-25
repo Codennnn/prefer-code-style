@@ -20,6 +20,15 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/no-use-before-define': [
+        'warn',
+        {
+          functions: true,
+          classes: true,
+          variables: true,
+          typedefs: false, // 允许类型在定义前使用
+        },
+      ],
       '@typescript-eslint/restrict-template-expressions': [
         'warn',
         {
