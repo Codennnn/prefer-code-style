@@ -4,6 +4,6 @@ export default [
   ...base,
 
   {
-    ignores: ['src/eslint-legacy/**', 'examples/**'],
+    ignores: ['examples/**'],
   },
 ]

@@ -20,7 +20,7 @@ export function useGraphRequest(config: { onError?: () => void } = {}) {
         setLoading(true)
 
         const res = await fetch(`/api/contribution/${username}`)
-        const resJson: ResponseData = await res.json()
+        const resJson = await res.json() as ResponseData
 
         if (res.ok) {
           return resJson.data
@@ -40,7 +40,7 @@ export function useGraphRequest(config: { onError?: () => void } = {}) {
         setLoading(false)
       }
     },
-    [onError]
+    [onError],
   )
 
   return {

@@ -8,7 +8,7 @@ const isDev: boolean = process.env.NODE_ENV === 'development'
 
 export function trackEvent(
   event: string,
-  data?: Record<string, string | number | boolean | undefined | null>
+  data?: Record<string, string | number | boolean | undefined | null>,
 ): void {
   if (isDev) {
     return

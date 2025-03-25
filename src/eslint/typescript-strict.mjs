@@ -1,30 +1,30 @@
 import tseslint from 'typescript-eslint'
 
-import { TYPESCRIPT_FILES } from '../constants.mjs'
+import { JAVASCRIPT_FILES, TYPESCRIPT_FILES } from '../constants.mjs'
 
 export default tseslint.config(
-  tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
 
   {
+    files: TYPESCRIPT_FILES,
+
     languageOptions: {
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
-  },
 
-  {
-    files: ['**/*.js'],
-    extends: [tseslint.configs.disableTypeChecked],
-  },
-
-  {
-    files: TYPESCRIPT_FILES,
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
     },
+  },
+
+  {
+    files: JAVASCRIPT_FILES,
+    extends: [tseslint.configs.disableTypeChecked],
   },
 )

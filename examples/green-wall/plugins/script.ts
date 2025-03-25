@@ -101,7 +101,7 @@ if (isProfile) {
   }
 
   const createGraph = (
-    params: Calendar
+    params: Calendar,
   ): {
     graphItem: HTMLDivElement
   } => {
@@ -189,7 +189,7 @@ if (isProfile) {
       'Overlay--motion-scaleFadeOverlay',
       'Overlay-whenNarrow',
       'Overlay--size-medium-portrait',
-      'Overlay--motion-scaleFade'
+      'Overlay--motion-scaleFade',
     )
     dialog.style.minWidth = '720px'
     dialog.style.maxHeight = 'calc(100vh - 50px)'
@@ -262,7 +262,7 @@ if (isProfile) {
     dialogFooter.classList.add(
       'Overlay-footer',
       'Overlay-footer--alignEnd',
-      'Overlay-footer--divided'
+      'Overlay-footer--divided',
     )
     const openExtrnalBtn = document.createElement('button')
     const btnContent = document.createElement('span')
@@ -307,7 +307,7 @@ if (isProfile) {
         'mt-3',
         'clearfix',
         'hide-sm',
-        'hide-md'
+        'hide-md',
       )
 
       const title = document.createElement('h2')
@@ -366,7 +366,7 @@ if (isProfile) {
             try {
               dialogContent.innerHTML = ''
 
-              const data: Data = JSON.parse(response.responseText)
+              const data = JSON.parse(response.responseText) as Data
               const xData = produceData(data)
 
               xData.contributionCalendars.forEach((calendar) => {

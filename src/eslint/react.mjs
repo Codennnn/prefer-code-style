@@ -18,10 +18,9 @@ export default [
         1,
         {
           groups: [
-            ['^react'], // Packages `react` related packages come first.
-            ['^@?\\w'],
-            // Internal packages.
-            ['^(~|@)(/.*|$)'],
+            ['^react'], // React related packages come first.
+            ['^next', '^@next', '^@?\\w'], // Next.js related packages.
+            ['^(~|@)(/.*|$)'], // Internal packages.
             ...COMMON_SORT_GROUPS,
           ],
         },

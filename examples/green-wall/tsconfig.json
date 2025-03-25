@@ -17,10 +17,9 @@
   "include": [
     "next-env.d.ts",
     "src/**/*",
-    "plugins/**/*",
+    "plugins/**/*.ts",
     ".next/types/**/*.ts",
-    "./tailwind.config.ts",
-    "./eslint.config.mjs"
+    "./tailwind.config.ts"
   ],
 
   "exclude": ["node_modules"]

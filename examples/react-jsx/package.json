@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "deps": "pnpm up --interactive --latest",
     "dev": "next dev",
     "lint": "run-p lint:es lint:css",
     "lint:css": "stylelint **/*.css",
     "lint:es": "eslint **/*.{js,jsx}",
-    "start": "next start",
-    "deps": "pnpm up --interactive --latest"
+    "start": "next start"
   },
   "dependencies": {
     "next": "14.2.3",

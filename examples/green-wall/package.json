@@ -1,4 +1,5 @@
 {
+  "version": "0.0.1",
   "name": "green-wall",
   "private": true,
   "description": "GitHub contribution graph generator. Review all the contributions you've made to GitHub over the years.",

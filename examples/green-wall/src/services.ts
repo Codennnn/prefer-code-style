@@ -61,7 +61,7 @@ export async function fetchGitHubUser(username: string): Promise<ContributionBas
 
 export async function fetchContributionsCollection(
   username: string,
-  year: ContributionYear
+  year: ContributionYear,
 ): Promise<ContributionCalendar> {
   if (!GAT) {
     throw new Error('Require GITHUB ACCESS TOKEN.')
@@ -74,7 +74,7 @@ export async function fetchContributionsCollection(
         {
           user(login: "${username}") {
             contributionsCollection(from: "${new Date(
-              `${year}-01-01`
+              `${year}-01-01`,
             ).toISOString()}", to: "${new Date(`${year}-12-31`).toISOString()}") {
               contributionCalendar {
                 total: totalContributions
