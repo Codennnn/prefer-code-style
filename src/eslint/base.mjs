@@ -16,8 +16,10 @@ export default [
 
   {
     rules: {
+      curly: 'warn',
       'no-unused-vars': 'warn',
       eqeqeq: ['warn', 'always'],
+      'no-console': 'warn',
 
       '@stylistic/array-bracket-newline': ['warn', { multiline: true }],
 

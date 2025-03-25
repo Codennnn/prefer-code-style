@@ -78,9 +78,6 @@
     "cz-conventional-changelog": "3.3.0",
     "prefer-code-style": "workspace:*"
   },
-  "peerDependencies": {
-    "stylelint": "^16.5.0"
-  },
   "packageManager": "pnpm@9.15.3",
   "engines": {
     "node": ">=20"
