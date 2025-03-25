@@ -1,4 +1,6 @@
-const { propertyGroups } = require('stylelint-config-clean-order')
+import { propertyGroups } from 'stylelint-config-clean-order'
+
+import { PRETTIER_CONFIG } from './constants.mjs'
 
 const propertiesOrder = propertyGroups.map((properties) => ({
   noEmptyLineBetween: true,
@@ -6,24 +8,47 @@ const propertiesOrder = propertyGroups.map((properties) => ({
   properties,
 }))
 
-module.exports = {
+/** @type {import('stylelint').Config} */
+export default {
   extends: [
     'stylelint-config-standard',
-    'stylelint-config-recommended',
     'stylelint-config-clean-order',
     'stylelint-prettier/recommended',
+    'stylelint-config-tailwindcss',
   ],
 
-  plugins: ['stylelint-less', 'stylelint-scss', 'stylelint-order'],
+  overrides: [
+    {
+      files: ['*.scss', '**/*.scss'],
+      customSyntax: 'postcss-scss',
+    },
+
+    {
+      files: ['*.js'],
+      customSyntax: 'postcss-lit',
+    },
+  ],
 
   rules: {
-    'prettier/prettier': [true, { severity: 'warning' }],
+    'prettier/prettier': [
+      true, {
+        severity: 'warning',
+        ...PRETTIER_CONFIG,
+      },
+    ],
 
     'order/properties-order': [
       propertiesOrder,
       {
         severity: 'warning',
         unspecified: 'bottomAlphabetical',
+      },
+    ],
+
+    'at-rule-no-deprecated': [
+      true,
+      {
+        ignoreAtRules: ['apply'],
       },
     ],
 
@@ -46,9 +71,14 @@ module.exports = {
 
     'color-function-notation': 'modern',
 
+    'selector-id-pattern': '^[a-zA-Z_]+$',
     'selector-class-pattern':
       '^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$',
   },
+
+  reportDescriptionlessDisables: true,
+  reportInvalidScopeDisables: true,
+  reportNeedlessDisables: true,
 
   ignoreFiles: ['build/**/*.css'],
 }

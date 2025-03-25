@@ -20,9 +20,6 @@
   "license": "MIT",
   "author": "LeoKu <leokudev@gmail.com> (https://leoku.dev)",
   "exports": {
-    ".": {
-      "require": "./src/index.js"
-    },
     "./constants": {
       "import": "./src/constants.mjs"
     },
@@ -35,11 +32,8 @@
     "./eslint/rules/*": {
       "import": "./src/eslint/rules/*.mjs"
     },
-    "./prettier": {
-      "require": "./src/prettier.js"
-    },
     "./stylelint": {
-      "require": "./src/stylelint.js"
+      "import": "./src/stylelint.mjs"
     }
   },
   "files": [
@@ -60,7 +54,7 @@
   "dependencies": {
     "@babel/core": "^7.25.2",
     "@eslint/js": "^9.23.0",
-    "@next/eslint-plugin-next": "~15.2.3",
+    "@next/eslint-plugin-next": "~15.2.4",
     "@stylistic/eslint-plugin": "^4.2.0",
     "eslint": "~9.23.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -70,21 +64,17 @@
     "eslint-plugin-simple-import-sort": "~12.1.1",
     "eslint-plugin-tailwindcss": "~3.18.0",
     "globals": "^16.0.0",
-    "prettier": "~3.3.3",
-    "prettier-plugin-packagejson": "~2.5.3",
     "stylelint": "^16.16.0",
-    "stylelint-config-clean-order": "^6.1.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-recommended": "^14.0.1",
-    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-clean-order": "^7.0.0",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-tailwindcss": "^1.0.0",
     "stylelint-less": "^3.0.1",
-    "stylelint-order": "^6.0.4",
     "stylelint-prettier": "^5.0.3",
     "stylelint-scss": "^6.11.1",
-    "typescript-eslint": "^8.27.0"
+    "typescript-eslint": "^8.28.0"
   },
   "devDependencies": {
-    "@types/node": "^20.14.0",
+    "@types/node": "^22.13.13",
     "cz-conventional-changelog": "3.3.0",
     "prefer-code-style": "workspace:*"
   },

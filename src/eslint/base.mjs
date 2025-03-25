@@ -16,6 +16,8 @@ export default [
 
   {
     rules: {
+      'no-unused-vars': 'warn',
+
       '@stylistic/array-bracket-newline': ['warn', { multiline: true }],
 
       '@stylistic/brace-style': ['warn', 'stroustrup', { allowSingleLine: false }],
