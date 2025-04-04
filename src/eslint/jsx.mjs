@@ -11,7 +11,7 @@ export default [
   {
     rules: {
       '@stylistic/jsx-curly-brace-presence': [
-        'warn',
+        1,
         {
           props: 'never',
           children: 'never',
@@ -19,14 +19,14 @@ export default [
         },
       ],
 
-      '@stylistic/jsx-first-prop-new-line': ['warn', 'multiline'],
+      '@stylistic/jsx-first-prop-new-line': [1, 'multiline'],
 
-      '@stylistic/jsx-one-expression-per-line': ['warn', { allow: 'non-jsx' }],
+      '@stylistic/jsx-one-expression-per-line': [1, { allow: 'non-jsx' }],
 
-      '@stylistic/jsx-props-no-multi-spaces': ['warn'],
+      '@stylistic/jsx-props-no-multi-spaces': [1],
 
       '@stylistic/jsx-self-closing-comp': [
-        'warn',
+        1,
         {
           component: true,
           html: true,
@@ -34,7 +34,7 @@ export default [
       ],
 
       '@stylistic/jsx-sort-props': [
-        'warn',
+        1,
         {
           ignoreCase: false,
           shorthandFirst: true,

@@ -36,9 +36,9 @@ export default tseslint.config(
   {
     files: TYPESCRIPT_FILES,
     rules: {
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/no-explicit-any': 1,
+      '@typescript-eslint/no-floating-promises': 1,
+      '@typescript-eslint/no-unsafe-argument': 1,
     },
   },
 )

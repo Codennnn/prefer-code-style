@@ -17,11 +17,13 @@ export default tseslint.config(
     },
 
     rules: {
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/no-explicit-any': 1,
+      '@typescript-eslint/no-floating-promises': 1,
+      '@typescript-eslint/no-unsafe-argument': 1,
+      '@typescript-eslint/no-unsafe-call': 0,
+      '@typescript-eslint/no-non-null-assertion': 0,
       '@typescript-eslint/no-use-before-define': [
-        'warn',
+        1,
         {
           functions: true,
           classes: true,
@@ -30,7 +32,7 @@ export default tseslint.config(
         },
       ],
       '@typescript-eslint/restrict-template-expressions': [
-        'warn',
+        1,
         {
           allowNumber: true,
         },

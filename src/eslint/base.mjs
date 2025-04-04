@@ -20,19 +20,19 @@ export default [
 
   {
     rules: {
-      curly: 'warn',
-      'no-unused-vars': 'warn',
-      eqeqeq: ['warn', 'always'],
-      'no-console': 'warn',
+      curly: 1,
+      'no-unused-vars': 1,
+      eqeqeq: [1, 'always'],
+      'no-console': [1, { allow: ['warn', 'error'] }],
 
-      '@stylistic/array-bracket-newline': ['warn', { multiline: true }],
+      '@stylistic/array-bracket-newline': [1, { multiline: true }],
 
-      '@stylistic/brace-style': ['warn', 'stroustrup', { allowSingleLine: false }],
+      '@stylistic/brace-style': [1, 'stroustrup', { allowSingleLine: false }],
 
-      '@stylistic/curly-newline': ['warn', { consistent: true }],
+      '@stylistic/curly-newline': [1, { consistent: true }],
 
       '@stylistic/max-len': [
-        'warn',
+        1,
         {
           code: 100,
           ignoreUrls: true,
@@ -44,12 +44,12 @@ export default [
         },
       ],
 
-      '@stylistic/no-extra-parens': ['warn', 'all'],
+      '@stylistic/no-extra-parens': [1, 'all'],
 
-      '@stylistic/padded-blocks': ['error', 'never'],
+      '@stylistic/padded-blocks': [2, 'never'],
 
       '@stylistic/padding-line-between-statements': [
-        'warn',
+        1,
         { blankLine: 'always', prev: '*', next: 'block-like' },
         { blankLine: 'always', prev: 'block-like', next: '*' },
         {
@@ -61,6 +61,7 @@ export default [
 
       'import-x/newline-after-import': 1,
       'import-x/no-unresolved': 0,
+      'import-x/namespace': 0,
     },
   },
 
@@ -69,8 +70,8 @@ export default [
       'simple-import-sort': simpleImportSort,
     },
     rules: {
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
+      'simple-import-sort/imports': 2,
+      'simple-import-sort/exports': 2,
     },
   },
 
