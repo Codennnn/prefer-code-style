@@ -94,18 +94,6 @@ export default [
 ]
 ```
 
-### Prettier:
-
-添加 `prettier.config.mjs`，配置如下：
-
-```js
-import { PRETTIER_CONFIG } from 'prefer-code-style/constants'
-
-export default {
-  ...PRETTIER_CONFIG,
-}
-```
-
 ### Stylelint:
 
 添加 `stylelint.config.mjs`，配置如下：
