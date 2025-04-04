@@ -1,5 +1,5 @@
 import eslint from '@eslint/js'
-// eslint-disable-next-line import-x/default, import-x/no-named-as-default, import-x/no-named-as-default-member, import-x/namespace
+// eslint-disable-next-line import-x/default, import-x/no-named-as-default, import-x/no-named-as-default-member
 import stylistic from '@stylistic/eslint-plugin'
 import { flatConfigs as eslintPluginImportXFlatConfigs } from 'eslint-plugin-import-x'
 import packageJson from 'eslint-plugin-package-json'
@@ -55,7 +55,25 @@ export default [
         {
           blankLine: 'always',
           prev: '*',
-          next: ['export', 'case', 'default', 'return', 'class'],
+          next: ['case', 'default', 'return', 'class'],
+        },
+        {
+          blankLine: 'always',
+          prev: ['expression', 'const'],
+          next: ['export'],
+        },
+        {
+          blankLine: 'always',
+          prev: ['export'],
+          next: ['expression', 'const'],
+        },
+        {
+          blankLine: 'always',
+          prev: 'directive',
+          next: '*',
+        },
+        {
+          blankLine: 'any', prev: 'directive', next: 'directive',
         },
       ],
 
