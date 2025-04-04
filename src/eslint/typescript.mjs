@@ -1,9 +1,13 @@
+import tsParser from '@typescript-eslint/parser'
+import eslintPluginImportX from 'eslint-plugin-import-x'
 import tseslint from 'typescript-eslint'
 
-import { TYPESCRIPT_FILES } from '../constants.mjs'
+import { JAVASCRIPT_FILES, TYPESCRIPT_FILES } from '../constants.mjs'
 
 export default tseslint.config(
   tseslint.configs.recommendedTypeChecked,
+
+  eslintPluginImportX.flatConfigs.typescript,
 
   {
     languageOptions: {
@@ -11,6 +15,16 @@ export default tseslint.config(
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
+    },
+  },
+
+  {
+    files: [...TYPESCRIPT_FILES, ...JAVASCRIPT_FILES],
+    ignores: ['eslint.config.js'],
+    languageOptions: {
+      parser: tsParser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
     },
   },
 
