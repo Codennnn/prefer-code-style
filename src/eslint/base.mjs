@@ -24,6 +24,14 @@ export default [
       'no-unused-vars': 1,
       eqeqeq: [1, 'always'],
       'no-console': [1, { allow: ['warn', 'error'] }],
+      quotes: [
+        1,
+        'single',
+        {
+          avoidEscape: true,
+          allowTemplateLiterals: false,
+        },
+      ],
 
       '@stylistic/array-bracket-newline': [1, { multiline: true }],
 
