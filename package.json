@@ -32,6 +32,9 @@
     "./eslint/rules/*": {
       "import": "./src/eslint/rules/*.mjs"
     },
+    "./prettier": {
+      "import": "./src/prettier.mjs"
+    },
     "./stylelint": {
       "import": "./src/stylelint.mjs"
     }

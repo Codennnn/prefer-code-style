@@ -32,77 +32,89 @@ yarn add -D prefer-code-style
 
 ### ESLint:
 
-ESLint 的配置是根据项目类型拆分的，你可以按需进行组合。
+ESLint 已经升级到采用新的 flat config 格式，配置更加简洁直观。
 
-以下是可用的扩展配置：
+以下是可用的配置模块：
 
-- prefer-code-style/node
-- prefer-code-style/browser
-- prefer-code-style/typescript
-- prefer-code-style/react
-- prefer-code-style/next
-- prefer-code-style/tailwindcss
+- prefer-code-style/eslint/base
+- prefer-code-style/eslint/browser
+- prefer-code-style/eslint/node
+- prefer-code-style/eslint/typescript
+- prefer-code-style/eslint/typescript-strict
+- prefer-code-style/eslint/react
+- prefer-code-style/eslint/jsx
+- prefer-code-style/eslint/jsx-a11y
+- prefer-code-style/eslint/next
+- prefer-code-style/eslint/vue
+- prefer-code-style/eslint/tailwindcss
 
-添加 `.eslintrc.js`，配置示例如下：
+添加 `eslint.config.mjs`，配置示例如下：
 
 ```js
-// 假设你的项目使用了 TypeScript：
-const { TYPESCRIPT_FILES } = require('prefer-code-style/constants')
+// 假设你的项目使用了 TypeScript + React：
+import base from 'prefer-code-style/eslint/base'
+import typescript from 'prefer-code-style/eslint/typescript'
+import react from 'prefer-code-style/eslint/react'
 
-module.exports = {
-  extends: [
-    require.resolve('prefer-code-style/eslint/node'),
-    require.resolve('prefer-code-style/eslint/browser'),
-    require.resolve('prefer-code-style/eslint/typescript'),
-  ],
-  rules: {
-    /* 你仍然可以在这里配置你的规则偏好。 */
-  },
-  overrides: [
-    {
-      files: TYPESCRIPT_FILES,
-      parserOptions: {
-        project: true, // <- 添加此配置指明你项目中 tsconfig.json 的位置
-        tsconfigRootDir: __dirname,
-      },
+export default [
+  ...base,
+  ...typescript,
+  ...react,
+  {
+    // 你仍然可以在这里添加自定义规则
+    rules: {
+      // 自定义规则
     },
-  ],
-}
+  },
+]
 ```
 
-当然，这样的组合写起来也很麻烦，所以你还可以使用适用特定项目的预设的配置，比如这样：
+为了简化配置，我们也提供了适用于特定类型项目的预设配置：
 
 ```js
 // 适用于 Next.js 项目
-module.exports = {
-  extends: [require.resolve('prefer-code-style/eslint/preset/next')],
-}
+import nextPreset from 'prefer-code-style/eslint/preset/next'
+
+export default [
+  ...nextPreset,
+]
 
 // 适用于 Umi.js 项目
-module.exports = {
-  extends: [require.resolve('prefer-code-style/eslint/preset/umi')],
-}
+import umiPreset from 'prefer-code-style/eslint/preset/umi'
+
+export default [
+  ...umiPreset,
+]
+
+// 适用于标准项目
+import normalPreset from 'prefer-code-style/eslint/preset/normal'
+
+export default [
+  ...normalPreset,
+]
 ```
 
 ### Prettier:
 
-添加 `.prettierrc.js`，配置如下：
+添加 `prettier.config.mjs`，配置如下：
 
 ```js
-const prettier = require('prefer-code-style/prettier')
+import { PRETTIER_CONFIG } from 'prefer-code-style/constants'
 
-module.exports = {
-  ...prettier,
+export default {
+  ...PRETTIER_CONFIG,
 }
 ```
 
 ### Stylelint:
 
-添加 `.stylelintrc.js`，配置如下：
+添加 `stylelint.config.mjs`，配置如下：
 
 ```js
-module.exports = {
-  extends: [require.resolve('prefer-code-style/stylelint')],
+import stylelintPreset from 'prefer-code-style/stylelint'
+
+export default {
+  extends: [stylelintPreset],
 }
 ```
 
