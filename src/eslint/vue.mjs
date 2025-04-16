@@ -1,10 +1,12 @@
 import pluginVue from 'eslint-plugin-vue'
 
+import { VUE_FILES } from '../constants.mjs'
+
 export default [
   ...pluginVue.configs['flat/recommended'],
 
   {
-    files: ['**/*.vue'],
+    files: [VUE_FILES],
     rules: {
       'vue/attributes-order': [
         1,

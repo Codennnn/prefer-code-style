@@ -2,6 +2,8 @@ export const JAVASCRIPT_FILES = ['**/*.{js,jsx,mjs,cjs}']
 
 export const TYPESCRIPT_FILES = ['**/*.{ts,tsx,mts,cts}']
 
+export const VUE_FILES = ['**/*.{vue}']
+
 export const NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS = {
   indent: 2,
   quotes: 'single',

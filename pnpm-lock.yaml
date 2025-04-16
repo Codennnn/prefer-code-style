@@ -91,7 +91,7 @@ importers:
         specifier: workspace:*
         version: 'link:'
 
-  examples/green-wall:
+  examples/Green-Wall:
     dependencies:
       '@radix-ui/react-popover':
         specifier: ^1.0.7
