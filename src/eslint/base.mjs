@@ -54,7 +54,7 @@ export default [
 
       '@stylistic/no-extra-parens': [1, 'all'],
 
-      '@stylistic/padded-blocks': [2, 'never'],
+      '@stylistic/padded-blocks': [1, 'never'],
 
       '@stylistic/padding-line-between-statements': [
         1,
@@ -96,8 +96,8 @@ export default [
       'simple-import-sort': simpleImportSort,
     },
     rules: {
-      'simple-import-sort/imports': 2,
-      'simple-import-sort/exports': 2,
+      'simple-import-sort/imports': 1,
+      'simple-import-sort/exports': 1,
     },
   },
 
