@@ -1,3 +1,4 @@
+import importPlugin from 'eslint-plugin-import'
 import tseslint from 'typescript-eslint'
 
 import { JAVASCRIPT_FILES, TYPESCRIPT_FILES } from '../constants.mjs'
@@ -9,6 +10,8 @@ export default tseslint.config(
   {
     files: TYPESCRIPT_FILES,
 
+    extends: [importPlugin.flatConfigs.typescript],
+
     languageOptions: {
       parserOptions: {
         projectService: true,
@@ -17,6 +20,17 @@ export default tseslint.config(
     },
 
     rules: {
+      'import/no-duplicates': [1, { 'prefer-inline': true }],
+
+      '@typescript-eslint/consistent-type-imports': [
+        1,
+        {
+          prefer: 'type-imports',
+          fixStyle: 'separate-type-imports',
+          disallowTypeAnnotations: true,
+        },
+      ],
+
       '@typescript-eslint/no-explicit-any': 1,
       '@typescript-eslint/no-floating-promises': 1,
       '@typescript-eslint/no-unsafe-argument': 1,
@@ -37,6 +51,14 @@ export default tseslint.config(
           allowNumber: true,
         },
       ],
+    },
+
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
     },
   },
 

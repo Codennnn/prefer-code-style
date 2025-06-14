@@ -1,7 +1,6 @@
 import eslint from '@eslint/js'
-// eslint-disable-next-line import-x/default, import-x/no-named-as-default, import-x/no-named-as-default-member
 import stylistic from '@stylistic/eslint-plugin'
-import { flatConfigs as eslintPluginImportXFlatConfigs } from 'eslint-plugin-import-x'
+import importPlugin from 'eslint-plugin-import'
 import packageJson from 'eslint-plugin-package-json'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 
@@ -14,7 +13,7 @@ export default [
 
   eslint.configs.recommended,
 
-  eslintPluginImportXFlatConfigs.recommended,
+  importPlugin.flatConfigs.recommended,
 
   stylistic.configs.customize(NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS),
 
@@ -85,9 +84,10 @@ export default [
         },
       ],
 
-      'import-x/newline-after-import': 1,
-      'import-x/no-unresolved': 0,
-      'import-x/namespace': 0,
+      'import/newline-after-import': 1,
+      'import/no-unresolved': 0,
+      'import/namespace': 0,
+      'import/order': 0,
     },
   },
 

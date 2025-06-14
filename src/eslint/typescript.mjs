@@ -1,13 +1,11 @@
 import tsParser from '@typescript-eslint/parser'
-import eslintPluginImportX from 'eslint-plugin-import-x'
+import importPlugin from 'eslint-plugin-import'
 import tseslint from 'typescript-eslint'
 
 import { JAVASCRIPT_FILES, TYPESCRIPT_FILES } from '../constants.mjs'
 
 export default tseslint.config(
   tseslint.configs.recommendedTypeChecked,
-
-  eslintPluginImportX.flatConfigs.typescript,
 
   {
     languageOptions: {
@@ -35,6 +33,7 @@ export default tseslint.config(
 
   {
     files: TYPESCRIPT_FILES,
+    extends: [importPlugin.flatConfigs.typescript],
     rules: {
       '@typescript-eslint/no-explicit-any': 1,
       '@typescript-eslint/no-floating-promises': 1,
