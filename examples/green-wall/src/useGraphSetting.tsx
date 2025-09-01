@@ -5,8 +5,8 @@ import type { GraphSettings } from './types'
 
 type State = GraphSettings
 
-type Action =
-  | {
+type Action
+  = | {
     type: 'size'
     payload: State['size']
   }
@@ -72,7 +72,7 @@ export function useGraphSetting() {
         return state
 
       default:
-        throw new Error(`Not a valid action type.`)
+        throw new Error('Not a valid action type.')
     }
   }, initialState)
 }

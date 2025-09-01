@@ -1,19 +1,19 @@
 import type { ContributionLevel, DisplayName, ErrorType, GraphSize } from '~/enums'
 
-export type Themes =
-  | 'GitHub'
-  | 'GitHubDark'
-  | 'Winter'
-  | 'GitLab'
-  | 'GitLabDark'
-  | 'Halloween'
-  | 'Dracula'
-  | 'Slate'
-  | 'Rose'
-  | 'Indigo'
-  | 'Emerald'
-  | 'Sky'
-  | 'Amber'
+export type Themes
+  = | 'GitHub'
+    | 'GitHubDark'
+    | 'Winter'
+    | 'GitLab'
+    | 'GitLabDark'
+    | 'Halloween'
+    | 'Dracula'
+    | 'Slate'
+    | 'Rose'
+    | 'Indigo'
+    | 'Emerald'
+    | 'Sky'
+    | 'Amber'
 
 export interface Theme {
   name: Themes
