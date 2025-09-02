@@ -1,5 +1,5 @@
-import browser from 'prefer-code-style/eslint/browser'
-import node from 'prefer-code-style/eslint/node'
+import browser from '../browser.mjs'
+import node from '../node.mjs'
 
 export default [
   ...node,
