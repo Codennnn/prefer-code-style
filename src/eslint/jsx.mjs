@@ -23,8 +23,6 @@ export default [
 
       '@stylistic/jsx-one-expression-per-line': [1, { allow: 'non-jsx' }],
 
-      '@stylistic/jsx-props-no-multi-spaces': [1],
-
       '@stylistic/jsx-self-closing-comp': [
         1,
         {
