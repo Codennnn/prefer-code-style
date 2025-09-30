@@ -1,9 +1,10 @@
+import { defineConfig } from 'eslint/config'
 import importPlugin from 'eslint-plugin-import'
 import tseslint from 'typescript-eslint'
 
 import { JAVASCRIPT_FILES, TYPESCRIPT_FILES } from '../constants.mjs'
 
-export default tseslint.config(
+export default defineConfig(
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
 
@@ -36,6 +37,14 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-argument': 1,
       '@typescript-eslint/no-unsafe-call': 0,
       '@typescript-eslint/no-non-null-assertion': 0,
+      '@typescript-eslint/prefer-nullish-coalescing': [
+        1,
+        {
+          ignorePrimitives: {
+            string: true,
+          },
+        }
+      ],
       '@typescript-eslint/no-use-before-define': [
         1,
         {

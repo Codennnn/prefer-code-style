@@ -1,10 +1,11 @@
+import { defineConfig } from 'eslint/config'
 import tsParser from '@typescript-eslint/parser'
 import importPlugin from 'eslint-plugin-import'
 import tseslint from 'typescript-eslint'
 
 import { JAVASCRIPT_FILES, TYPESCRIPT_FILES } from '../constants.mjs'
 
-export default tseslint.config(
+export default defineConfig(
   tseslint.configs.recommendedTypeChecked,
 
   {
