@@ -16,7 +16,6 @@ export default defineConfig(
     languageOptions: {
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
       },
     },
 
@@ -65,7 +64,7 @@ export default defineConfig(
     settings: {
       'import/resolver': {
         typescript: {
-          project: './tsconfig.json',
+          project: true,
         },
       },
     },
