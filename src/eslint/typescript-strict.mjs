@@ -43,7 +43,7 @@ export default defineConfig(
           ignorePrimitives: {
             string: true,
           },
-        }
+        },
       ],
       '@typescript-eslint/no-use-before-define': [
         1,

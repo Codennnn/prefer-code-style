@@ -1,7 +1,7 @@
 import eslint from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import importPlugin from 'eslint-plugin-import'
-import packageJson from 'eslint-plugin-package-json'
+import { configs as packageJsonConfigs } from 'eslint-plugin-package-json'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 
 import { NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS } from '../constants.mjs'
@@ -18,6 +18,10 @@ export default [
   stylistic.configs.customize(NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS),
 
   {
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
     rules: {
       curly: 1,
       'no-unused-vars': 1,
@@ -101,5 +105,5 @@ export default [
     },
   },
 
-  packageJson.configs.recommended,
+  packageJsonConfigs.recommended,
 ]
