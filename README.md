@@ -52,9 +52,9 @@ ESLint 已经升级到采用新的 flat config 格式，配置更加简洁直观
 
 ```js
 // 假设你的项目使用了 TypeScript + React：
-import base from 'prefer-code-style/eslint/base'
-import typescript from 'prefer-code-style/eslint/typescript'
-import react from 'prefer-code-style/eslint/react'
+import base from "prefer-code-style/eslint/base";
+import typescript from "prefer-code-style/eslint/typescript";
+import react from "prefer-code-style/eslint/react";
 
 export default [
   ...base,
@@ -66,7 +66,7 @@ export default [
       // 自定义规则
     },
   },
-]
+];
 ```
 
 为了简化配置，我们也提供了适用于特定类型项目的预设配置：
@@ -99,11 +99,11 @@ export default [
 添加 `stylelint.config.mjs`，配置如下：
 
 ```js
-import stylelintPreset from 'prefer-code-style/stylelint'
+import stylelintPreset from "prefer-code-style/stylelint";
 
 export default {
   extends: [stylelintPreset],
-}
+};
 ```
 
 ## ⚔️ 搭配 VS Code 使用更佳

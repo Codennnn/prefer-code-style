@@ -47,7 +47,7 @@
     "clean": "rm -rf node_modules && rm -rf examples/*/node_modules",
     "deps": "pnpm up --interactive --latest",
     "lint": "pnpm lint:es & pnpm lint:prettier",
-    "lint:es": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
+    "lint:es": "eslint \"./**/*.{mjs,cjs,js,jsx,ts,tsx}\"",
     "lint:prettier": "prettier --write  \"!./examples/**\" \"**/*.{md,json,html}\"",
     "test": "cd \"./examples/green-wall\" && pnpm lint && cd \"../react-jsx\" && pnpm lint"
   },
