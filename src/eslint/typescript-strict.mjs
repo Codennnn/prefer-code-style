@@ -60,14 +60,6 @@ export default defineConfig(
         },
       ],
     },
-
-    settings: {
-      'import/resolver': {
-        typescript: {
-          project: true,
-        },
-      },
-    },
   },
 
   {
