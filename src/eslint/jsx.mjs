@@ -1,4 +1,5 @@
 import stylistic from '@stylistic/eslint-plugin'
+import perfectionist from 'eslint-plugin-perfectionist'
 
 import { NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS } from '../constants.mjs'
 
@@ -9,6 +10,10 @@ export default [
   }),
 
   {
+    plugins: {
+      perfectionist,
+    },
+
     rules: {
       '@stylistic/jsx-curly-brace-presence': [
         1,
@@ -31,16 +36,27 @@ export default [
         },
       ],
 
-      '@stylistic/jsx-sort-props': [
+      'perfectionist/sort-jsx-props': [
         1,
         {
+          type: 'alphabetical',
+          order: 'asc',
           ignoreCase: false,
-          shorthandFirst: true,
-          shorthandLast: false,
-          callbacksLast: true,
-          multiline: 'ignore',
-          noSortAlphabetically: false,
-          reservedFirst: true,
+          groups: ['reserved', 'shorthand', 'unknown', 'callback'],
+          customGroups: [
+            {
+              groupName: 'reserved',
+              elementNamePattern: '^(key|ref)$',
+            },
+            {
+              groupName: 'shorthand',
+              modifiers: ['shorthand'],
+            },
+            {
+              groupName: 'callback',
+              elementNamePattern: '^on.+',
+            },
+          ],
         },
       ],
     },
