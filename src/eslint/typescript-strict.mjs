@@ -26,7 +26,7 @@ export default defineConfig(
         1,
         {
           prefer: 'type-imports',
-          fixStyle: 'separate-type-imports',
+          fixStyle: 'inline-type-imports',
           disallowTypeAnnotations: true,
         },
       ],
