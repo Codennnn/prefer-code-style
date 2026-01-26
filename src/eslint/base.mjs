@@ -36,6 +36,15 @@ export default [
         },
       ],
 
+      'no-restricted-syntax': [
+        2,
+        {
+          selector: 'ExportAllDeclaration',
+          message:
+            '禁止使用 `export * from` 语法。原因：1) 不利于代码可追溯性，难以确定导出来源；2) 影响 tree-shaking，增加打包体积；3) 降低代码可读性，建议使用具名导出。',
+        },
+      ],
+
       '@stylistic/array-bracket-newline': [1, { multiline: true }],
 
       '@stylistic/brace-style': [1, 'stroustrup', { allowSingleLine: false }],
