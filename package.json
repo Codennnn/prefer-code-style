@@ -75,6 +75,8 @@
     "eslint-plugin-tailwindcss": "~3.18.2",
     "eslint-plugin-vue": "^10.7.0",
     "globals": "^17.2.0",
+    "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.0",
     "stylelint": "^17.0.0",
     "stylelint-config-clean-order": "^8.0.0",
     "stylelint-config-standard": "^40.0.0",
@@ -83,6 +85,22 @@
     "stylelint-prettier": "^5.0.3",
     "stylelint-scss": "^7.0.0",
     "typescript-eslint": "^8.54.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0",
+    "react": ">=18.0.0",
+    "vue": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/node": "^24.7.1",

@@ -62,6 +62,12 @@ importers:
       globals:
         specifier: ^17.2.0
         version: 17.2.0
+      postcss-less:
+        specifier: ^6.0.0
+        version: 6.0.0(postcss@8.5.6)
+      postcss-scss:
+        specifier: ^4.0.0
+        version: 4.0.9(postcss@8.5.6)
       stylelint:
         specifier: ^17.0.0
         version: 17.0.0(typescript@5.8.2)
@@ -89,10 +95,10 @@ importers:
     devDependencies:
       '@types/node':
         specifier: ^24.7.1
-        version: 25.0.10
+        version: 24.10.9
       cz-conventional-changelog:
         specifier: 3.3.0
-        version: 3.3.0(@types/node@25.0.10)(typescript@5.8.2)
+        version: 3.3.0(@types/node@24.10.9)(typescript@5.8.2)
       prefer-code-style:
         specifier: workspace:*
         version: 'link:'
@@ -1291,8 +1297,8 @@ packages:
   '@types/node@18.16.0':
     resolution: {integrity: sha512-BsAaKhB+7X+H4GnSjGhJG9Qi8Tw+inU9nJDwmD5CgOmBLEI6ArdhikpLX7DjbjDRDTbqZzU2LSQNZg8WGPiSZQ==}
 
-  '@types/node@25.0.10':
-    resolution: {integrity: sha512-zWW5KPngR/yvakJgGOmZ5vTBemDoSqF3AcV/LrO5u5wTWyEAVVh+IT39G4gtyAkh3CtTZs8aX/yRM82OfzHJRg==}
+  '@types/node@24.10.9':
+    resolution: {integrity: sha512-ne4A0IpG3+2ETuREInjPNhUGis1SFjv1d5asp8MzEAGtOZeTeHVDOYqOgqfhvseqg/iXty2hjBf1zAOb7RNiNw==}
 
   '@types/prop-types@15.7.14':
     resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
@@ -3171,6 +3177,12 @@ packages:
     peerDependencies:
       postcss: ^8.4.21
 
+  postcss-less@6.0.0:
+    resolution: {integrity: sha512-FPX16mQLyEjLzEuuJtxA8X3ejDLNGGEG503d2YGZR5Ask1SpDN8KmZUMpzCvyalWRywAn1n1VOA5dcqfCLo5rg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      postcss: ^8.3.5
+
   postcss-load-config@4.0.2:
     resolution: {integrity: sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==}
     engines: {node: '>= 14'}
@@ -3200,6 +3212,12 @@ packages:
     engines: {node: '>=18.0'}
     peerDependencies:
       postcss: ^8.4.31
+
+  postcss-scss@4.0.9:
+    resolution: {integrity: sha512-AjKOeiwAitL/MXxQW2DliT28EKukvvbEWx3LBmJIRN8KfBGZbRTxNYW0kSqi1COiTZ57nZ9NW06S6ux//N1c9A==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.4.29
 
   postcss-selector-parser@6.1.2:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
@@ -4184,7 +4202,7 @@ snapshots:
   '@commitlint/execute-rule@19.8.0':
     optional: true
 
-  '@commitlint/load@19.8.0(@types/node@25.0.10)(typescript@5.8.2)':
+  '@commitlint/load@19.8.0(@types/node@24.10.9)(typescript@5.8.2)':
     dependencies:
       '@commitlint/config-validator': 19.8.0
       '@commitlint/execute-rule': 19.8.0
@@ -4192,7 +4210,7 @@ snapshots:
       '@commitlint/types': 19.8.0
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.8.2)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@25.0.10)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.10.9)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -5021,7 +5039,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
-      '@types/node': 25.0.10
+      '@types/node': 24.10.9
     optional: true
 
   '@types/estree@1.0.8': {}
@@ -5034,7 +5052,7 @@ snapshots:
 
   '@types/node@18.16.0': {}
 
-  '@types/node@25.0.10':
+  '@types/node@24.10.9':
     dependencies:
       undici-types: 7.16.0
 
@@ -5538,10 +5556,10 @@ snapshots:
 
   comment-parser@1.4.1: {}
 
-  commitizen@4.3.1(@types/node@25.0.10)(typescript@5.8.2):
+  commitizen@4.3.1(@types/node@24.10.9)(typescript@5.8.2):
     dependencies:
       cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0(@types/node@25.0.10)(typescript@5.8.2)
+      cz-conventional-changelog: 3.3.0(@types/node@24.10.9)(typescript@5.8.2)
       dedent: 0.7.0
       detect-indent: 6.1.0
       find-node-modules: 2.1.3
@@ -5564,9 +5582,9 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@25.0.10)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@24.10.9)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2):
     dependencies:
-      '@types/node': 25.0.10
+      '@types/node': 24.10.9
       cosmiconfig: 9.0.0(typescript@5.8.2)
       jiti: 2.4.2
       typescript: 5.8.2
@@ -5618,16 +5636,16 @@ snapshots:
 
   csstype@3.1.3: {}
 
-  cz-conventional-changelog@3.3.0(@types/node@25.0.10)(typescript@5.8.2):
+  cz-conventional-changelog@3.3.0(@types/node@24.10.9)(typescript@5.8.2):
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.3.1(@types/node@25.0.10)(typescript@5.8.2)
+      commitizen: 4.3.1(@types/node@24.10.9)(typescript@5.8.2)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.8.0(@types/node@25.0.10)(typescript@5.8.2)
+      '@commitlint/load': 19.8.0(@types/node@24.10.9)(typescript@5.8.2)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -7137,6 +7155,10 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.5.3
 
+  postcss-less@6.0.0(postcss@8.5.6):
+    dependencies:
+      postcss: 8.5.6
+
   postcss-load-config@4.0.2(postcss@8.5.3):
     dependencies:
       lilconfig: 3.1.3
@@ -7154,6 +7176,10 @@ snapshots:
   postcss-resolve-nested-selector@0.1.6: {}
 
   postcss-safe-parser@7.0.1(postcss@8.5.6):
+    dependencies:
+      postcss: 8.5.6
+
+  postcss-scss@4.0.9(postcss@8.5.6):
     dependencies:
       postcss: 8.5.6
 

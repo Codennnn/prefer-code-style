@@ -1,9 +1,8 @@
-import browser from 'prefer-code-style/eslint/browser'
-import node from 'prefer-code-style/eslint/node'
-import react from 'prefer-code-style/eslint/react'
-import tailwind from 'prefer-code-style/eslint/tailwindcss'
-
 import { COMMON_SORT_GROUPS } from '../../constants'
+import browser from '../browser.mjs'
+import node from '../node.mjs'
+import react from '../react.mjs'
+import tailwind from '../tailwindcss.mjs'
 
 export default [
   ...node,

@@ -19,13 +19,19 @@
 > **Warning**  
 > 这个项目并不适合所有人，它集成了我的编码风格习惯和偏好，专门服务于我的个人项目，很长一段时间中，它们配合得很好。我真心希望你喜欢它、使用它，并且鼓励你也创建属于自己的格式化配置集合。
 
+## 📋 环境要求
+
+- **Node.js**: >= 20.0.0
+- **ESLint**: 9.x (使用 flat config 格式)
+- **Stylelint**: 17.x
+
 ## 📥 安装
 
 ```bash
 yarn add -D prefer-code-style
 ```
 
-> **Note**  
+> **Note**
 > prefer-code-style 内部已经集成了 eslint、prettier、stylelint，所以你无需重复安装。如果你事先安装了他们，为了防止版本冲突，请在安装 prefer-code-style 前把他们移除掉。
 
 ## ⚙ 用法
@@ -84,6 +90,27 @@ import umiPreset from 'prefer-code-style/eslint/preset/umi'
 
 export default [
   ...umiPreset,
+]
+
+// 适用于 Nuxt.js 项目
+import nuxtPreset from 'prefer-code-style/eslint/preset/nuxt'
+
+export default [
+  ...nuxtPreset,
+]
+
+// 适用于 Nest.js 项目
+import nestPreset from 'prefer-code-style/eslint/preset/nest'
+
+export default [
+  ...nestPreset,
+]
+
+// 适用于 Electron 项目
+import electronPreset from 'prefer-code-style/eslint/preset/electron'
+
+export default [
+  ...electronPreset,
 ]
 
 // 适用于标准项目
@@ -180,6 +207,89 @@ code --install-extension bradlc.vscode-tailwindcss
 - [stylelint-scss](https://github.com/stylelint-scss/stylelint-scss#readme)
 
 </details>
+
+## ⚙️ 高级用法
+
+### 自定义配置规则
+
+你可以在预设配置的基础上添加或覆盖规则：
+
+```js
+import nextPreset from "prefer-code-style/eslint/preset/next";
+
+export default [
+  ...nextPreset,
+  {
+    rules: {
+      // 覆盖默认规则
+      "no-console": 0, // 关闭 console 检查
+      "@typescript-eslint/no-explicit-any": 0, // 允许使用 any
+
+      // 添加自定义规则
+      "your-custom-rule": "warn",
+    },
+  },
+];
+```
+
+### 组合多个配置模块
+
+根据项目需求自由组合配置模块：
+
+```js
+import base from "prefer-code-style/eslint/base";
+import typescript from "prefer-code-style/eslint/typescript";
+import react from "prefer-code-style/eslint/react";
+import tailwind from "prefer-code-style/eslint/tailwindcss";
+
+export default [
+  ...base,
+  ...typescript,
+  ...react,
+  ...tailwind,
+  {
+    // 你的自定义配置
+    rules: {},
+  },
+];
+```
+
+### 添加忽略文件
+
+在配置数组的第一项添加 ignores：
+
+```js
+import nextPreset from "prefer-code-style/eslint/preset/next";
+
+export default [
+  {
+    ignores: ["dist/**", "build/**", "coverage/**", "*.config.js"],
+  },
+  ...nextPreset,
+];
+```
+
+## ❓ 常见问题
+
+### Q: 如何解决 TypeScript 配置相关的错误？
+
+A: 确保你的项目根目录有 `tsconfig.json`，并且 ESLint 配置中正确设置了 `parserOptions.projectService`。
+
+### Q: 为什么某些文件没有被 lint？
+
+A: 检查 `ignores` 配置，确保文件没有被忽略。注意：ESLint flat config 默认会忽略 `node_modules`，但会检查隐藏文件（以 `.` 开头的文件）。
+
+### Q: 如何在 monorepo 中使用？
+
+A: 在每个子项目中引用 `prefer-code-style` 配置即可。如果需要在根目录统一管理，可以使用 workspace 协议：
+
+```json
+{
+  "devDependencies": {
+    "prefer-code-style": "workspace:*"
+  }
+}
+```
 
 ## ⚖ 相似项目
 

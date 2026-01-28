@@ -24,8 +24,8 @@ export default {
     },
 
     {
-      files: ['*.js'],
-      customSyntax: 'postcss-lit',
+      files: ['*.less', '**/*.less'],
+      customSyntax: 'postcss-less',
     },
   ],
 
