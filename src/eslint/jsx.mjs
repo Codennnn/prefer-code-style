@@ -10,6 +10,7 @@ export default [
   }),
 
   {
+    name: 'prefer-code-style/jsx/rules',
     plugins: {
       perfectionist,
     },

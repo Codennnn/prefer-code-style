@@ -9,7 +9,13 @@ export default defineConfig(
   tseslint.configs.recommendedTypeChecked,
 
   {
+    name: 'prefer-code-style/typescript/ts-parser',
+    files: TYPESCRIPT_FILES,
+    ignores: ['eslint.config.js'],
     languageOptions: {
+      parser: tsParser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parserOptions: {
         projectService: true,
       },
@@ -17,12 +23,16 @@ export default defineConfig(
   },
 
   {
-    files: [...TYPESCRIPT_FILES, ...JAVASCRIPT_FILES],
+    name: 'prefer-code-style/typescript/js-parser',
+    files: JAVASCRIPT_FILES,
     ignores: ['eslint.config.js'],
     languageOptions: {
       parser: tsParser,
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parserOptions: {
+        projectService: true,
+      },
     },
   },
 
@@ -32,6 +42,7 @@ export default defineConfig(
   },
 
   {
+    name: 'prefer-code-style/typescript/rules',
     files: TYPESCRIPT_FILES,
     extends: [importPlugin.flatConfigs.typescript],
     rules: {

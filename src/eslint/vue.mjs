@@ -6,7 +6,8 @@ export default [
   ...pluginVue.configs['flat/recommended'],
 
   {
-    files: [VUE_FILES],
+    name: 'prefer-code-style/vue/rules',
+    files: VUE_FILES,
     rules: {
       'vue/attributes-order': [
         1,

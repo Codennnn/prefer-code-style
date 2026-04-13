@@ -9,6 +9,7 @@ export default defineConfig(
   tseslint.configs.stylisticTypeChecked,
 
   {
+    name: 'prefer-code-style/typescript-strict/rules',
     files: TYPESCRIPT_FILES,
 
     extends: [importPlugin.flatConfigs.typescript],
@@ -63,6 +64,7 @@ export default defineConfig(
   },
 
   {
+    name: 'prefer-code-style/typescript-strict/disable-type-checked',
     files: JAVASCRIPT_FILES,
     extends: [tseslint.configs.disableTypeChecked],
   },

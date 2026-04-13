@@ -128,41 +128,73 @@ export default [
 ```js
 import stylelintPreset from "prefer-code-style/stylelint";
 
-export default {
-  extends: [stylelintPreset],
-};
+// 直接导出预设（推荐）
+export default stylelintPreset;
 ```
+
+> **Note**
+> Stylelint 的 `extends` 字段仅接受字符串形式的包名或文件路径，不能直接传入 JS 对象。
+> 如需在预设基础上自定义规则，请使用对象展开：
+>
+> ```js
+> import stylelintPreset from "prefer-code-style/stylelint";
+>
+> export default {
+>   ...stylelintPreset,
+>   rules: {
+>     ...stylelintPreset.rules,
+>     // 覆盖或追加规则
+>     "selector-class-pattern": null,
+>   },
+> };
+> ```
 
 ## ⚔️ 搭配 VS Code 使用更佳
 
-### 1. 集成配置
+### 1. 推荐方式：在项目中添加 `.vscode/` 配置（无侵入）
 
-在该项目的根目录中找到并下载 [`/prefer-code-style.code-profile`](./prefer-code-style.code-profile)，然后在导入进 VS Code，该 Profile 文件集成了让 `prefer-code-style` 生效所需的最简化配置。
+在你的项目根目录创建以下两个文件，VS Code 会自动识别并提示安装推荐扩展：
 
-### 2. 手动配置
+**`.vscode/extensions.json`** — 推荐扩展（团队成员打开项目时会收到安装提示）：
 
-安装插件 [VS Code ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 和 [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)。
+```json
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
+```
+
+**`.vscode/settings.json`** — 工作区设置（仅对当前项目生效，不影响全局）：
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "eslint.useFlatConfig": true,
+  "stylelint.validate": ["css", "scss", "less", "vue"]
+}
+```
+
+> **Tip**
+> 相比导入 `.code-profile`（会全量覆盖全局 VS Code 设置、快捷键和扩展列表），`.vscode/` 目录的方式仅作用于当前项目工作区，对开发者的个人设置零侵入，也更适合团队协作。
+
+### 2. 快速安装扩展
 
 ```bash
-# 可以执行以下命令来快速安装 VS Code 插件：
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension esbenp.prettier-vscode
 code --install-extension stylelint.vscode-stylelint
 
 # 可选，如果你使用 tailwindcss 的话：
 code --install-extension bradlc.vscode-tailwindcss
-```
-
-然后在 `settings.json` 中加入以下配置：
-
-```json
-{
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
-  }
-}
 ```
 
 使用以上这些插件，你将能够获得更好的格式提示，并在保存文件时自动格式化你的代码，享受工具带来的便利吧 😎 ～

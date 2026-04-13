@@ -1,4 +1,4 @@
-import { COMMON_SORT_GROUPS } from '../../constants'
+import { COMMON_SORT_GROUPS } from '../../constants.mjs'
 import browser from '../browser.mjs'
 import node from '../node.mjs'
 import react from '../react.mjs'

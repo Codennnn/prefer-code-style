@@ -8,6 +8,7 @@ export default [
   ...jsx,
 
   {
+    name: 'prefer-code-style/react/config',
     files: [...JAVASCRIPT_FILES, ...TYPESCRIPT_FILES],
 
     ...reactPlugin.configs.flat.recommended,
@@ -19,7 +20,7 @@ export default [
         {
           groups: [
             ['^react'], // React related packages come first.
-            ['^next', '^@next', '^@?\\w'], // Next.js related packages.
+            ['^@?\\w'],
             ['^(~|@)(/.*|$)'], // Internal packages.
             ...COMMON_SORT_GROUPS,
           ],

@@ -24,14 +24,11 @@
     "./constants": {
       "import": "./src/constants.mjs"
     },
-    "./eslint/*": {
-      "import": "./src/eslint/*.mjs"
-    },
     "./eslint/preset/*": {
       "import": "./src/eslint/preset/*.mjs"
     },
-    "./eslint/rules/*": {
-      "import": "./src/eslint/rules/*.mjs"
+    "./eslint/*": {
+      "import": "./src/eslint/*.mjs"
     },
     "./stylelint": {
       "import": "./src/stylelint.mjs"
@@ -49,7 +46,7 @@
     "lint": "pnpm lint:es & pnpm lint:prettier",
     "lint:es": "eslint \"./**/*.{mjs,cjs,js,jsx,ts,tsx}\"",
     "lint:prettier": "prettier --write  \"!./examples/**\" \"**/*.{md,json,html}\"",
-    "test": "cd \"./examples/green-wall\" && pnpm lint && cd \"../react-jsx\" && pnpm lint"
+    "test": "pnpm --filter \"./examples/Green-Wall\" lint && pnpm --filter \"./examples/react-jsx\" lint"
   },
   "config": {
     "commitizen": {

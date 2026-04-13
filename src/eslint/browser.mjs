@@ -6,6 +6,7 @@ export default [
   ...base,
 
   {
+    name: 'prefer-code-style/browser/globals',
     languageOptions: {
       globals: {
         ...globals.browser,

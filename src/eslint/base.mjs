@@ -8,7 +8,8 @@ import { NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS } from '../constants.mjs'
 
 export default [
   {
-    ignores: ['node_modules', '!.*.js', '!.*.mjs', '!.*.cjs'],
+    name: 'prefer-code-style/base/ignores',
+    ignores: ['**/node_modules/**'],
   },
 
   eslint.configs.recommended,
@@ -18,6 +19,7 @@ export default [
   stylistic.configs.customize(NORMAL_STYLISTIC_CUSTOMIZE_OPTIONS),
 
   {
+    name: 'prefer-code-style/base/rules',
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -105,6 +107,7 @@ export default [
   },
 
   {
+    name: 'prefer-code-style/base/simple-import-sort',
     plugins: {
       'simple-import-sort': simpleImportSort,
     },

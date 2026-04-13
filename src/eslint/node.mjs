@@ -6,6 +6,7 @@ export default [
   ...base,
 
   {
+    name: 'prefer-code-style/node/globals',
     languageOptions: {
       globals: {
         ...globals.node,
