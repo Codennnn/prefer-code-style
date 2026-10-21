@@ -5,4 +5,11 @@ export default [
   {
     ignores: ['plugins/*.js'],
   },
+  {
+    settings: {
+      tailwindcss: {
+        cssConfigPath: './src/styles/globals.css',
+      },
+    },
+  },
 ]

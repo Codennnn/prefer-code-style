@@ -7,4 +7,11 @@ export default [
   ...normal,
   ...next,
   ...tailwind,
+  {
+    settings: {
+      tailwindcss: {
+        cssConfigPath: './src/app/globals.css',
+      },
+    },
+  },
 ]

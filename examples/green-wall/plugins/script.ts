@@ -1,3 +1,5 @@
+/// <reference types="greasemonkey" />
+
 const isProfile = new RegExp(/^https:\/\/github\.com\/.+\/?$/).test(window.location.href)
 
 if (isProfile) {
@@ -17,7 +19,7 @@ if (isProfile) {
   interface ContributionDay {
     count: number
     date: string
-    level: `${ContributionLevel}`
+    level: ContributionLevel
     weekday?: Weekday
   }
 
@@ -52,7 +54,7 @@ if (isProfile) {
   const produceData = ({ data }: Data): ProducedData => {
     const contributionCalendars = data.contributionCalendars.map<Calendar>((cur) => {
       const rows: Calendar['rows'] = [[], [], [], [], [], [], []]
-      const nullDay: ContributionDay = { count: 0, date: '', level: 'Null' }
+      const nullDay: ContributionDay = { count: 0, date: '', level: ContributionLevel.Null }
 
       cur.weeks.forEach(({ days }) => {
         if (days.length !== 7) {
@@ -327,7 +329,7 @@ if (isProfile) {
 
       let hasLoaded = false
 
-      const handleLoadError = () => {
+      const handleLoadError = (onRetry: () => void) => {
         dialogContent.innerHTML = ''
 
         const errorBlock = document.createElement('div')
@@ -342,7 +344,7 @@ if (isProfile) {
         retryBtn.classList.add('btn')
         retryBtn.textContent = 'Retry'
         retryBtn.addEventListener('click', () => {
-          handleLoadData()
+          onRetry()
         })
 
         errorBlock.append(tip, retryBtn)
@@ -350,7 +352,7 @@ if (isProfile) {
         dialogContent.append(errorBlock)
       }
 
-      const handleLoadData = () => {
+      function handleLoadData() {
         const loading = `
         <svg aria-label="Loading" style="box-sizing: content-box; color: var(--color-icon-primary);" width="32" height="32" viewBox="0 0 16 16" fill="none" data-view-component="true" class="anim-rotate">
           <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
@@ -377,12 +379,12 @@ if (isProfile) {
               hasLoaded = true
             }
             catch {
-              handleLoadError()
+              handleLoadError(handleLoadData)
             }
           },
           onerror: (err) => {
             console.error('[Green Wall]: ', err)
-            handleLoadError()
+            handleLoadError(handleLoadData)
           },
         })
       }

@@ -1,3 +1,20 @@
+## [4.0.0] - 2026-10-21
+
+### 依赖与兼容性
+
+- 升级 ESLint 10.13、typescript-eslint 8.72、Stylelint 17.16、Prettier 3.9 及当前兼容的插件版本
+- 升级示例项目至 Next.js 16、React 19、TypeScript 6 和 Tailwind CSS 4
+- Tailwind ESLint 预设升级至插件 4.x，改为要求 Tailwind CSS 4
+- 将 pnpm 更新至 12.14，并启用新版本冷却期与构建脚本确认
+- 增加传递依赖安全修复，保留尚无上游补丁的 `braces` 告警
+
+### 配置改进
+
+- Stylelint 预设支持 Tailwind CSS 4 指令和 CSS Modules 中的 `@apply`
+- 测试流程增加两个示例项目的生产构建验证
+- 更新 Node、TypeScript、Tailwind CSS 和 ESLint 兼容性说明
+- 将示例文档中的 GitHub Token 替换为占位符
+
 ## [3.9.15] - 2025-01-28
 
 ### 代码质量改进

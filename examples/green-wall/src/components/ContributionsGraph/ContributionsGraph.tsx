@@ -14,7 +14,7 @@ interface ContributionsGraphProps {
 
 function InnerContributionsGraph(
   props: ContributionsGraphProps,
-  ref: React.Ref<HTMLDivElement | null>
+  ref: React.Ref<HTMLDivElement>
 ) {
   const { className = '', wrapperId } = props
 
@@ -22,7 +22,7 @@ function InnerContributionsGraph(
 
   const graphRef = useRef<HTMLDivElement>(null)
 
-  useImperativeHandle(ref, () => graphRef.current)
+  useImperativeHandle(ref, () => graphRef.current as HTMLDivElement)
 
   const applyingTheme = useMemo(
     () =>

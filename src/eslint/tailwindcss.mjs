@@ -1,3 +1,5 @@
 import tailwind from 'eslint-plugin-tailwindcss'
 
-export default [...tailwind.configs['flat/recommended']]
+const recommended = tailwind.configs['flat/recommended'] ?? tailwind.configs.recommended
+
+export default Array.isArray(recommended) ? recommended : [recommended]

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Rubik } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,7 +17,6 @@ const rubik = Rubik({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://green-wall.leoku.dev'),
-  colorScheme: 'light',
   icons: [{ url: '/favicon.svg', type: 'image/svg+xml', media: '(prefers-color-scheme: light)' }],
   title: 'Green Wall · GitHub contribution graph generator',
   description: 'Green Wall is a GitHub contribution graph generator.',
@@ -37,6 +36,10 @@ export const metadata: Metadata = {
       'https://user-images.githubusercontent.com/47730755/188365689-c8bfbccc-01d6-45e7-ae8e-084fbbdce75f.jpg',
   },
   authors: [{ name: 'LeoKu', url: 'https://github.com/Codennnn' }],
+}
+
+export const viewport: Viewport = {
+  colorScheme: 'light',
 }
 
 export default function Layout(props: React.PropsWithChildren) {

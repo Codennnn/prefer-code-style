@@ -4,8 +4,8 @@ import { ErrorType } from '~/enums'
 import { fetchContributionsCollection, fetchGitHubUser } from '~/services'
 import type { GraphData, ResponseData } from '~/types'
 
-export async function GET(_: NextRequest, { params }: { params: { username: string } }) {
-  const { username } = params
+export async function GET(_: NextRequest, { params }: { params: Promise<{ username: string }> }) {
+  const { username } = await params
 
   if (typeof username === 'string') {
     try {

@@ -1,11 +1,11 @@
 import { useCallback, useState } from 'react'
-import useEvent from 'react-use-event-hook'
+import useEventHook from 'react-use-event-hook'
 
 import { trackEvent } from './helpers'
 import type { ResponseData } from './types'
 
 export function useGraphRequest(config: { onError?: () => void } = {}) {
-  const onError = useEvent(() => {
+  const onError = useEventHook(() => {
     config.onError?.()
   })
 

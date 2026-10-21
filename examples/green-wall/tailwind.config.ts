@@ -1,7 +1,6 @@
 import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
 import plugin from 'tailwindcss/plugin'
-import radix from 'tailwindcss-radix'
 
 export default {
   content: ['./src/{app,components}/**/*.{ts,tsx}'],
@@ -54,7 +53,6 @@ export default {
   },
 
   plugins: [
-    radix,
     plugin(function ({ addVariant }) {
       addVariant('toggle-on', ['&[data-state=on]'])
     }),

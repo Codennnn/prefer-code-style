@@ -56,7 +56,7 @@ export default {
       true,
       {
         ignoreAtRules: [
-          // 添加对 tailwind 指令的支持
+          // Tailwind v3 directives
           'tailwind',
           'apply',
           'variants',
@@ -64,8 +64,23 @@ export default {
           'screen',
           'layer',
           'import',
-          // ====================
+          // Tailwind v4 directives
+          'config',
+          'custom-variant',
+          'plugin',
+          'reference',
+          'source',
+          'theme',
+          'utility',
+          'variant',
         ],
+      },
+    ],
+
+    'at-rule-prelude-no-invalid': [
+      true,
+      {
+        ignoreAtRules: ['apply'],
       },
     ],
 

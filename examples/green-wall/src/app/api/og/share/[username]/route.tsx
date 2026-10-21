@@ -6,7 +6,7 @@ import type { NextRequest } from 'next/server'
 import { ContributionLevel } from '~/enums'
 import { fetchContributionsCollection, fetchGitHubUser } from '~/services'
 
-export const runtime = 'edge'
+export const runtime = 'nodejs'
 
 const IMAGE_WIDTH = 1200
 const IMAGE_HEIGHT = 630
@@ -20,8 +20,11 @@ const levelColors = {
   [ContributionLevel.FOURTH_QUARTILE]: '#216e39',
 }
 
-export async function GET(request: NextRequest, { params }: { params: { username: string } }) {
-  const { username } = params
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ username: string }> }
+) {
+  const { username } = await params
 
   const { searchParams } = new URL(request.url)
   const year = searchParams.get('year')

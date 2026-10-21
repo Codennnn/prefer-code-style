@@ -1,6 +1,6 @@
 {
   "name": "prefer-code-style",
-  "version": "3.10.0",
+  "version": "4.0.0",
   "description": "A collection of configuration files containing prettier, eslint, stylelint",
   "keywords": [
     "code lint",
@@ -46,7 +46,9 @@
     "lint": "pnpm lint:es & pnpm lint:prettier",
     "lint:es": "eslint \"./**/*.{mjs,cjs,js,jsx,ts,tsx}\"",
     "lint:prettier": "prettier --write  \"!./examples/**\" \"**/*.{md,json,html}\"",
-    "test": "pnpm --filter \"./examples/Green-Wall\" lint && pnpm --filter \"./examples/react-jsx\" lint"
+    "test": "pnpm test:lint && pnpm test:build",
+    "test:lint": "pnpm --filter \"./examples/Green-Wall\" lint && pnpm --filter \"./examples/react-jsx\" lint",
+    "test:build": "pnpm --filter \"./examples/Green-Wall\" build && pnpm --filter \"./examples/react-jsx\" build"
   },
   "config": {
     "commitizen": {
@@ -54,41 +56,47 @@
     }
   },
   "dependencies": {
-    "@babel/core": "^7.28.6",
     "@eslint/js": "^10.0.1",
-    "@next/eslint-plugin-next": "~16.2.3",
+    "@next/eslint-plugin-next": "~16.4.2",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "@typescript-eslint/parser": "^8.58.1",
-    "eslint": "~10.2.0",
-    "eslint-import-resolver-typescript": "^4.4.4",
+    "@typescript-eslint/parser": "^8.72.0",
+    "eslint": "~10.13.0",
+    "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-import-x": "^4.16.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-package-json": "^0.91.1",
-    "eslint-plugin-perfectionist": "^5.8.0",
+    "eslint-plugin-package-json": "^0.91.2",
+    "eslint-plugin-perfectionist": "^5.13.0",
     "eslint-plugin-react": "~7.37.5",
-    "eslint-plugin-react-hooks": "~7.0.1",
-    "eslint-plugin-simple-import-sort": "~13.0.0",
-    "eslint-plugin-tailwindcss": "~3.18.2",
-    "eslint-plugin-vue": "^10.8.0",
-    "globals": "^17.5.0",
+    "eslint-plugin-react-hooks": "~7.1.1",
+    "eslint-plugin-simple-import-sort": "~14.0.0",
+    "eslint-plugin-tailwindcss": "~4.4.0",
+    "eslint-plugin-vue": "^10.11.1",
+    "globals": "^17.13.0",
+    "jsonc-eslint-parser": "^3.3.0",
     "postcss-less": "^6.0.0",
     "postcss-scss": "^4.0.0",
-    "stylelint": "^17.7.0",
-    "stylelint-config-clean-order": "^8.0.1",
+    "prettier": "^3.9.10",
+    "stylelint": "^17.16.0",
+    "stylelint-config-clean-order": "^10.0.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-config-tailwindcss": "^1.0.1",
-    "stylelint-less": "^4.1.0",
+    "stylelint-less": "^4.2.2",
+    "stylelint-order": "^8.1.2",
     "stylelint-prettier": "^5.0.3",
-    "stylelint-scss": "^7.0.0",
-    "typescript-eslint": "^8.58.1"
+    "stylelint-scss": "^7.3.0",
+    "typescript-eslint": "^8.72.0",
+    "vue-eslint-parser": "^10.4.1"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
-    "typescript": ">=5.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": ">=5.0.0 <6.1.0",
     "vue": ">=3.0.0"
   },
   "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    },
     "typescript": {
       "optional": true
     },
@@ -100,12 +108,12 @@
     }
   },
   "devDependencies": {
-    "@types/node": "^24.7.1",
+    "@types/node": "^24.19.2",
     "cz-conventional-changelog": "3.3.0",
     "prefer-code-style": "workspace:*"
   },
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@12.14.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.19.0"
   }
 }

@@ -14,16 +14,20 @@
 
 ## 📜 介绍
 
-`prefer-code-style` 适用于 React 项目，它集成了常用的 ESLint、Stylelint、Prettier 配置，并且内置了一些**主观偏好**的格式配置，帮助你节省构建新项目时配置代码风格的时间，同时约定了各个项目统一的格式规范。
+`prefer-code-style` 适用于 React、Vue、Next.js、Nuxt、Nest、Electron 等项目，它集成了常用的 ESLint、Stylelint、Prettier 配置，并且内置了一些**主观偏好**的格式配置，帮助你节省构建新项目时配置代码风格的时间，同时约定了各个项目统一的格式规范。
 
 > **Warning**  
 > 这个项目并不适合所有人，它集成了我的编码风格习惯和偏好，专门服务于我的个人项目，很长一段时间中，它们配合得很好。我真心希望你喜欢它、使用它，并且鼓励你也创建属于自己的格式化配置集合。
 
 ## 📋 环境要求
 
-- **Node.js**: >= 20.0.0
-- **ESLint**: 9.x (使用 flat config 格式)
+- **Node.js**: >= 20.19.0
+- **ESLint**: 10.x (使用 flat config 格式)
 - **Stylelint**: 17.x
+- **TypeScript**（可选）: >= 5.0.0 且 < 6.1.0
+- **Tailwind CSS**（可选）: 4.x
+
+旧版 `.eslintrc` 格式不受支持。TypeScript 7 暂时不可用，因为当前 `typescript-eslint` 仅支持 `< 6.1.0`。
 
 ## 📥 安装
 
@@ -208,34 +212,41 @@ code --install-extension bradlc.vscode-tailwindcss
 <details>
 <summary>查看插件</summary>
 
-- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier#readme)
-- [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier#readme)
+- [@eslint/js](https://www.npmjs.com/package/@eslint/js)
+- [@stylistic/eslint-plugin](https://eslint.style/)
 - [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import#readme)
+- [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#readme)
+- [eslint-plugin-package-json](https://github.com/JoshuaKGoldberg/eslint-plugin-package-json#readme)
+- [eslint-plugin-perfectionist](https://perfectionist.dev/)
 - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react#readme)
 - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+- [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort#readme)
 - [eslint-plugin-tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss#readme)
+- [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue#readme)
+- [typescript-eslint](https://typescript-eslint.io/)
 
 </details>
 
-### Prettier: [查看代码](./src/prettier.js)
+### Prettier: [查看代码](./src/prettier.mjs)
+
+<details>
+<summary>查看配置</summary>
+
+- [prettier](https://prettier.io/)
+
+</details>
+
+### Stylelint: [查看代码](./src/stylelint.mjs)
 
 <details>
 <summary>查看插件</summary>
 
-- [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson#readme)
-
-</details>
-
-### Stylelint: [查看代码](./src/stylelint.js)
-
-<details>
-<summary>查看插件</summary>
-
-- [stylelint-config-prettier](https://github.com/prettier/stylelint-config-prettier#readme)
 - [stylelint-config-clean-order](https://github.com/kutsan/stylelint-config-clean-order#readme)
 - [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard#readme)
+- [stylelint-config-tailwindcss](https://www.npmjs.com/package/stylelint-config-tailwindcss)
 - [stylelint-order](https://github.com/hudochenkov/stylelint-order#readme)
 - [stylelint-prettier](https://github.com/prettier/stylelint-prettier#readme)
+- [stylelint-less](https://www.npmjs.com/package/stylelint-less)
 - [stylelint-scss](https://github.com/stylelint-scss/stylelint-scss#readme)
 
 </details>
